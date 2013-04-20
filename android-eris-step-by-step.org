@@ -1,0 +1,169 @@
+* Step by step Tuesday, April 16
+  1. [X] Power off
+  2. [X] Volume down and power on
+  3. [X] Volume up
+  4. [X] Partition sdcard
+     1. [X] Partition SD
+     2. [X] Press twice
+     3. [X] Swap-size = 32 MB => 64 MB
+     4. [X] Ext2-size = 512 MB => 1024 MB
+     5. [X] Volume down to return
+  5. [X] USB-MS toggle
+  6. [X] Download [[http://wiki.cyanogenmod.org/w/Desirec_Info][Desirec Info]] [[http://download.cyanogenmod.org/?type=stable&device=desirec][stable build]] [[http://download.cyanogenmod.org/get/jenkins/2823/cm-7.2.0-desirec.zip][cm-7.2.0-desirec.zip]] md5sum = bd03e5ca49e8770cc00b319dd939336c
+  7. [X] cp cm-7.2.0-desirec.zip to sd card
+  8. [X] Press Trackball to disable USB-MS
+  9. [X] Flash zip from sdcard
+      1. [X] Choose SDCARD:cm-7.2.0-desirec.zip
+      2. [X] Press trackball to confirm
+  10. [ ] Reboot system now
+
+
+  7. [ ] start adb as root
+     #+BEGIN_SRC sh
+       sudo adb
+     #+END_SRC
+* Step by step
+1. [X] Order tethering cable
+   - USB Data Cable For HTC Droid Eris
+   - Total:	$7.98
+   - http://www.cellphoneshop.net/
+2. [X] Order 8 GB MicroSDHC Card
+   - 2254.30
+3. [X] http://wiki.cyanogenmod.org/w/Main_Page
+4. [X] About / what
+5. [ ] How to install
+6. [ ] http://wiki.cyanogenmod.org/w/Desirec_Info
+7. [ ] 
+* Installing CyanogenMod from recovery
+1. [X] partition sd card
+2. [X] Download cm-7-20130301-NIGHTLY-desirec.zip
+3. [X] Place the CyanogenMod rom .zip file on the root of the SD card
+   #+BEGIN_SRC sh
+     adb push cm-7-20130301-NIGHTLY-desirec.zip /sdcard
+   #+END_SRC
+4. [ ] Flash zip from sdcard
+   #+BEGIN_EXAMPLE
+   E: No zip files found
+   #+END_EXAMPLE
+5. [ ] Install gapps-gb-20110828-signed.zip
+* Log
+* Android Applications
+** Free voice calls
+* HTC Droid Eris
+* Build
+  1. [X] [[http://wiki.cyanogenmod.org/w/Build_for_desirec]]
+  2. [X] 
+     #+BEGIN_SRC sh
+       mkdir -p ~/bin
+       mkdir -p ~/android/system
+     #+END_SRC
+  3. [X] repo
+     #+BEGIN_SRC sh
+       cd ~/bin && wget https://dl-ssl.google.com/dl/googlesource/git-repo/repo && chmod +x ~/bin/repo
+     #+END_SRC
+  4. [X] path
+     #+BEGIN_SRC sh
+       export PATH=${PATH}:~/bin
+     #+END_SRC
+  5. [X]
+      #+BEGIN_SRC sh
+	cd ~/android/system/
+	repo init -u git://github.com/CyanogenMod/android.git -b gingerbread
+      #+END_SRC
+      #+BEGIN_SRC sh
+	repo sync
+      #+END_SRC
+  6. [X] Get prebuilt Rom Manager
+     #+BEGIN_SRC sh
+        cd ~/android/system/vendor/cyanogen && ./get-rommanager
+     #+END_SRC
+  7. [ ] 
+     #+BEGIN_SRC sh
+       cd ~/android/system
+       source build/envsetup.sh
+       lunch
+     #+END_SRC
+* Links
+  - http://android.stackexchange.com/questions/29828/how-can-i-mount-or-unmount-the-sd-card-using-adb
+  - http://developer.android.com/tools/index.html
+  - http://download.cyanogenmod.org/?type=stable&device=desirec
+  - http://forums.devshed.com/python-programming-11/importerror-no-module-named-cpickle-938161.html
+  - http://get.cm/?device=desirec
+  - http://goo.im/gapps
+  - http://wiki.cyanogenmod.org/w/ADB
+  - http://wiki.cyanogenmod.org/w/Build_for_desirec#Download_the_source_code
+  - http://wiki.cyanogenmod.org/w/Community
+  - http://wiki.cyanogenmod.org/w/Install_CM_for_desirec
+  - http://wiki.rootzwiki.com/Google_Apps
+  - http://www.addictivetips.com/mobile/the-complete-review-of-cyanogenmod-7-walkthrough-guide/#1
+  - http://www.droidforums.net/forum/motorola-droid/6489-how-pair-bluetooth-blueant-z9i.html
+  - http://www.economyofeffort.com/2010/07/30/turn-an-android-handset-into-a-free-wifi-phone-with-google-voice/
+  - https://code.google.com/p/cyanogenmod-kovsky/downloads/detail?name=gapps-gb-20110828-signed.zip&can=2&q=
+  - https://groups.google.com/forum/?fromgroups=#!topic/android-discuss/-Fp5VkTmW1k
+  - https://www.linux.com/learn/tutorials/698725-how-to-install-cyanogenmod-on-an-android-phone
+* Matt
+** Passwords, PIN 1164
+| user         | pass     |
+|--------------+----------|
+| 26120346     | lovegod1 |
+| matt (admin) | rocky    |
+- http://calrespitecare.com/administrator/index.php?option=com_sections&scope=content
+* Android Applications
+** GrooVe IP Lite
+   - Access Request :: ouath2:https://www.googleapis.com/auth/googletalk
+   - http://snrblabs.com/snrb/grooveIp.aspx
+*** Echo problem on reciever end
+   - Change microphone volume from -2 to -8
+   - Change speaker volume from 0 to -5
+
+* [[http://developer.android.com/training/basics/firstapp/index.html][Building Your First App]]
+** DONE Create a Project with Eclipse
+   1. [X] Start Eclipse
+      - Error Loading DDMS Preferences
+	+ Add "android" binary to path
+   2. [X] New Android Application
+   3. [X] Application = My First App
+   4. [X] Minimum Required SDK, Target SDK, Compile With = API 10: Android 2.3.3. (Gingerbread)
+   5. [X] Theme = None
+   6. [X] Finish
+** TODO [0/2] Create a Project with Command Line Tools
+   1. [ ] list targets
+      #+BEGIN_SRC sh
+        android list targets
+      #+END_SRC
+   2. [ ] 
+      #+BEGIN_SRC sh :tangle build-first-app.sh
+        #!/bin/sh
+        TARGET_ID="android-10"
+        # TARGET_ID="Google Inc.:Google APIs:10"
+        PATH_TO_WORKSPACE="/home/troy/workspace"
+
+        android create project --target $TARGET_ID --name MyFirstApp \
+        --path $PATH_TO_WORKSPACE/MyFirstApp --activity MainActivity \
+        --package com.example.myfirstapp
+      #+END_SRC
+** TODO [1/2] Run on a real device
+   1. [X] Plug in device
+   2. [ ] 
+   - Note: Java Jar file data (zip) MyFirstApp.apk is copied to /data/app/com.example.myfirstapp-1.apk
+** DONE [6/6] Create a Linear Layout
+   1. [X] Open activity_main.xml
+   2. [X] Create a [[http://developer.android.com/training/basics/firstapp/building-ui.html#LinearLayout][Linear Layout]]
+      1. [X] Delete the <TextView> element
+      2. [X] Change the <RelativeLayout> element to <LinearLayout>
+      3. [X] Add the android:orientation attribute and set it to "horizontal"
+   3. [X] Add a [[http://developer.android.com/training/basics/firstapp/building-ui.html#LinearLayout][Text Field]]
+   4. [X] Add [[http://developer.android.com/training/basics/firstapp/building-ui.html#Strings][String Resources]]
+      1. [X] edit_message
+      2. [X] button_send
+   5. [X] Add [[http://developer.android.com/training/basics/firstapp/building-ui.html#Button][a Button]]
+   6. [X] Make the [[http://developer.android.com/training/basics/firstapp/building-ui.html#Weight][Input Box Fill in the Screen Width]]
+** TODO [/] Start Another Activity
+   1. [ ] add the android:onClick attribute to the <Button> element
+      #+BEGIN_SRC xml
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/button_send"
+            android:onClick="sendMessage" />
+      #+END_SRC
