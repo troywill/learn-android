@@ -7,7 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html;charset=iso-8859-1"/>
 <meta name="title" content="android-eris-step-by-step"/>
 <meta name="generator" content="Org-mode"/>
-<meta name="generated" content="2013-04-20T13:14-0700"/>
+<meta name="generated" content="2013-04-20T15:01-0700"/>
 <meta name="author" content=""/>
 <meta name="description" content=""/>
 <meta name="keywords" content=""/>
@@ -128,13 +128,13 @@ for the JavaScript code in this tag.
 <li><a href="#sec-1-2">1.2 Uninstall My First App</a></li>
 </ul>
 </li>
-<li><a href="#sec-2">2 [0/2] Create a Project with Command Line Tools</a>
+<li><a href="#sec-2">2 Step by step Tuesday, April 16</a></li>
+<li><a href="#sec-3">3 [0/2] Create a Project with Command Line Tools</a>
 <ul>
-<li><a href="#sec-2-1">2.1 [6/6] Create a Linear Layout</a></li>
-<li><a href="#sec-2-2">2.2 [/] Start Another Activity</a></li>
+<li><a href="#sec-3-1">3.1 [6/6] Create a Linear Layout</a></li>
+<li><a href="#sec-3-2">3.2 [/] Start Another Activity</a></li>
 </ul>
 </li>
-<li><a href="#sec-3">3 Step by step Tuesday, April 16</a></li>
 <li><a href="#sec-4">4 Step by step</a></li>
 <li><a href="#sec-5">5 Installing CyanogenMod from recovery</a></li>
 <li><a href="#sec-6">6 Log</a></li>
@@ -146,16 +146,11 @@ for the JavaScript code in this tag.
 <li><a href="#sec-8">8 HTC Droid Eris</a></li>
 <li><a href="#sec-9">9 Build</a></li>
 <li><a href="#sec-10">10 Links</a></li>
-<li><a href="#sec-11">11 Matt</a>
+<li><a href="#sec-11">11 Android Applications</a>
 <ul>
-<li><a href="#sec-11-1">11.1 Passwords, PIN 1164</a></li>
-</ul>
-</li>
-<li><a href="#sec-12">12 Android Applications</a>
+<li><a href="#sec-11-1">11.1 GrooVe IP Lite</a>
 <ul>
-<li><a href="#sec-12-1">12.1 GrooVe IP Lite</a>
-<ul>
-<li><a href="#sec-12-1-1">12.1.1 Echo problem on reciever end</a></li>
+<li><a href="#sec-11-1-1">11.1.1 Echo problem on reciever end</a></li>
 </ul>
 </li>
 </ul>
@@ -211,9 +206,13 @@ for the JavaScript code in this tag.
 
 
 
-<pre class="example">adb uninstall com.example.myfirstapp
-</pre>
+<pre class="example"># -d directs command to the only connected USB device
+#           returns an error if more than one USB device is present.
+# -e directs command to the only running emulator.
 
+adb -d uninstall com.example.myfirstapp
+adb -e uninstall com.example.myfirstapp
+</pre>
 
 </div>
 </div>
@@ -221,104 +220,8 @@ for the JavaScript code in this tag.
 </div>
 
 <div id="outline-container-2" class="outline-2">
-<h2 id="sec-2"><span class="section-number-2">2</span> <span class="todo TODO">TODO</span> [0/2] Create a Project with Command Line Tools</h2>
+<h2 id="sec-2"><span class="section-number-2">2</span> Step by step Tuesday, April 16</h2>
 <div class="outline-text-2" id="text-2">
-
-<ol>
-<li><code>[&nbsp;]</code> list targets
-
-
-
-<pre class="example">android list targets
-</pre>
-
-</li>
-<li><code>[&nbsp;]</code> 
-
-
-
-<pre class="example">#!/bin/sh
-TARGET_ID="android-10"
-# TARGET_ID="Google Inc.:Google APIs:10"
-PATH_TO_WORKSPACE="/home/troy/workspace"
-
-android create project --target $TARGET_ID --name MyFirstApp \
---path $PATH_TO_WORKSPACE/MyFirstApp --activity MainActivity \
---package com.example.myfirstapp
-</pre>
-
-</li>
-</ol>
-
-
-</div>
-
-<div id="outline-container-2-1" class="outline-3">
-<h3 id="sec-2-1"><span class="section-number-3">2.1</span> <span class="done DONE">DONE</span> [6/6] Create a Linear Layout</h3>
-<div class="outline-text-3" id="text-2-1">
-
-<ol>
-<li><code>[X]</code> Open activity<sub>main</sub>.xml
-</li>
-<li><code>[X]</code> Create a <a href="http://developer.android.com/training/basics/firstapp/building-ui.html#LinearLayout">Linear Layout</a>
-<ol>
-<li><code>[X]</code> Delete the &lt;TextView&gt; element
-</li>
-<li><code>[X]</code> Change the &lt;RelativeLayout&gt; element to &lt;LinearLayout&gt;
-</li>
-<li><code>[X]</code> Add the android:orientation attribute and set it to "horizontal"
-</li>
-</ol>
-
-</li>
-<li><code>[X]</code> Add a <a href="http://developer.android.com/training/basics/firstapp/building-ui.html#LinearLayout">Text Field</a>
-</li>
-<li><code>[X]</code> Add <a href="http://developer.android.com/training/basics/firstapp/building-ui.html#Strings">String Resources</a>
-<ol>
-<li><code>[X]</code> edit<sub>message</sub>
-</li>
-<li><code>[X]</code> button<sub>send</sub>
-</li>
-</ol>
-
-</li>
-<li><code>[X]</code> Add <a href="http://developer.android.com/training/basics/firstapp/building-ui.html#Button">a Button</a>
-</li>
-<li><code>[X]</code> Make the <a href="http://developer.android.com/training/basics/firstapp/building-ui.html#Weight">Input Box Fill in the Screen Width</a>
-</li>
-</ol>
-
-</div>
-
-</div>
-
-<div id="outline-container-2-2" class="outline-3">
-<h3 id="sec-2-2"><span class="section-number-3">2.2</span> <span class="todo TODO">TODO</span> [/] Start Another Activity</h3>
-<div class="outline-text-3" id="text-2-2">
-
-<ol>
-<li><code>[&nbsp;]</code> add the android:onClick attribute to the &lt;Button&gt; element
-
-
-
-<pre class="example">&lt;Button
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:text="@string/button_send"
-    android:onClick="sendMessage" /&gt;
-</pre>
-
-</li>
-</ol>
-
-</div>
-</div>
-
-</div>
-
-<div id="outline-container-3" class="outline-2">
-<h2 id="sec-3"><span class="section-number-2">3</span> Step by step Tuesday, April 16</h2>
-<div class="outline-text-2" id="text-3">
 
 <ol>
 <li><code>[X]</code> Power off
@@ -376,6 +279,103 @@ android create project --target $TARGET_ID --name MyFirstApp \
 </li>
 </ol>
 
+
+</div>
+
+</div>
+
+<div id="outline-container-3" class="outline-2">
+<h2 id="sec-3"><span class="section-number-2">3</span> <span class="todo TODO">TODO</span> [0/2] Create a Project with Command Line Tools</h2>
+<div class="outline-text-2" id="text-3">
+
+<ol>
+<li><code>[&nbsp;]</code> list targets
+
+
+
+<pre class="example">android list targets
+</pre>
+
+</li>
+<li><code>[&nbsp;]</code> 
+
+
+
+<pre class="example">#!/bin/sh
+TARGET_ID="android-10"
+# TARGET_ID="Google Inc.:Google APIs:10"
+PATH_TO_WORKSPACE="/home/troy/workspace"
+
+android create project --target $TARGET_ID --name MyFirstApp \
+--path $PATH_TO_WORKSPACE/MyFirstApp --activity MainActivity \
+--package com.example.myfirstapp
+</pre>
+
+</li>
+</ol>
+
+
+</div>
+
+<div id="outline-container-3-1" class="outline-3">
+<h3 id="sec-3-1"><span class="section-number-3">3.1</span> <span class="done DONE">DONE</span> [6/6] Create a Linear Layout</h3>
+<div class="outline-text-3" id="text-3-1">
+
+<ol>
+<li><code>[X]</code> Open activity<sub>main</sub>.xml
+</li>
+<li><code>[X]</code> Create a <a href="http://developer.android.com/training/basics/firstapp/building-ui.html#LinearLayout">Linear Layout</a>
+<ol>
+<li><code>[X]</code> Delete the &lt;TextView&gt; element
+</li>
+<li><code>[X]</code> Change the &lt;RelativeLayout&gt; element to &lt;LinearLayout&gt;
+</li>
+<li><code>[X]</code> Add the android:orientation attribute and set it to "horizontal"
+</li>
+</ol>
+
+</li>
+<li><code>[X]</code> Add a <a href="http://developer.android.com/training/basics/firstapp/building-ui.html#LinearLayout">Text Field</a>
+</li>
+<li><code>[X]</code> Add <a href="http://developer.android.com/training/basics/firstapp/building-ui.html#Strings">String Resources</a>
+<ol>
+<li><code>[X]</code> edit<sub>message</sub>
+</li>
+<li><code>[X]</code> button<sub>send</sub>
+</li>
+</ol>
+
+</li>
+<li><code>[X]</code> Add <a href="http://developer.android.com/training/basics/firstapp/building-ui.html#Button">a Button</a>
+</li>
+<li><code>[X]</code> Make the <a href="http://developer.android.com/training/basics/firstapp/building-ui.html#Weight">Input Box Fill in the Screen Width</a>
+</li>
+</ol>
+
+</div>
+
+</div>
+
+<div id="outline-container-3-2" class="outline-3">
+<h3 id="sec-3-2"><span class="section-number-3">3.2</span> <span class="todo TODO">TODO</span> [/] Start Another Activity</h3>
+<div class="outline-text-3" id="text-3-2">
+
+<ol>
+<li><code>[&nbsp;]</code> add the android:onClick attribute to the &lt;Button&gt; element
+
+
+
+<pre class="example">&lt;Button
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="@string/button_send"
+    android:onClick="sendMessage" /&gt;
+</pre>
+
+</li>
+</ol>
+
+</div>
 </div>
 
 </div>
@@ -480,6 +480,12 @@ android create project --target $TARGET_ID --name MyFirstApp \
 <h2 id="sec-8"><span class="section-number-2">8</span> HTC Droid Eris</h2>
 <div class="outline-text-2" id="text-8">
 
+<dl>
+<dt>Screen</dt><dd>3.2 inch HVGA 320x480
+</dd>
+<dt>Device Definition</dt><dd>3.2" HVGA slider ADP1 (320 x 480, Normal mdpi screen)  
+</dd>
+</dl>
 
 </div>
 
@@ -600,48 +606,15 @@ lunch
 </div>
 
 <div id="outline-container-11" class="outline-2">
-<h2 id="sec-11"><span class="section-number-2">11</span> Matt</h2>
+<h2 id="sec-11"><span class="section-number-2">11</span> Android Applications</h2>
 <div class="outline-text-2" id="text-11">
 
 
 </div>
 
 <div id="outline-container-11-1" class="outline-3">
-<h3 id="sec-11-1"><span class="section-number-3">11.1</span> Passwords, PIN 1164</h3>
+<h3 id="sec-11-1"><span class="section-number-3">11.1</span> GrooVe IP Lite</h3>
 <div class="outline-text-3" id="text-11-1">
-
-<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
-<colgroup><col class="left" /><col class="left" />
-</colgroup>
-<thead>
-<tr><th scope="col" class="left">user</th><th scope="col" class="left">pass</th></tr>
-</thead>
-<tbody>
-<tr><td class="left">26120346</td><td class="left">lovegod1</td></tr>
-<tr><td class="left">matt (admin)</td><td class="left">rocky</td></tr>
-</tbody>
-</table>
-
-<ul>
-<li><a href="http://calrespitecare.com/administrator/index.php?option=com_sections&amp;scope=content">http://calrespitecare.com/administrator/index.php?option=com_sections&amp;scope=content</a>
-</li>
-</ul>
-
-</div>
-</div>
-
-</div>
-
-<div id="outline-container-12" class="outline-2">
-<h2 id="sec-12"><span class="section-number-2">12</span> Android Applications</h2>
-<div class="outline-text-2" id="text-12">
-
-
-</div>
-
-<div id="outline-container-12-1" class="outline-3">
-<h3 id="sec-12-1"><span class="section-number-3">12.1</span> GrooVe IP Lite</h3>
-<div class="outline-text-3" id="text-12-1">
 
 <dl>
 <dt>Access Request</dt><dd>ouath2:<a href="https://www.googleapis.com/auth/googletalk">https://www.googleapis.com/auth/googletalk</a>
@@ -653,9 +626,9 @@ lunch
 
 </div>
 
-<div id="outline-container-12-1-1" class="outline-4">
-<h4 id="sec-12-1-1"><span class="section-number-4">12.1.1</span> Echo problem on reciever end</h4>
-<div class="outline-text-4" id="text-12-1-1">
+<div id="outline-container-11-1-1" class="outline-4">
+<h4 id="sec-11-1-1"><span class="section-number-4">11.1.1</span> Echo problem on reciever end</h4>
+<div class="outline-text-4" id="text-11-1-1">
 
 <ul>
 <li>Change microphone volume from -2 to -8
@@ -671,7 +644,7 @@ lunch
 </div>
 
 <div id="postamble">
-<p class="date">Date: 2013-04-20T13:14-0700</p>
+<p class="date">Date: 2013-04-20T15:01-0700</p>
 <p class="author">Author: </p>
 <p class="creator"><a href="http://orgmode.org">Org</a> version 7.9.3f with <a href="http://www.gnu.org/software/emacs/">Emacs</a> version 24</p>
 <a href="http://validator.w3.org/check?uri=referer">Validate XHTML 1.0</a>
