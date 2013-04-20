@@ -7,7 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html;charset=iso-8859-1"/>
 <meta name="title" content="android-eris-step-by-step"/>
 <meta name="generator" content="Org-mode"/>
-<meta name="generated" content="2013-04-20T15:01-0700"/>
+<meta name="generated" content="2013-04-20T15:04-0700"/>
 <meta name="author" content=""/>
 <meta name="description" content=""/>
 <meta name="keywords" content=""/>
@@ -126,15 +126,12 @@ for the JavaScript code in this tag.
 <ul>
 <li><a href="#sec-1-1">1.1 Build My First App</a></li>
 <li><a href="#sec-1-2">1.2 Uninstall My First App</a></li>
+<li><a href="#sec-1-3">1.3 [0/6] Create a Linear Layout</a></li>
+<li><a href="#sec-1-4">1.4 [/] Start Another Activity</a></li>
 </ul>
 </li>
 <li><a href="#sec-2">2 Step by step Tuesday, April 16</a></li>
-<li><a href="#sec-3">3 [0/2] Create a Project with Command Line Tools</a>
-<ul>
-<li><a href="#sec-3-1">3.1 [6/6] Create a Linear Layout</a></li>
-<li><a href="#sec-3-2">3.2 [/] Start Another Activity</a></li>
-</ul>
-</li>
+<li><a href="#sec-3">3 [0/2] Create a Project with Command Line Tools</a></li>
 <li><a href="#sec-4">4 Step by step</a></li>
 <li><a href="#sec-5">5 Installing CyanogenMod from recovery</a></li>
 <li><a href="#sec-6">6 Log</a></li>
@@ -171,7 +168,7 @@ for the JavaScript code in this tag.
 <div class="outline-text-3" id="text-1-1">
 
 <ol>
-<li><code>[X]</code> Start Eclipse
+<li><code>[&nbsp;]</code> Start Eclipse
 <ul>
 <li>Error Loading DDMS Preferences
 <ul>
@@ -183,15 +180,15 @@ for the JavaScript code in this tag.
 </ul>
 
 </li>
-<li><code>[X]</code> New Android Application
+<li><code>[&nbsp;]</code> New Android Application
 </li>
-<li><code>[X]</code> Application = My First App
+<li><code>[&nbsp;]</code> Application = My First App
 </li>
-<li><code>[X]</code> Minimum Required SDK, Target SDK, Compile With = API 10: Android 2.3.3. (Gingerbread)
+<li><code>[&nbsp;]</code> Minimum Required SDK, Target SDK, Compile With = API 10: Android 2.3.3. (Gingerbread)
 </li>
-<li><code>[X]</code> Theme = None
+<li><code>[&nbsp;]</code> Theme = None
 </li>
-<li><code>[X]</code> Finish
+<li><code>[&nbsp;]</code> Finish
 </li>
 </ol>
 
@@ -215,6 +212,69 @@ adb -e uninstall com.example.myfirstapp
 </pre>
 
 </div>
+
+</div>
+
+<div id="outline-container-1-3" class="outline-3">
+<h3 id="sec-1-3"><span class="section-number-3">1.3</span> [0/6] Create a Linear Layout</h3>
+<div class="outline-text-3" id="text-1-3">
+
+<ol>
+<li><code>[&nbsp;]</code> Open activity<sub>main</sub>.xml
+</li>
+<li><code>[&nbsp;]</code> Create a <a href="http://developer.android.com/training/basics/firstapp/building-ui.html#LinearLayout">Linear Layout</a>
+<ol>
+<li><code>[&nbsp;]</code> Delete the &lt;TextView&gt; element
+</li>
+<li><code>[&nbsp;]</code> Change the &lt;RelativeLayout&gt; element to &lt;LinearLayout&gt;
+</li>
+<li><code>[&nbsp;]</code> Add the android:orientation attribute and set it to "horizontal"
+</li>
+</ol>
+
+</li>
+<li><code>[&nbsp;]</code> Add a <a href="http://developer.android.com/training/basics/firstapp/building-ui.html#LinearLayout">Text Field</a>
+</li>
+<li><code>[&nbsp;]</code> Add <a href="http://developer.android.com/training/basics/firstapp/building-ui.html#Strings">String Resources</a>
+<ol>
+<li><code>[&nbsp;]</code> edit<sub>message</sub>
+</li>
+<li><code>[&nbsp;]</code> button<sub>send</sub>
+</li>
+</ol>
+
+</li>
+<li><code>[&nbsp;]</code> Add <a href="http://developer.android.com/training/basics/firstapp/building-ui.html#Button">a Button</a>
+</li>
+<li><code>[&nbsp;]</code> Make the <a href="http://developer.android.com/training/basics/firstapp/building-ui.html#Weight">Input Box Fill in the Screen Width</a>
+</li>
+</ol>
+
+</div>
+
+</div>
+
+<div id="outline-container-1-4" class="outline-3">
+<h3 id="sec-1-4"><span class="section-number-3">1.4</span> <span class="todo TODO">TODO</span> [/] Start Another Activity</h3>
+<div class="outline-text-3" id="text-1-4">
+
+<ol>
+<li><code>[&nbsp;]</code> add the android:onClick attribute to the &lt;Button&gt; element
+
+
+
+<pre class="example">&lt;Button
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="@string/button_send"
+    android:onClick="sendMessage" /&gt;
+</pre>
+
+</li>
+</ol>
+
+
+</div>
 </div>
 
 </div>
@@ -224,40 +284,40 @@ adb -e uninstall com.example.myfirstapp
 <div class="outline-text-2" id="text-2">
 
 <ol>
-<li><code>[X]</code> Power off
+<li><code>[&nbsp;]</code> Power off
 </li>
-<li><code>[X]</code> Volume down and power on
+<li><code>[&nbsp;]</code> Volume down and power on
 </li>
-<li><code>[X]</code> Volume up
+<li><code>[&nbsp;]</code> Volume up
 </li>
-<li><code>[X]</code> Partition sdcard
+<li><code>[&nbsp;]</code> Partition sdcard
 <ol>
-<li><code>[X]</code> Partition SD
+<li><code>[&nbsp;]</code> Partition SD
 </li>
-<li><code>[X]</code> Press twice
+<li><code>[&nbsp;]</code> Press twice
 </li>
-<li><code>[X]</code> Swap-size = 32 MB =&gt; 64 MB
+<li><code>[&nbsp;]</code> Swap-size = 32 MB =&gt; 64 MB
 </li>
-<li><code>[X]</code> Ext2-size = 512 MB =&gt; 1024 MB
+<li><code>[&nbsp;]</code> Ext2-size = 512 MB =&gt; 1024 MB
 </li>
-<li><code>[X]</code> Volume down to return
+<li><code>[&nbsp;]</code> Volume down to return
 </li>
 </ol>
 
 </li>
-<li><code>[X]</code> USB-MS toggle
+<li><code>[&nbsp;]</code> USB-MS toggle
 </li>
-<li><code>[X]</code> Download <a href="http://wiki.cyanogenmod.org/w/Desirec_Info">Desirec Info</a> <a href="http://download.cyanogenmod.org/?type=stable&amp;device=desirec">stable build</a> <a href="http://download.cyanogenmod.org/get/jenkins/2823/cm-7.2.0-desirec.zip">cm-7.2.0-desirec.zip</a> md5sum = bd03e5ca49e8770cc00b319dd939336c
+<li><code>[&nbsp;]</code> Download <a href="http://wiki.cyanogenmod.org/w/Desirec_Info">Desirec Info</a> <a href="http://download.cyanogenmod.org/?type=stable&amp;device=desirec">stable build</a> <a href="http://download.cyanogenmod.org/get/jenkins/2823/cm-7.2.0-desirec.zip">cm-7.2.0-desirec.zip</a> md5sum = bd03e5ca49e8770cc00b319dd939336c
 </li>
-<li><code>[X]</code> cp cm-7.2.0-desirec.zip to sd card
+<li><code>[&nbsp;]</code> cp cm-7.2.0-desirec.zip to sd card
 </li>
-<li><code>[X]</code> Press Trackball to disable USB-MS
+<li><code>[&nbsp;]</code> Press Trackball to disable USB-MS
 </li>
-<li><code>[X]</code> Flash zip from sdcard
+<li><code>[&nbsp;]</code> Flash zip from sdcard
 <ol>
-<li><code>[X]</code> Choose SDCARD:cm-7.2.0-desirec.zip
+<li><code>[&nbsp;]</code> Choose SDCARD:cm-7.2.0-desirec.zip
 </li>
-<li><code>[X]</code> Press trackball to confirm
+<li><code>[&nbsp;]</code> Press trackball to confirm
 </li>
 </ol>
 
@@ -314,68 +374,6 @@ android create project --target $TARGET_ID --name MyFirstApp \
 </li>
 </ol>
 
-
-</div>
-
-<div id="outline-container-3-1" class="outline-3">
-<h3 id="sec-3-1"><span class="section-number-3">3.1</span> <span class="done DONE">DONE</span> [6/6] Create a Linear Layout</h3>
-<div class="outline-text-3" id="text-3-1">
-
-<ol>
-<li><code>[X]</code> Open activity<sub>main</sub>.xml
-</li>
-<li><code>[X]</code> Create a <a href="http://developer.android.com/training/basics/firstapp/building-ui.html#LinearLayout">Linear Layout</a>
-<ol>
-<li><code>[X]</code> Delete the &lt;TextView&gt; element
-</li>
-<li><code>[X]</code> Change the &lt;RelativeLayout&gt; element to &lt;LinearLayout&gt;
-</li>
-<li><code>[X]</code> Add the android:orientation attribute and set it to "horizontal"
-</li>
-</ol>
-
-</li>
-<li><code>[X]</code> Add a <a href="http://developer.android.com/training/basics/firstapp/building-ui.html#LinearLayout">Text Field</a>
-</li>
-<li><code>[X]</code> Add <a href="http://developer.android.com/training/basics/firstapp/building-ui.html#Strings">String Resources</a>
-<ol>
-<li><code>[X]</code> edit<sub>message</sub>
-</li>
-<li><code>[X]</code> button<sub>send</sub>
-</li>
-</ol>
-
-</li>
-<li><code>[X]</code> Add <a href="http://developer.android.com/training/basics/firstapp/building-ui.html#Button">a Button</a>
-</li>
-<li><code>[X]</code> Make the <a href="http://developer.android.com/training/basics/firstapp/building-ui.html#Weight">Input Box Fill in the Screen Width</a>
-</li>
-</ol>
-
-</div>
-
-</div>
-
-<div id="outline-container-3-2" class="outline-3">
-<h3 id="sec-3-2"><span class="section-number-3">3.2</span> <span class="todo TODO">TODO</span> [/] Start Another Activity</h3>
-<div class="outline-text-3" id="text-3-2">
-
-<ol>
-<li><code>[&nbsp;]</code> add the android:onClick attribute to the &lt;Button&gt; element
-
-
-
-<pre class="example">&lt;Button
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:text="@string/button_send"
-    android:onClick="sendMessage" /&gt;
-</pre>
-
-</li>
-</ol>
-
-</div>
 </div>
 
 </div>
@@ -385,7 +383,7 @@ android create project --target $TARGET_ID --name MyFirstApp \
 <div class="outline-text-2" id="text-4">
 
 <ol>
-<li><code>[X]</code> Order tethering cable
+<li><code>[&nbsp;]</code> Order tethering cable
 <ul>
 <li>USB Data Cable For HTC Droid Eris
 </li>
@@ -396,16 +394,16 @@ android create project --target $TARGET_ID --name MyFirstApp \
 </ul>
 
 </li>
-<li><code>[X]</code> Order 8 GB MicroSDHC Card
+<li><code>[&nbsp;]</code> Order 8 GB MicroSDHC Card
 <ul>
 <li>2254.30
 </li>
 </ul>
 
 </li>
-<li><code>[X]</code> <a href="http://wiki.cyanogenmod.org/w/Main_Page">http://wiki.cyanogenmod.org/w/Main_Page</a>
+<li><code>[&nbsp;]</code> <a href="http://wiki.cyanogenmod.org/w/Main_Page">http://wiki.cyanogenmod.org/w/Main_Page</a>
 </li>
-<li><code>[X]</code> About / what
+<li><code>[&nbsp;]</code> About / what
 </li>
 <li><code>[&nbsp;]</code> How to install
 </li>
@@ -424,11 +422,11 @@ android create project --target $TARGET_ID --name MyFirstApp \
 <div class="outline-text-2" id="text-5">
 
 <ol>
-<li><code>[X]</code> partition sd card
+<li><code>[&nbsp;]</code> partition sd card
 </li>
-<li><code>[X]</code> Download cm-7-20130301-NIGHTLY-desirec.zip
+<li><code>[&nbsp;]</code> Download cm-7-20130301-NIGHTLY-desirec.zip
 </li>
-<li><code>[X]</code> Place the CyanogenMod rom .zip file on the root of the SD card
+<li><code>[&nbsp;]</code> Place the CyanogenMod rom .zip file on the root of the SD card
 
 
 
@@ -496,9 +494,9 @@ android create project --target $TARGET_ID --name MyFirstApp \
 <div class="outline-text-2" id="text-9">
 
 <ol>
-<li><code>[X]</code> <a href="http://wiki.cyanogenmod.org/w/Build_for_desirec">http://wiki.cyanogenmod.org/w/Build<sub>for</sub><sub>desirec</sub></a>
+<li><code>[&nbsp;]</code> <a href="http://wiki.cyanogenmod.org/w/Build_for_desirec">http://wiki.cyanogenmod.org/w/Build<sub>for</sub><sub>desirec</sub></a>
 </li>
-<li><code>[X]</code> 
+<li><code>[&nbsp;]</code> 
 
 
 
@@ -507,7 +505,7 @@ mkdir -p ~/android/system
 </pre>
 
 </li>
-<li><code>[X]</code> repo
+<li><code>[&nbsp;]</code> repo
 
 
 
@@ -515,7 +513,7 @@ mkdir -p ~/android/system
 </pre>
 
 </li>
-<li><code>[X]</code> path
+<li><code>[&nbsp;]</code> path
 
 
 
@@ -523,7 +521,7 @@ mkdir -p ~/android/system
 </pre>
 
 </li>
-<li>[X]
+<li>[ ]
 
 
 
@@ -536,7 +534,7 @@ repo init -u git://github.com/CyanogenMod/android.git -b gingerbread
 </pre>
 
 </li>
-<li><code>[X]</code> Get prebuilt Rom Manager
+<li><code>[&nbsp;]</code> Get prebuilt Rom Manager
 
 
 
@@ -644,7 +642,7 @@ lunch
 </div>
 
 <div id="postamble">
-<p class="date">Date: 2013-04-20T15:01-0700</p>
+<p class="date">Date: 2013-04-20T15:04-0700</p>
 <p class="author">Author: </p>
 <p class="creator"><a href="http://orgmode.org">Org</a> version 7.9.3f with <a href="http://www.gnu.org/software/emacs/">Emacs</a> version 24</p>
 <a href="http://validator.w3.org/check?uri=referer">Validate XHTML 1.0</a>
