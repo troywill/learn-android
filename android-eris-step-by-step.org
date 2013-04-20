@@ -1,3 +1,22 @@
+* TODO [[http://developer.android.com/training/basics/firstapp/index.html][Building Your First App]] with the [[http://en.wikipedia.org/wiki/Eclipse_(software)][Eclipse]] and Android Development Tools (ADT)
+** TODO Build My First App
+  1. [X] Start Eclipse
+     - Error Loading DDMS Preferences
+       + Add "android" binary to path
+  2. [X] New Android Application
+  3. [X] Application = My First App
+  4. [X] Minimum Required SDK, Target SDK, Compile With = API 10: Android 2.3.3. (Gingerbread)
+  5. [X] Theme = None
+  6. [X] Finish
+** TODO Uninstall My First App
+   #+BEGIN_SRC sh :tangle tools/uninstall-app-with-adb.sh :shebang #!/bin/bash
+     # -d directs command to the only connected USB device
+     #           returns an error if more than one USB device is present.
+     # -e directs command to the only running emulator.
+
+     adb -d uninstall com.example.myfirstapp
+     adb -e uninstall com.example.myfirstapp
+   #+END_SRC
 * Step by step Tuesday, April 16
   1. [X] Power off
   2. [X] Volume down and power on
@@ -22,6 +41,44 @@
      #+BEGIN_SRC sh
        sudo adb
      #+END_SRC
+   
+* TODO [0/2] Create a Project with Command Line Tools
+   1. [ ] list targets
+      #+BEGIN_SRC sh
+        android list targets
+      #+END_SRC
+   2. [ ] 
+      #+BEGIN_SRC sh :tangle build-first-app.sh
+        #!/bin/sh
+        TARGET_ID="android-10"
+        # TARGET_ID="Google Inc.:Google APIs:10"
+        PATH_TO_WORKSPACE="/home/troy/workspace"
+
+        android create project --target $TARGET_ID --name MyFirstApp \
+        --path $PATH_TO_WORKSPACE/MyFirstApp --activity MainActivity \
+        --package com.example.myfirstapp
+      #+END_SRC
+** DONE [6/6] Create a Linear Layout
+   1. [X] Open activity_main.xml
+   2. [X] Create a [[http://developer.android.com/training/basics/firstapp/building-ui.html#LinearLayout][Linear Layout]]
+      1. [X] Delete the <TextView> element
+      2. [X] Change the <RelativeLayout> element to <LinearLayout>
+      3. [X] Add the android:orientation attribute and set it to "horizontal"
+   3. [X] Add a [[http://developer.android.com/training/basics/firstapp/building-ui.html#LinearLayout][Text Field]]
+   4. [X] Add [[http://developer.android.com/training/basics/firstapp/building-ui.html#Strings][String Resources]]
+      1. [X] edit_message
+      2. [X] button_send
+   5. [X] Add [[http://developer.android.com/training/basics/firstapp/building-ui.html#Button][a Button]]
+   6. [X] Make the [[http://developer.android.com/training/basics/firstapp/building-ui.html#Weight][Input Box Fill in the Screen Width]]
+** TODO [/] Start Another Activity
+   1. [ ] add the android:onClick attribute to the <Button> element
+      #+BEGIN_SRC xml
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/button_send"
+            android:onClick="sendMessage" />
+      #+END_SRC
 * Step by step
 1. [X] Order tethering cable
    - USB Data Cable For HTC Droid Eris
@@ -50,6 +107,8 @@
 * Android Applications
 ** Free voice calls
 * HTC Droid Eris
+  - Screen :: 3.2 inch HVGA 320x480
+  - Device Definition :: 3.2" HVGA slider ADP1 (320 x 480, Normal mdpi screen)  
 * Build
   1. [X] [[http://wiki.cyanogenmod.org/w/Build_for_desirec]]
   2. [X] 
@@ -101,13 +160,6 @@
   - https://code.google.com/p/cyanogenmod-kovsky/downloads/detail?name=gapps-gb-20110828-signed.zip&can=2&q=
   - https://groups.google.com/forum/?fromgroups=#!topic/android-discuss/-Fp5VkTmW1k
   - https://www.linux.com/learn/tutorials/698725-how-to-install-cyanogenmod-on-an-android-phone
-* Matt
-** Passwords, PIN 1164
-| user         | pass     |
-|--------------+----------|
-| 26120346     | lovegod1 |
-| matt (admin) | rocky    |
-- http://calrespitecare.com/administrator/index.php?option=com_sections&scope=content
 * Android Applications
 ** GrooVe IP Lite
    - Access Request :: ouath2:https://www.googleapis.com/auth/googletalk
@@ -115,55 +167,3 @@
 *** Echo problem on reciever end
    - Change microphone volume from -2 to -8
    - Change speaker volume from 0 to -5
-
-* [[http://developer.android.com/training/basics/firstapp/index.html][Building Your First App]]
-** DONE Create a Project with Eclipse
-   1. [X] Start Eclipse
-      - Error Loading DDMS Preferences
-	+ Add "android" binary to path
-   2. [X] New Android Application
-   3. [X] Application = My First App
-   4. [X] Minimum Required SDK, Target SDK, Compile With = API 10: Android 2.3.3. (Gingerbread)
-   5. [X] Theme = None
-   6. [X] Finish
-** TODO [0/2] Create a Project with Command Line Tools
-   1. [ ] list targets
-      #+BEGIN_SRC sh
-        android list targets
-      #+END_SRC
-   2. [ ] 
-      #+BEGIN_SRC sh :tangle build-first-app.sh
-        #!/bin/sh
-        TARGET_ID="android-10"
-        # TARGET_ID="Google Inc.:Google APIs:10"
-        PATH_TO_WORKSPACE="/home/troy/workspace"
-
-        android create project --target $TARGET_ID --name MyFirstApp \
-        --path $PATH_TO_WORKSPACE/MyFirstApp --activity MainActivity \
-        --package com.example.myfirstapp
-      #+END_SRC
-** TODO [1/2] Run on a real device
-   1. [X] Plug in device
-   2. [ ] 
-   - Note: Java Jar file data (zip) MyFirstApp.apk is copied to /data/app/com.example.myfirstapp-1.apk
-** DONE [6/6] Create a Linear Layout
-   1. [X] Open activity_main.xml
-   2. [X] Create a [[http://developer.android.com/training/basics/firstapp/building-ui.html#LinearLayout][Linear Layout]]
-      1. [X] Delete the <TextView> element
-      2. [X] Change the <RelativeLayout> element to <LinearLayout>
-      3. [X] Add the android:orientation attribute and set it to "horizontal"
-   3. [X] Add a [[http://developer.android.com/training/basics/firstapp/building-ui.html#LinearLayout][Text Field]]
-   4. [X] Add [[http://developer.android.com/training/basics/firstapp/building-ui.html#Strings][String Resources]]
-      1. [X] edit_message
-      2. [X] button_send
-   5. [X] Add [[http://developer.android.com/training/basics/firstapp/building-ui.html#Button][a Button]]
-   6. [X] Make the [[http://developer.android.com/training/basics/firstapp/building-ui.html#Weight][Input Box Fill in the Screen Width]]
-** TODO [/] Start Another Activity
-   1. [ ] add the android:onClick attribute to the <Button> element
-      #+BEGIN_SRC xml
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/button_send"
-            android:onClick="sendMessage" />
-      #+END_SRC
