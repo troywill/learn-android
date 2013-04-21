@@ -1,14 +1,14 @@
 * TODO [[http://developer.android.com/training/basics/firstapp/index.html][Building Your First App]] with the [[http://en.wikipedia.org/wiki/Eclipse_(software)][Eclipse]] and Android Development Tools (ADT)
-** TODO Build My First App
-  1. [ ] Start Eclipse
+** DONE Build My First App
+  1. [X] Start Eclipse
      - Error Loading DDMS Preferences
        + Add "android" binary to path
-  2. [ ] New Android Application
-  3. [ ] Application = My First App
-  4. [ ] Minimum Required SDK, Target SDK, Compile With = API 10: Android 2.3.3. (Gingerbread)
-  5. [ ] Theme = None
-  6. [ ] Finish
-** TODO Uninstall My First App
+  2. [X] New Android Application
+  3. [X] Application = My First App
+  4. [X] Minimum Required SDK, Target SDK, Compile With = API 10: Android 2.3.3. (Gingerbread)
+  5. [X] Theme = None
+  6. [X] Finish
+** DONE Uninstall My First App
    #+BEGIN_SRC sh :tangle tools/uninstall-app-with-adb.sh :shebang #!/bin/bash
      # -d directs command to the only connected USB device
      #           returns an error if more than one USB device is present.
@@ -17,27 +17,39 @@
      adb -d uninstall com.example.myfirstapp
      adb -e uninstall com.example.myfirstapp
    #+END_SRC
-**  [0/6] Create a Linear Layout
-   1. [ ] Open activity_main.xml
-   2. [ ] Create a [[http://developer.android.com/training/basics/firstapp/building-ui.html#LinearLayout][Linear Layout]]
-      1. [ ] Delete the <TextView> element
-      2. [ ] Change the <RelativeLayout> element to <LinearLayout>
-      3. [ ] Add the android:orientation attribute and set it to "horizontal"
-   3. [ ] Add a [[http://developer.android.com/training/basics/firstapp/building-ui.html#LinearLayout][Text Field]]
-   4. [ ] Add [[http://developer.android.com/training/basics/firstapp/building-ui.html#Strings][String Resources]]
-      1. [ ] edit_message
-      2. [ ] button_send
-   5. [ ] Add [[http://developer.android.com/training/basics/firstapp/building-ui.html#Button][a Button]]
-   6. [ ] Make the [[http://developer.android.com/training/basics/firstapp/building-ui.html#Weight][Input Box Fill in the Screen Width]]
-** TODO [/] Start Another Activity
-   1. [ ] add the android:onClick attribute to the <Button> element
-      #+BEGIN_SRC xml
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/button_send"
-            android:onClick="sendMessage" />
-      #+END_SRC
+** DONE [6/6] Create a Linear Layout
+   1. [X] Open file:~/workspace/MyFirstApp/res/layout/activity_main.xml
+   2. [X] Create a [[http://developer.android.com/training/basics/firstapp/building-ui.html#LinearLayout][Linear Layout]]
+      1. [X] Delete the <TextView> element
+      2. [X] Change the <RelativeLayout> element to <LinearLayout>
+      3. [X] Add the android:orientation attribute and set it to "horizontal"
+   3. [X] Add a [[http://developer.android.com/training/basics/firstapp/building-ui.html#TextInput][Text Field]]
+   4. [X] Add [[http://developer.android.com/training/basics/firstapp/building-ui.html#Strings][String Resources]] to file:~/workspace/MyFirstApp/res/values/strings.xml
+      1. [X] edit_message
+      2. [X] button_send
+   5. [X] Add [[http://developer.android.com/training/basics/firstapp/building-ui.html#Button][a Button]] to file:~/workspace/MyFirstApp/res/layout/activity_main.xml following <EditText>
+   6. [X] Make the [[http://developer.android.com/training/basics/firstapp/building-ui.html#Weight][Input Box Fill in the Screen Width]] in file:~/workspace/MyFirstApp/res/layout/activity_main.xml
+** TODO [1/1] Starting [[http://developer.android.com/training/basics/firstapp/starting-activity.html][Another Activity]]
+*** TODO [5/5] Respond to the [[http://developer.android.com/training/basics/firstapp/starting-activity.html#RespondToButton][Send Button]]
+    1. [X] add the android:onClick attribute to the <Button> element in file:~/workspace/MyFirstApp/res/layout/activity_main.xml
+       #+BEGIN_SRC xml
+         <Button
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:text="@string/button_send"
+             android:onClick="sendMessage" />
+       #+END_SRC
+    2. [X] Add the corresponding sendMessage method to file:~/workspace/MyFirstApp/src/com/example/myfirstapp/MainActivity.java
+       #+BEGIN_SRC java
+         /** Called when the user clicks the Send button */
+         public void sendMessage(View view) {
+             // Do something in response to button
+         }
+       #+END_SRC
+    3. [X] import android.view.View; in file:~/workspace/MyFirstApp/src/com/example/myfirstapp/MainActivity.java
+    4. [X] Run on an emulater
+    5. [X] (Optional) Run on a real device
+
 
    
 * Step by step Tuesday, April 16
