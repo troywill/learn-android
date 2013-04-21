@@ -7,7 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html;charset=iso-8859-1"/>
 <meta name="title" content="android-eris-step-by-step"/>
 <meta name="generator" content="Org-mode"/>
-<meta name="generated" content="2013-04-21T09:49-0700"/>
+<meta name="generated" content="2013-04-21T16:18-0700"/>
 <meta name="author" content=""/>
 <meta name="description" content=""/>
 <meta name="keywords" content=""/>
@@ -124,12 +124,17 @@ for the JavaScript code in this tag.
 <ul>
 <li><a href="#sec-1">1 Building Your First App with the Eclipse and Android Development Tools (ADT)</a>
 <ul>
-<li><a href="#sec-1-1">1.1 Build My First App</a></li>
-<li><a href="#sec-1-2">1.2 Uninstall My First App</a></li>
-<li><a href="#sec-1-3">1.3 [6/6] Create a Linear Layout</a></li>
-<li><a href="#sec-1-4">1.4 [1/1] Starting Another Activity</a>
+<li><a href="#sec-1-1">1.1 Eclipse Tips</a></li>
+<li><a href="#sec-1-2">1.2 Files</a></li>
+<li><a href="#sec-1-3">1.3 Build My First App</a></li>
+<li><a href="#sec-1-4">1.4 Uninstall My First App</a></li>
+<li><a href="#sec-1-5">1.5 [0/6] Create a Linear Layout</a></li>
+<li><a href="#sec-1-6">1.6 [0/4] Starting Another Activity</a>
 <ul>
-<li><a href="#sec-1-4-1">1.4.1 [/] Respond to the Send Button</a></li>
+<li><a href="#sec-1-6-1">1.6.1 [0/5] Respond to the Send Button</a></li>
+<li><a href="#sec-1-6-2">1.6.2 [0/4] Build An Intent</a></li>
+<li><a href="#sec-1-6-3">1.6.3 [0/6] Create the Second Activity</a></li>
+<li><a href="#sec-1-6-4">1.6.4 [0/4] Receive the Intent</a></li>
 </ul></li>
 </ul>
 </li>
@@ -167,11 +172,48 @@ for the JavaScript code in this tag.
 </div>
 
 <div id="outline-container-1-1" class="outline-3">
-<h3 id="sec-1-1"><span class="section-number-3">1.1</span> <span class="done DONE">DONE</span> Build My First App</h3>
+<h3 id="sec-1-1"><span class="section-number-3">1.1</span> Eclipse Tips</h3>
 <div class="outline-text-3" id="text-1-1">
 
+<dl>
+<dt>Source &gt; Organize Imports</dt><dd>Shift+Ctrl+O
+</dd>
+</dl>
+
+
+</div>
+
+</div>
+
+<div id="outline-container-1-2" class="outline-3">
+<h3 id="sec-1-2"><span class="section-number-3">1.2</span> Files</h3>
+<div class="outline-text-3" id="text-1-2">
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<colgroup><col class="left" /><col class="left" />
+</colgroup>
+<thead>
+<tr><th scope="col" class="left">File</th><th scope="col" class="left">Path</th></tr>
+</thead>
+<tbody>
+<tr><td class="left">activity<sub>main</sub>.xml</td><td class="left"><a href="file:///home/troy/workspace/MyFirstApp/res/layout/activity_main.xml">~/workspace/MyFirstApp/res/layout/activity_main.xml</a></td></tr>
+<tr><td class="left">strings.xml</td><td class="left"><a href="file:///home/troy/workspace/MyFirstApp/res/values/strings.xml">~/workspace/MyFirstApp/res/values/strings.xml</a></td></tr>
+<tr><td class="left">MainActivity.java</td><td class="left"><a href="file:///home/troy/workspace/MyFirstApp/src/com/example/myfirstapp/MainActivity.java">~/workspace/MyFirstApp/src/com/example/myfirstapp/MainActivity.java</a></td></tr>
+<tr><td class="left">DisplayMessageActivity.java</td><td class="left"><a href="file:///home/troy/workspace/MyFirstApp/src/com/example/myfirstapp/DisplayMessageActivity.java">~/workspace/MyFirstApp/src/com/example/myfirstapp/DisplayMessageActivity.java</a></td></tr>
+<tr><td class="left">AndroidManifest.xml</td><td class="left"><a href="file:///home/troy/workspace/MyFirstApp/AndroidManifest.xml">~/workspace/MyFirstApp/AndroidManifest.xml</a></td></tr>
+</tbody>
+</table>
+
+</div>
+
+</div>
+
+<div id="outline-container-1-3" class="outline-3">
+<h3 id="sec-1-3"><span class="section-number-3">1.3</span> <span class="todo TODO">TODO</span> Build My First App</h3>
+<div class="outline-text-3" id="text-1-3">
+
 <ol>
-<li><code>[X]</code> Start Eclipse
+<li><code>[&nbsp;]</code> Start Eclipse
 <ul>
 <li>Error Loading DDMS Preferences
 <ul>
@@ -183,15 +225,15 @@ for the JavaScript code in this tag.
 </ul>
 
 </li>
-<li><code>[X]</code> New Android Application
+<li><code>[&nbsp;]</code> New Android Application
 </li>
-<li><code>[X]</code> Application = My First App
+<li><code>[&nbsp;]</code> Application = My First App
 </li>
-<li><code>[X]</code> Minimum Required SDK, Target SDK, Compile With = API 10: Android 2.3.3. (Gingerbread)
+<li><code>[&nbsp;]</code> Minimum Required SDK, Target SDK, Compile With = API 10: Android 2.3.3. (Gingerbread)
 </li>
-<li><code>[X]</code> Theme = None
+<li><code>[&nbsp;]</code> Theme = None
 </li>
-<li><code>[X]</code> Finish
+<li><code>[&nbsp;]</code> Finish
 </li>
 </ol>
 
@@ -199,9 +241,9 @@ for the JavaScript code in this tag.
 
 </div>
 
-<div id="outline-container-1-2" class="outline-3">
-<h3 id="sec-1-2"><span class="section-number-3">1.2</span> <span class="done DONE">DONE</span> Uninstall My First App</h3>
-<div class="outline-text-3" id="text-1-2">
+<div id="outline-container-1-4" class="outline-3">
+<h3 id="sec-1-4"><span class="section-number-3">1.4</span> <span class="todo TODO">TODO</span> Uninstall My First App</h3>
+<div class="outline-text-3" id="text-1-4">
 
 
 
@@ -218,38 +260,38 @@ adb -e uninstall com.example.myfirstapp
 
 </div>
 
-<div id="outline-container-1-3" class="outline-3">
-<h3 id="sec-1-3"><span class="section-number-3">1.3</span> <span class="done DONE">DONE</span> [6/6] Create a Linear Layout</h3>
-<div class="outline-text-3" id="text-1-3">
+<div id="outline-container-1-5" class="outline-3">
+<h3 id="sec-1-5"><span class="section-number-3">1.5</span> <span class="todo TODO">TODO</span> [0/6] Create a Linear Layout</h3>
+<div class="outline-text-3" id="text-1-5">
 
 <ol>
-<li><code>[X]</code> Open <a href="file:///home/troy/workspace/MyFirstApp/res/layout/activity_main.xml">~/workspace/MyFirstApp/res/layout/activity_main.xml</a>
+<li><code>[&nbsp;]</code> Open <a href="file:///home/troy/workspace/MyFirstApp/res/layout/activity_main.xml">~/workspace/MyFirstApp/res/layout/activity_main.xml</a>
 </li>
-<li><code>[X]</code> Create a <a href="http://developer.android.com/training/basics/firstapp/building-ui.html#LinearLayout">Linear Layout</a>
+<li><code>[&nbsp;]</code> Create a <a href="http://developer.android.com/training/basics/firstapp/building-ui.html#LinearLayout">Linear Layout</a>
 <ol>
-<li><code>[X]</code> Delete the &lt;TextView&gt; element
+<li><code>[&nbsp;]</code> Delete the &lt;TextView&gt; element
 </li>
-<li><code>[X]</code> Change the &lt;RelativeLayout&gt; element to &lt;LinearLayout&gt;
+<li><code>[&nbsp;]</code> Change the &lt;RelativeLayout&gt; element to &lt;LinearLayout&gt;
 </li>
-<li><code>[X]</code> Add the android:orientation attribute and set it to "horizontal"
+<li><code>[&nbsp;]</code> Add the android:orientation attribute and set it to "horizontal"
 </li>
 </ol>
 
 </li>
-<li><code>[X]</code> Add a <a href="http://developer.android.com/training/basics/firstapp/building-ui.html#TextInput">Text Field</a>
+<li><code>[&nbsp;]</code> Add a <a href="http://developer.android.com/training/basics/firstapp/building-ui.html#TextInput">Text Field</a>
 </li>
-<li><code>[X]</code> Add <a href="http://developer.android.com/training/basics/firstapp/building-ui.html#Strings">String Resources</a> to <a href="file:///home/troy/workspace/MyFirstApp/res/values/strings.xml">~/workspace/MyFirstApp/res/values/strings.xml</a>
+<li><code>[&nbsp;]</code> Add <a href="http://developer.android.com/training/basics/firstapp/building-ui.html#Strings">String Resources</a> to <a href="file:///home/troy/workspace/MyFirstApp/res/values/strings.xml">~/workspace/MyFirstApp/res/values/strings.xml</a>
 <ol>
-<li><code>[X]</code> edit<sub>message</sub>
+<li><code>[&nbsp;]</code> edit<sub>message</sub>
 </li>
-<li><code>[X]</code> button<sub>send</sub>
+<li><code>[&nbsp;]</code> button<sub>send</sub>
 </li>
 </ol>
 
 </li>
-<li><code>[X]</code> Add <a href="http://developer.android.com/training/basics/firstapp/building-ui.html#Button">a Button</a> to <a href="file:///home/troy/workspace/MyFirstApp/res/layout/activity_main.xml">~/workspace/MyFirstApp/res/layout/activity_main.xml</a> following &lt;EditText&gt;
+<li><code>[&nbsp;]</code> Add <a href="http://developer.android.com/training/basics/firstapp/building-ui.html#Button">a Button</a> to <a href="file:///home/troy/workspace/MyFirstApp/res/layout/activity_main.xml">~/workspace/MyFirstApp/res/layout/activity_main.xml</a> following &lt;EditText&gt;
 </li>
-<li><code>[X]</code> Make the <a href="http://developer.android.com/training/basics/firstapp/building-ui.html#Weight">Input Box Fill in the Screen Width</a> in <a href="file:///home/troy/workspace/MyFirstApp/res/layout/activity_main.xml">~/workspace/MyFirstApp/res/layout/activity_main.xml</a>
+<li><code>[&nbsp;]</code> Make the <a href="http://developer.android.com/training/basics/firstapp/building-ui.html#Weight">Input Box Fill in the Screen Width</a> in <a href="file:///home/troy/workspace/MyFirstApp/res/layout/activity_main.xml">~/workspace/MyFirstApp/res/layout/activity_main.xml</a>
 </li>
 </ol>
 
@@ -257,19 +299,19 @@ adb -e uninstall com.example.myfirstapp
 
 </div>
 
-<div id="outline-container-1-4" class="outline-3">
-<h3 id="sec-1-4"><span class="section-number-3">1.4</span> <span class="todo TODO">TODO</span> [1/1] Starting <a href="http://developer.android.com/training/basics/firstapp/starting-activity.html">Another Activity</a></h3>
-<div class="outline-text-3" id="text-1-4">
+<div id="outline-container-1-6" class="outline-3">
+<h3 id="sec-1-6"><span class="section-number-3">1.6</span> <span class="todo TODO">TODO</span> [0/4] Starting <a href="http://developer.android.com/training/basics/firstapp/starting-activity.html">Another Activity</a></h3>
+<div class="outline-text-3" id="text-1-6">
 
 
 </div>
 
-<div id="outline-container-1-4-1" class="outline-4">
-<h4 id="sec-1-4-1"><span class="section-number-4">1.4.1</span> <span class="todo TODO">TODO</span> [/] Respond to the <a href="http://developer.android.com/training/basics/firstapp/starting-activity.html#RespondToButton">Send Button</a></h4>
-<div class="outline-text-4" id="text-1-4-1">
+<div id="outline-container-1-6-1" class="outline-4">
+<h4 id="sec-1-6-1"><span class="section-number-4">1.6.1</span> <span class="todo TODO">TODO</span> [0/5] Respond to the <a href="http://developer.android.com/training/basics/firstapp/starting-activity.html#RespondToButton">Send Button</a></h4>
+<div class="outline-text-4" id="text-1-6-1">
 
 <ol>
-<li><code>[X]</code> add the android:onClick attribute to the &lt;Button&gt; element in <a href="file:///home/troy/workspace/MyFirstApp/res/layout/activity_main.xml">~/workspace/MyFirstApp/res/layout/activity_main.xml</a>
+<li><code>[&nbsp;]</code> add the android:onClick attribute to the &lt;Button&gt; element in <a href="file:///home/troy/workspace/MyFirstApp/res/layout/activity_main.xml">~/workspace/MyFirstApp/res/layout/activity_main.xml</a>
 
 
 
@@ -281,10 +323,180 @@ adb -e uninstall com.example.myfirstapp
 </pre>
 
 </li>
-<li><code>[&nbsp;]</code> 
+<li><code>[&nbsp;]</code> Add the corresponding sendMessage method to <a href="file:///home/troy/workspace/MyFirstApp/src/com/example/myfirstapp/MainActivity.java">~/workspace/MyFirstApp/src/com/example/myfirstapp/MainActivity.java</a>
+
+
+
+<pre class="example">/** Called when the user clicks the Send button */
+public void sendMessage(View view) {
+    // Do something in response to button
+}
+</pre>
+
+</li>
+<li><code>[&nbsp;]</code> import android.view.View; in <a href="file:///home/troy/workspace/MyFirstApp/src/com/example/myfirstapp/MainActivity.java">~/workspace/MyFirstApp/src/com/example/myfirstapp/MainActivity.java</a>
+</li>
+<li><code>[&nbsp;]</code> Run on an emulater
+</li>
+<li><code>[&nbsp;]</code> (Optional) Run on a real device
 </li>
 </ol>
 
+</div>
+
+</div>
+
+<div id="outline-container-1-6-2" class="outline-4">
+<h4 id="sec-1-6-2"><span class="section-number-4">1.6.2</span> <span class="todo TODO">TODO</span> [0/4] Build <a href="http://developer.android.com/training/basics/firstapp/starting-activity.html#BuildIntent">An Intent</a></h4>
+<div class="outline-text-4" id="text-1-6-2">
+
+<ol>
+<li><code>[&nbsp;]</code> Create an <a href="http://developer.android.com/reference/android/content/Intent.html">Intent</a> inside the sendMessage() method in
+           <a href="file:///home/troy/workspace/MyFirstApp/src/com/example/myfirstapp/MainActivity.java">~/workspace/MyFirstApp/src/com/example/myfirstapp/MainActivity.java</a>
+
+
+
+<pre class="example">Intent intent = new Intent(this, DisplayMessageActivity.class);
+</pre>
+
+</li>
+<li><code>[&nbsp;]</code> use findViewById() to get the EditText element and add its text value to the intent in <a href="file:///home/troy/workspace/MyFirstApp/src/com/example/myfirstapp/MainActivity.java">MainActivity.java</a>
+
+
+
+<pre class="example">Intent intent = new Intent(this, DisplayMessageActivity.class);
+EditText editText = (EditText) findViewById(R.id.edit_message);
+String message = editText.getText().toString();
+intent.putExtra(EXTRA_MESSAGE, message);
+startActivity(intent);
+</pre>
+
+</li>
+<li><code>[&nbsp;]</code> Add import statements to <a href="file:///home/troy/workspace/MyFirstApp/src/com/example/myfirstapp/MainActivity.java">MainActivity.java</a>
+
+
+
+<pre class="example">import android.content.Intent;
+import android.widget.EditText;
+</pre>
+
+</li>
+<li><code>[&nbsp;]</code> Define the key for the intent's extra using a public constant in <a href="file:///home/troy/workspace/MyFirstApp/src/com/example/myfirstapp/MainActivity.java">MainActivity.java</a>
+
+
+
+<pre class="example">public class MainActivity extends Activity {
+    public final static String EXTRA_MESSAGE = "com.example.myfirstapp.MESSAGE";
+    ...
+}
+</pre>
+
+</li>
+</ol>
+
+</div>
+
+</div>
+
+<div id="outline-container-1-6-3" class="outline-4">
+<h4 id="sec-1-6-3"><span class="section-number-4">1.6.3</span> <span class="todo TODO">TODO</span> [0/6] Create <a href="http://developer.android.com/training/basics/firstapp/starting-activity.html#CreateActivity">the Second Activity</a></h4>
+<div class="outline-text-4" id="text-1-6-3">
+
+<ol>
+<li><code>[&nbsp;]</code> New Android Blank Activity
+<dl>
+<dt>Project</dt><dd>MyFirstApp
+</dd>
+<dt>Activity Name</dt><dd>DisplayMessageActivity
+</dd>
+<dt>Layout Name</dt><dd>activity<sub>display</sub><sub>message</sub>
+</dd>
+<dt>Title</dt><dd>My Message
+</dd>
+<dt>Hierarchial Parent</dt><dd>com.example.myfirstapp.MainActivity
+</dd>
+<dt>Navigation Type</dt><dd>None
+</dd>
+</dl>
+
+</li>
+<li><code>[&nbsp;]</code> Open <a href="file:///home/troy/workspace/MyFirstApp/src/com/example/myfirstapp/DisplayMessageActivity.java">~/workspace/MyFirstApp/src/com/example/myfirstapp/DisplayMessageActivity.java</a>
+</li>
+<li><code>[&nbsp;]</code> Remove onCreateOptionsMenu method per web page instruction
+</li>
+<li><code>[&nbsp;]</code> @SuppressLint("NewApi") in <a href="file:///home/troy/workspace/MyFirstApp/src/com/example/myfirstapp/DisplayMessageActivity.java">~/workspace/MyFirstApp/src/com/example/myfirstapp/DisplayMessageActivity.java</a>
+<ul>
+<li><code>[&nbsp;]</code> import android.annotation.SuppressLint; or else an error results
+</li>
+</ul>
+
+</li>
+<li><code>[&nbsp;]</code> Add the title string to <a href="file:///home/troy/workspace/MyFirstApp/res/values/strings.xml">strings.xml</a> if not using Eclipse
+
+
+
+<pre class="example">&lt;string name="title_activity_display_message"&gt;My Message&lt;/string&gt;
+</pre>
+
+<ul>
+<li>Note: This string was added by Eclipse
+</li>
+</ul>
+
+</li>
+<li><code>[&nbsp;]</code> Add it to the manifest file &lt; <a href="file:///home/troy/workspace/MyFirstApp/AndroidManifest.xml">AndroidManifest.xml</a> &gt; if not using Eclipse
+<ul>
+<li>This is done automatically if Eclipse
+</li>
+</ul>
+
+</li>
+</ol>
+
+</div>
+
+</div>
+
+<div id="outline-container-1-6-4" class="outline-4">
+<h4 id="sec-1-6-4"><span class="section-number-4">1.6.4</span> <span class="todo TODO">TODO</span> [0/4] Receive <a href="http://developer.android.com/training/basics/firstapp/starting-activity.html#ReceiveIntent">the Intent</a></h4>
+<div class="outline-text-4" id="text-1-6-4">
+
+<ol>
+<li><code>[&nbsp;]</code> Place following code after "super.onCreate(savedInstanceState);" in onCreate method in <a href="file:///home/troy/workspace/MyFirstApp/src/com/example/myfirstapp/DisplayMessageActivity.java">DisplayMessageActivity.java</a>
+
+
+
+<pre class="example">// Get the message from the intent
+Intent intent = getIntent();
+String message = intent.getStringExtra(MainActivity.EXTRA_MESSAGE);
+</pre>
+
+</li>
+<li><code>[&nbsp;]</code> Display the message in <a href="file:///home/troy/workspace/MyFirstApp/src/com/example/myfirstapp/DisplayMessageActivity.java">DisplayMessageActivity.java</a>
+<ul>
+<li>Place after the code from the previous step
+
+
+
+<pre class="example">// Create the text view
+TextView textView = new TextView(this);
+textView.setTextSize(40);
+textView.setText(message);
+</pre>
+
+</li>
+<li><code>[&nbsp;]</code> Run the app!
+<ul>
+<li>import android.annotation.TargetApi;
+</li>
+<li>import android.widget.TextView;
+</li>
+</ul>
+
+</li>
+<li><code>[&nbsp;]</code> TDW
+</li>
+</ol>
 
 
 </div>
@@ -656,7 +868,7 @@ lunch
 </div>
 
 <div id="postamble">
-<p class="date">Date: 2013-04-21T09:49-0700</p>
+<p class="date">Date: 2013-04-21T16:18-0700</p>
 <p class="author">Author: </p>
 <p class="creator"><a href="http://orgmode.org">Org</a> version 7.9.3f with <a href="http://www.gnu.org/software/emacs/">Emacs</a> version 24</p>
 <a href="http://validator.w3.org/check?uri=referer">Validate XHTML 1.0</a>
