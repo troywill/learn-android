@@ -40,7 +40,7 @@
       2. [ ] button_send
    5. [ ] Add [[http://developer.android.com/training/basics/firstapp/building-ui.html#Button][a Button]] to file:~/workspace/MyFirstApp/res/layout/activity_main.xml following <EditText>
    6. [ ] Make the [[http://developer.android.com/training/basics/firstapp/building-ui.html#Weight][Input Box Fill in the Screen Width]] in file:~/workspace/MyFirstApp/res/layout/activity_main.xml
-** TODO [2/3] Starting [[http://developer.android.com/training/basics/firstapp/starting-activity.html][Another Activity]]
+** TODO [0/3] Starting [[http://developer.android.com/training/basics/firstapp/starting-activity.html][Another Activity]]
 *** TODO [0/5] Respond to the [[http://developer.android.com/training/basics/firstapp/starting-activity.html#RespondToButton][Send Button]]
     1. [ ] add the android:onClick attribute to the <Button> element in file:~/workspace/MyFirstApp/res/layout/activity_main.xml
        #+BEGIN_SRC xml
@@ -60,51 +60,51 @@
     3. [ ] import android.view.View; in file:~/workspace/MyFirstApp/src/com/example/myfirstapp/MainActivity.java
     4. [ ] Run on an emulater
     5. [ ] (Optional) Run on a real device
-*** DONE [4/4] Build [[http://developer.android.com/training/basics/firstapp/starting-activity.html#BuildIntent][An Intent]]
-    1. [X] Create an [[http://developer.android.com/reference/android/content/Intent.html][Intent]] inside the sendMessage() method in
+*** TODO [0/4] Build [[http://developer.android.com/training/basics/firstapp/starting-activity.html#BuildIntent][An Intent]]
+    1. [ ] Create an [[http://developer.android.com/reference/android/content/Intent.html][Intent]] inside the sendMessage() method in
            file:~/workspace/MyFirstApp/src/com/example/myfirstapp/MainActivity.java
        #+BEGIN_SRC java
          Intent intent = new Intent(this, DisplayMessageActivity.class);
        #+END_SRC
-    2. [X] use findViewById() to get the EditText element and add its text value to the intent in [[file:~/workspace/MyFirstApp/src/com/example/myfirstapp/MainActivity.java][MainActivity.java]]
+    2. [ ] use findViewById() to get the EditText element and add its text value to the intent in [[file:~/workspace/MyFirstApp/src/com/example/myfirstapp/MainActivity.java][MainActivity.java]]
        #+BEGIN_SRC java
          Intent intent = new Intent(this, DisplayMessageActivity.class);
          EditText editText = (EditText) findViewById(R.id.edit_message);
          String message = editText.getText().toString();
          intent.putExtra(EXTRA_MESSAGE, message);
        #+END_SRC
-    3. [X] Add import statements to [[file:~/workspace/MyFirstApp/src/com/example/myfirstapp/MainActivity.java][MainActivity.java]]
+    3. [ ] Add import statements to [[file:~/workspace/MyFirstApp/src/com/example/myfirstapp/MainActivity.java][MainActivity.java]]
        #+BEGIN_SRC java
          import android.content.Intent;
          import android.widget.EditText;
        #+END_SRC
-    4. [X] Define the key for the intent's extra using a public constant in [[file:~/workspace/MyFirstApp/src/com/example/myfirstapp/MainActivity.java][MainActivity.java]]
+    4. [ ] Define the key for the intent's extra using a public constant in [[file:~/workspace/MyFirstApp/src/com/example/myfirstapp/MainActivity.java][MainActivity.java]]
        #+BEGIN_SRC java
          public class MainActivity extends Activity {
              public final static String EXTRA_MESSAGE = "com.example.myfirstapp.MESSAGE";
              ...
          }
        #+END_SRC
-*** DONE [5/5] Create [[http://developer.android.com/training/basics/firstapp/starting-activity.html#CreateActivity][the Second Activity]]
-    1. [X] New Android Blank Activity
+*** TODO [0/5] Create [[http://developer.android.com/training/basics/firstapp/starting-activity.html#CreateActivity][the Second Activity]]
+    1. [ ] New Android Blank Activity
        - Project :: MyFirstApp
        - Activity Name :: DisplayMessageActivity
        - Layout Name :: activity_display_message
        - Title :: My Message
        - Hierarchial Parent :: com.example.myfirstapp.MainActivity
        - Navigation Type :: None
-    2. [X] Open file:~/workspace/MyFirstApp/src/com/example/myfirstapp/DisplayMessageActivity.java
-    3. [X] @SuppressLint("NewApi") in file:~/workspace/MyFirstApp/src/com/example/myfirstapp/DisplayMessageActivity.java
-       - [X] import android.annotation.SuppressLint; or else an error results
-    4. [X] Add the title string to [[file:~/workspace/MyFirstApp/res/values/strings.xml][strings.xml]]
+    2. [ ] Open file:~/workspace/MyFirstApp/src/com/example/myfirstapp/DisplayMessageActivity.java
+    3. [ ] @SuppressLint("NewApi") in file:~/workspace/MyFirstApp/src/com/example/myfirstapp/DisplayMessageActivity.java
+       - [ ] import android.annotation.SuppressLint; or else an error results
+    4. [ ] Add the title string to [[file:~/workspace/MyFirstApp/res/values/strings.xml][strings.xml]]
        #+BEGIN_SRC xml
           <string name="title_activity_display_message">My Message</string>
        #+END_SRC
        - Note: This string was added by Eclipse
-    5. [X] Add it to the manifest file < [[file:~/workspace/MyFirstApp/AndroidManifest.xml][AndroidManifest.xml]] >
+    5. [ ] Add it to the manifest file < [[file:~/workspace/MyFirstApp/AndroidManifest.xml][AndroidManifest.xml]] >
        - This is done automatically if Eclipse
-*** TODO [1/4] Receive [[http://developer.android.com/training/basics/firstapp/starting-activity.html#ReceiveIntent][the Intent]]
-    1. [X] Place following code after "super.onCreate(savedInstanceState);" in onCreate method in [[file:~/workspace/MyFirstApp/src/com/example/myfirstapp/DisplayMessageActivity.java][DisplayMessageActivity.java]]
+*** TODO [0/4] Receive [[http://developer.android.com/training/basics/firstapp/starting-activity.html#ReceiveIntent][the Intent]]
+    1. [ ] Place following code after "super.onCreate(savedInstanceState);" in onCreate method in [[file:~/workspace/MyFirstApp/src/com/example/myfirstapp/DisplayMessageActivity.java][DisplayMessageActivity.java]]
        #+BEGIN_SRC java
          // Get the message from the intent
          Intent intent = getIntent();
