@@ -1,7 +1,38 @@
 * TODO [[http://developer.android.com/training/basics/firstapp/index.html][Building Your First App]] with the [[http://en.wikipedia.org/wiki/Eclipse_(software)][Eclipse]] and Android Development Tools (ADT)
-** Eclipse Tips
-   - Source > Organize Imports :: Shift+Ctrl+O
-** Files
+** [/] Build My First App
+  1. [ ] Start Eclipse
+     - Error Loading DDMS Preferences
+       + Add "android" binary to path
+     #+BEGIN_SRC sh
+     cd ~/Development/adt-bundle-linux-x86-20131030/eclipse
+     ./eclipse &
+     #+END_SRC
+  2. [ ] New Android Application Project
+  3. [ ] Application = My First App
+  4. [ ] Minimum Required SDK, Target SDK, Compile With = API 19: Android 4.4 (KitKat)
+  5. [ ] Theme = Holo Light with Dark Action Bar
+  6. [ ] Next, Next, Next, Finish
+** [/] Install My First App
+   1. [ ] Install My First App
+      #+BEGIN_SRC sh :tangle tools/uninstall-app-with-adb.sh :shebang #!/bin/bash
+        # -d directs command to the only connected USB device
+        #           returns an error if more than one USB device is present.
+        # -e directs command to the only running emulator.
+        
+        adb -d install ~/workspace/MyFirstApp/bin/MyFirstApp.apk
+        adb -e install ~/workspace/MyFirstApp/bin/MyFirstApp.apk
+   #+END_SRC
+** [/] Uninstall My First App
+   1. [ ] Uninstall My First App
+      #+BEGIN_SRC sh :tangle tools/uninstall-app-with-adb.sh :shebang #!/bin/bash
+        # -d directs command to the only connected USB device
+        #           returns an error if more than one USB device is present.
+        # -e directs command to the only running emulator.
+        
+        adb -d uninstall com.example.myfirstapp
+        adb -e uninstall com.example.myfirstapp
+   #+END_SRC
+*** TODO Inspect files
 | File                        | Path                                                                               |
 |-----------------------------+------------------------------------------------------------------------------------|
 | activity_main.xml           | file:~/workspace/MyFirstApp/res/layout/activity_main.xml                           |
@@ -9,38 +40,39 @@
 | MainActivity.java           | file:~/workspace/MyFirstApp/src/com/example/myfirstapp/MainActivity.java           |
 | DisplayMessageActivity.java | file:~/workspace/MyFirstApp/src/com/example/myfirstapp/DisplayMessageActivity.java |
 | AndroidManifest.xml         | file:~/workspace/MyFirstApp/AndroidManifest.xml                                    |
-** TODO Build My First App
-  1. [X] Start Eclipse
-     - Error Loading DDMS Preferences
-       + Add "android" binary to path
-  2. [X] New Android Application Project
-  3. [X] Application = My First App
-  4. [X] Minimum Required SDK, Target SDK, Compile With = API 19: Android 4.4 (KitKat)
-  5. [X] Theme = Holo Light with Dark Action Bar
-  6. [X] Next, Next, Next, Finish
-** TODO Uninstall My First App
-   #+BEGIN_SRC sh :tangle tools/uninstall-app-with-adb.sh :shebang #!/bin/bash
-     # -d directs command to the only connected USB device
-     #           returns an error if more than one USB device is present.
-     # -e directs command to the only running emulator.
-
-     adb -d uninstall com.example.myfirstapp
-     adb -e uninstall com.example.myfirstapp
-   #+END_SRC
-** TODO [0/6] Create a Linear Layout
+** [/] [[http://developer.android.com/training/basics/firstapp/building-ui.html][Create a Linear Layout]]
    1. [ ] Open file:~/workspace/MyFirstApp/res/layout/activity_main.xml
    2. [ ] Create a [[http://developer.android.com/training/basics/firstapp/building-ui.html#LinearLayout][Linear Layout]]
       1. [ ] Delete the <TextView> element
       2. [ ] Change the <RelativeLayout> element to <LinearLayout>
       3. [ ] Add the android:orientation attribute and set it to "horizontal"
    3. [ ] Add a [[http://developer.android.com/training/basics/firstapp/building-ui.html#TextInput][Text Field]]
-   4. [ ] Add [[http://developer.android.com/training/basics/firstapp/building-ui.html#Strings][String Resources]] to file:~/workspace/MyFirstApp/res/values/strings.xml
+      #+BEGIN_SRC xml
+        <!-- 2013-12-31 -->
+        <!-- http://developer.android.com/training/basics/firstapp/building-ui.html#TextInput -->
+        
+        <EditText android:id="@+id/edit_message"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:hint="@string/edit_message" />
+      #+END_SRC
+   4. [/] Add [[http://developer.android.com/training/basics/firstapp/building-ui.html#Strings][String Resources]] to [[file:~/workspace/MyFirstApp/res/values/strings.xml]]
+      file:~/workspace/MyFirstApp/res/values/strings.xml
       1. [ ] edit_message
       2. [ ] button_send
-   5. [ ] Add [[http://developer.android.com/training/basics/firstapp/building-ui.html#Button][a Button]] to file:~/workspace/MyFirstApp/res/layout/activity_main.xml following <EditText>
-   6. [ ] Make the [[http://developer.android.com/training/basics/firstapp/building-ui.html#Weight][Input Box Fill in the Screen Width]] in file:~/workspace/MyFirstApp/res/layout/activity_main.xml
-** TODO [0/4] Starting [[http://developer.android.com/training/basics/firstapp/starting-activity.html][Another Activity]]
-*** TODO [0/5] Respond to the [[http://developer.android.com/training/basics/firstapp/starting-activity.html#RespondToButton][Send Button]]
+         #+BEGIN_SRC xml
+           <resources>
+             <string name="app_name">My First App</string>
+             <string name="edit_message">Enter a message</string>
+             <string name="button_send">Send</string>
+             <string name="action_settings">Settings</string>
+             <string name="title_activity_main">MainActivity</string>
+           </resources>
+         #+END_SRC
+   5. [ ] Add [[http://developer.android.com/training/basics/firstapp/building-ui.html#Button][a Button]] to [[file:~/workspace/MyFirstApp/res/layout/activity_main.xml]] following <EditText>
+   6. [ ] Make the [[http://developer.android.com/training/basics/firstapp/building-ui.html#Weight][Input Box Fill in the Screen Width]] in [[file:~/workspace/MyFirstApp/res/layout/activity_main.xml]]
+** TODO [/] Starting [[http://developer.android.com/training/basics/firstapp/starting-activity.html][Another Activity]]
+*** TODO [/] Respond to the [[http://developer.android.com/training/basics/firstapp/starting-activity.html#RespondToButton][Send Button]]
     1. [ ] add the android:onClick attribute to the <Button> element in file:~/workspace/MyFirstApp/res/layout/activity_main.xml
        #+BEGIN_SRC xml
          <Button
@@ -59,7 +91,7 @@
     3. [ ] import android.view.View; in file:~/workspace/MyFirstApp/src/com/example/myfirstapp/MainActivity.java
     4. [ ] Run on an emulater
     5. [ ] (Optional) Run on a real device
-*** TODO [0/4] Build [[http://developer.android.com/training/basics/firstapp/starting-activity.html#BuildIntent][An Intent]]
+*** TODO [/] Build [[http://developer.android.com/training/basics/firstapp/starting-activity.html#BuildIntent][An Intent]]
     1. [ ] Create an [[http://developer.android.com/reference/android/content/Intent.html][Intent]] inside the sendMessage() method in
            file:~/workspace/MyFirstApp/src/com/example/myfirstapp/MainActivity.java
        #+BEGIN_SRC java
@@ -85,7 +117,7 @@
              ...
          }
        #+END_SRC
-*** TODO [0/6] Create [[http://developer.android.com/training/basics/firstapp/starting-activity.html#CreateActivity][the Second Activity]]
+*** TODO [/] Create [[http://developer.android.com/training/basics/firstapp/starting-activity.html#CreateActivity][the Second Activity]]
     1. [ ] New Android Blank Activity
        - Project :: MyFirstApp
        - Activity Name :: DisplayMessageActivity
@@ -104,7 +136,7 @@
        - Note: This string was added by Eclipse
     6. [ ] Add it to the manifest file < [[file:~/workspace/MyFirstApp/AndroidManifest.xml][AndroidManifest.xml]] > if not using Eclipse
        - This is done automatically if Eclipse
-*** TODO [0/4] Receive [[http://developer.android.com/training/basics/firstapp/starting-activity.html#ReceiveIntent][the Intent]]
+*** TODO [/] Receive [[http://developer.android.com/training/basics/firstapp/starting-activity.html#ReceiveIntent][the Intent]]
     1. [ ] Place following code after "super.onCreate(savedInstanceState);" in onCreate method in [[file:~/workspace/MyFirstApp/src/com/example/myfirstapp/DisplayMessageActivity.java][DisplayMessageActivity.java]]
        #+BEGIN_SRC java
          // Get the message from the intent
@@ -123,33 +155,7 @@
        - import android.annotation.TargetApi;
        - import android.widget.TextView;
     4. [ ] TDW
-
-* Step by step Tuesday, April 16
-  1. [ ] Power off
-  2. [ ] Volume down and power on
-  3. [ ] Volume up
-  4. [ ] Partition sdcard
-     1. [ ] Partition SD
-     2. [ ] Press twice
-     3. [ ] Swap-size = 32 MB => 64 MB
-     4. [ ] Ext2-size = 512 MB => 1024 MB
-     5. [ ] Volume down to return
-  5. [ ] USB-MS toggle
-  6. [ ] Download [[http://wiki.cyanogenmod.org/w/Desirec_Info][Desirec Info]] [[http://download.cyanogenmod.org/?type=stable&device=desirec][stable build]] [[http://download.cyanogenmod.org/get/jenkins/2823/cm-7.2.0-desirec.zip][cm-7.2.0-desirec.zip]] md5sum = bd03e5ca49e8770cc00b319dd939336c
-  7. [ ] cp cm-7.2.0-desirec.zip to sd card
-  8. [ ] Press Trackball to disable USB-MS
-  9. [ ] Flash zip from sdcard
-      1. [ ] Choose SDCARD:cm-7.2.0-desirec.zip
-      2. [ ] Press trackball to confirm
-  10. [ ] Reboot system now
-
-
-  7. [ ] start adb as root
-     #+BEGIN_SRC sh
-       sudo adb
-     #+END_SRC
-   
-* TODO [0/2] Create a Project with Command Line Tools
+* [/] Create a Project with Command Line Tools
    1. [ ] list targets
       #+BEGIN_SRC sh
         android list targets
@@ -253,3 +259,30 @@
 *** Echo problem on reciever end
    - Change microphone volume from -2 to -8
    - Change speaker volume from 0 to -5
+* Eclipse Tips
+   - Source > Organize Imports :: Shift+Ctrl+O
+
+* Step by step Tuesday, April 16
+  1. [ ] Power off
+  2. [ ] Volume down and power on
+  3. [ ] Volume up
+  4. [ ] Partition sdcard
+     1. [ ] Partition SD
+     2. [ ] Press twice
+     3. [ ] Swap-size = 32 MB => 64 MB
+     4. [ ] Ext2-size = 512 MB => 1024 MB
+     5. [ ] Volume down to return
+  5. [ ] USB-MS toggle
+  6. [ ] Download [[http://wiki.cyanogenmod.org/w/Desirec_Info][Desirec Info]] [[http://download.cyanogenmod.org/?type=stable&device=desirec][stable build]] [[http://download.cyanogenmod.org/get/jenkins/2823/cm-7.2.0-desirec.zip][cm-7.2.0-desirec.zip]] md5sum = bd03e5ca49e8770cc00b319dd939336c
+  7. [ ] cp cm-7.2.0-desirec.zip to sd card
+  8. [ ] Press Trackball to disable USB-MS
+  9. [ ] Flash zip from sdcard
+      1. [ ] Choose SDCARD:cm-7.2.0-desirec.zip
+      2. [ ] Press trackball to confirm
+  10. [ ] Reboot system now
+
+
+  7. [ ] start adb as root
+     #+BEGIN_SRC sh
+       sudo adb
+     #+END_SRC
