@@ -1,21 +1,21 @@
 * Getting Started
 1. [-] [[http://developer.android.com/training/index.html][Getting Started]]
-   1. [-]  [[http://developer.android.com/training/basics/firstapp/index.html][Building Your First App]]
-      1. [ ] Creating an Android Project with Eclipse
+   1. [-] [[http://developer.android.com/training/basics/firstapp/index.html][Building Your First App]]
+      1. [X] Creating an Android Project with Eclipse
          Use [[http://en.wikipedia.org/wiki/Eclipse_(software)][Eclipse]] and Android Development Tools (ADT)
-         1. [ ] Start Eclipse
+         1. [X] Start Eclipse
             Error Loading DDMS Preferences
               Add "android" binary to path
             #+BEGIN_SRC sh
               cd ~/Development/adt-bundle-linux-x86-20131030/eclipse
               ./eclipse &
             #+END_SRC
-         2. [ ] File -> New -> Android Project
-         3. [ ] Application = My First App
-         4. [ ] Minimum Required SDK, Target SDK, Compile With = API 19: Android 4.4 (KitKat)
-         5. [ ] Theme = Holo Light with Dark Action Bar
-         6. [ ] Next, Next, Next, Finish
-      2. [ ] Inspect files
+         2. [X] File -> New -> Android Project
+            1. [X] Application = My First App
+            2. [X] Minimum Required SDK, Target SDK, Compile With = API 19: Android 4.4 (KitKat)
+            3. [X] Theme = Holo Light with Dark Action Bar
+            4. [X] Next, Next, Next, Finish
+      2. [X] Inspect files
          | File                | Path                                                                     |
          |---------------------+--------------------------------------------------------------------------|
          | activity_main.xml   | file:~/workspace/MyFirstApp/res/layout/activity_main.xml                 |
@@ -42,13 +42,12 @@
               adb -d uninstall com.example.myfirstapp
               adb -e uninstall com.example.myfirstapp
             #+END_SRC
-      4. [ ] Building a Simple User Interface
-         1. [ ] [[http://developer.android.com/training/basics/firstapp/building-ui.html#LinearLayout][Create a Linear Layout]]
-            1. [ ] Delete the <TextView> element
-            2. [ ] Change the <RelativeLayout> element to <LinearLayout>
-            3. [ ] Add the android:orientation attribute and set it to "horizontal"
+      4. [X] Building a Simple User Interface
+         1. [X] [[http://developer.android.com/training/basics/firstapp/building-ui.html#LinearLayout][Create a Linear Layout]] in [[file:~/workspace/MyFirstApp/res/layout/activity_main.xml][activity_main.xml]]
+            1. [X] Delete the <TextView>
+            2. [X] Change the <RelativeLayout> element to <LinearLayout>
+            3. [X] Add the android:orientation attribute and set it to "horizontal"
                   #+BEGIN_SRC xml
-                    <?xml version="1.0" encoding="utf-8"?>
                     <!-- 2013-01-06 -->
                     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
                                   xmlns:tools="http://schemas.android.com/tools"
@@ -61,50 +60,50 @@
                                   android:paddingTop="@dimen/activity_vertical_margin"
                                   tools:context=".MainActivity" >
                     </LinearLayout>
-           
                   #+END_SRC
-         2. [ ] [[http://developer.android.com/training/basics/firstapp/building-ui.html#TextInput][Add a Text Field]]
+         2. [X] [[http://developer.android.com/training/basics/firstapp/building-ui.html#TextInput][Add a Text Field]] in [[file:~/workspace/MyFirstApp/res/layout/activity_main.xml][activity_main.xml]]
                declare it inside the <LinearLayout> element by placing
                following code just before the </LinearLayout> closing tag:
                #+BEGIN_SRC xml
-               <!-- 2013-12-31 -->
-               <!-- http://developer.android.com/training/basics/firstapp/building-ui.html#TextInput -->
-        
-               <EditText android:id="@+id/edit_message"
-               android:layout_weight="1"
-               android:layout_width="0dp"
-               android:layout_width="wrap_content"
-               android:layout_height="wrap_content"
-               android:hint="@string/edit_message" />
+                 <!-- 2013-12-31 -->
+                 <!-- http://developer.android.com/training/basics/firstapp/building-ui.html#TextInput -->
+                 
+                 <EditText android:id="@+id/edit_message"
+                           android:layout_width="wrap_content"
+                           android:layout_height="wrap_content"
+                           android:hint="@string/edit_message" />
                #+END_SRC
-         3. [ ] [[http://developer.android.com/training/basics/firstapp/building-ui.html#Strings][Add String Resources]] to [[file:~/workspace/MyFirstApp/res/values/strings.xml]]
+         3. [X] [[http://developer.android.com/training/basics/firstapp/building-ui.html#Strings][Add String Resources]] to [[file:~/workspace/MyFirstApp/res/values/strings.xml][strings.xml]]
                "edit_message" and "button_send"
                #+BEGIN_SRC xml
-               <resources>
-               <string name="app_name">My First App</string>
-               <string name="edit_message">Enter a message</string>
-               <string name="button_send">Send</string>
-               <string name="action_settings">Settings</string>
-               <string name="title_activity_main">MainActivity</string>
-               </resources>
+                 <?xml version="1.0" encoding="utf-8"?>
+                 <resources>
+                     <string name="app_name">My First App</string>
+                     <string name="edit_message">Enter a message</string>
+                     <string name="button_send">Send</string>
+                     <string name="action_settings">Settings</string>
+                     <string name="title_activity_main">MainActivity</string>
+                 </resources>
                #+END_SRC
-         4. [ ] [[http://developer.android.com/training/basics/firstapp/building-ui.html#Button][Add a Button]] to [[file:~/workspace/MyFirstApp/res/layout/activity_main.xml]] following <EditText>
-            Place next line after the closing "... />"
+         4. [X] [[http://developer.android.com/training/basics/firstapp/building-ui.html#Button][Add a Button]] to [[file:~/workspace/MyFirstApp/res/layout/activity_main.xml][activity_main.xml]] following the
+            <EditText> element
+            Place below the "<EditText ... />" tag
             #+BEGIN_SRC xml
-            <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/button_send" />
+              <Button
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:text="@string/button_send" />
             #+END_SRC
-         5. [ ] Make the [[http://developer.android.com/training/basics/firstapp/building-ui.html#Weight][Input Box Fill in the Screen Width]] in [[file:~/workspace/MyFirstApp/res/layout/activity_main.xml]]
+         5. [X] Make the [[http://developer.android.com/training/basics/firstapp/building-ui.html#Weight][Input Box Fill in the Screen Width]] in [[file:~/workspace/MyFirstApp/res/layout/activity_main.xml][activity_main.xml]]
             #+BEGIN_SRC xml
               <EditText
                   android:layout_weight="1"
+                  android:layout_width="0dp"
                   ... />
             #+END_SRC
       5. [-] Starting [[http://developer.android.com/training/basics/firstapp/starting-activity.html][Another Activity]]
-         1. [ ] Respond to the [[http://developer.android.com/training/basics/firstapp/starting-activity.html#RespondToButton][Send Button]]
-            1. [ ] add the android:onClick attribute to the <Button> element in file:~/workspace/MyFirstApp/res/layout/activity_main.xml
+         1. [X] [[http://developer.android.com/training/basics/firstapp/starting-activity.html#RespondToButton][Respond to the Send Button]]
+            1. [X] add the android:onClick attribute to the <Button> element in [[file:~/workspace/MyFirstApp/res/layout/activity_main.xml][activity_main.xml]]
               #+BEGIN_SRC xml
                 <Button
                     android:layout_width="wrap_content"
@@ -112,76 +111,100 @@
                     android:text="@string/button_send"
                     android:onClick="sendMessage" />
               #+END_SRC
-            2. [ ] Add the corresponding sendMessage method to file:~/workspace/MyFirstApp/src/com/example/myfirstapp/MainActivity.java
+            2. [X] Add the corresponding sendMessage method to [[file:~/workspace/MyFirstApp/src/com/example/myfirstapp/MainActivity.java][MainActivity.java]]
                #+BEGIN_SRC java
                  /** Called when the user clicks the Send button */
                  public void sendMessage(View view) {
                      // Do something in response to button
                  }
                #+END_SRC
-            3. [ ] import android.view.View; in file:~/workspace/MyFirstApp/src/com/example/myfirstapp/MainActivity.java
-            4. [ ] Run on an emulater
-            5. [ ] (Optional) Run on a real device
-         2. [ ] Build [[http://developer.android.com/training/basics/firstapp/starting-activity.html#BuildIntent][An Intent]]
-            1. [ ] Create an [[http://developer.android.com/reference/android/content/Intent.html][Intent]] inside the sendMessage() method in
-                   file:~/workspace/MyFirstApp/src/com/example/myfirstapp/MainActivity.java
+               Note: Can place directly below ... extends Activity { 
+            3. [X] import android.view.View; in [[file:~/workspace/MyFirstApp/src/com/example/myfirstapp/MainActivity.java][MainActivity.java]]
+            4. [X] Run on an emulator
+         2. [-] [[http://developer.android.com/training/basics/firstapp/starting-activity.html#BuildIntent][Build An Intent]]
+            1. [X] Create an [[http://developer.android.com/reference/android/content/Intent.html][Intent]] inside the sendMessage() method in [[file:~/workspace/MyFirstApp/src/com/example/myfirstapp/MainActivity.java][MainActivity.java]]
                #+BEGIN_SRC java
                  Intent intent = new Intent(this, DisplayMessageActivity.class);
                #+END_SRC
             2. [ ] use findViewById() to get the EditText element and add its text value to the intent in [[file:~/workspace/MyFirstApp/src/com/example/myfirstapp/MainActivity.java][MainActivity.java]]
                #+BEGIN_SRC java
-                 Intent intent = new Intent(this, DisplayMessageActivity.class);
-                 EditText editText = (EditText) findViewById(R.id.edit_message);
-                 String message = editText.getText().toString();
-                 intent.putExtra(EXTRA_MESSAGE, message);
-                 startActivity(intent);
+                 /** Called when the user clicks the Send button */
+                 public void sendMessage(View view) {
+                     // Do something in response to button
+                     Intent intent = new Intent(this, DisplayMessageActivity.class);
+                     EditText editText = (EditText) findViewById(R.id.edit_message);
+                     String message = editText.getText().toString();
+                     intent.putExtra(EXTRA_MESSAGE, message);
+                     startActivity(intent);
+                 }
                #+END_SRC
-            3. [ ] Add import statements to [[file:~/workspace/MyFirstApp/src/com/example/myfirstapp/MainActivity.java][MainActivity.java]]
+            3. [X] Add import statement to [[file:~/workspace/MyFirstApp/src/com/example/myfirstapp/MainActivity.java][MainActivity.java]]
                #+BEGIN_SRC java
                  import android.content.Intent;
                  import android.widget.EditText;
                #+END_SRC
-            4. [ ] Define the key for the intent's extra using a public constant in [[file:~/workspace/MyFirstApp/src/com/example/myfirstapp/MainActivity.java][MainActivity.java]]
+            4. [X] Define the key for the intent's extra using a public constant in [[file:~/workspace/MyFirstApp/src/com/example/myfirstapp/MainActivity.java][MainActivity.java]]
                #+BEGIN_SRC java
                  public class MainActivity extends Activity {
                      public final static String EXTRA_MESSAGE = "com.example.myfirstapp.MESSAGE";
                      ...
                  }
                #+END_SRC
-         3. [ ] Create [[http://developer.android.com/training/basics/firstapp/starting-activity.html#CreateActivity][the Second Activity]]
-            1. [ ] New Android Blank Activity
-               1. Project :: MyFirstApp
-               2. Activity Name :: DisplayMessageActivity
-               3. Layout Name :: activity_display_message
-               4. Title :: My Message
-               5. Hierarchial Parent :: com.example.myfirstapp.MainActivity
-               6. Navigation Type :: None
-            2. [ ] Open file:~/workspace/MyFirstApp/src/com/example/myfirstapp/DisplayMessageActivity.java
-            3. [ ] Remove onCreateOptionsMenu method per web page instruction
-            4. [ ] @SuppressLint("NewApi") in file:~/workspace/MyFirstApp/src/com/example/myfirstapp/DisplayMessageActivity.java
-            5. [ ] import android.annotation.SuppressLint; or else an error results
-            6. [ ] Add the title string to [[file:~/workspace/MyFirstApp/res/values/strings.xml][strings.xml]] if not using Eclipse
+         3. [X] Create [[http://developer.android.com/training/basics/firstapp/starting-activity.html#CreateActivity][the Second Activity]]
+            1. [X] File -> New -> Other -> Android -> Android Activity
+               -> Next -> Android Blank Activity
+               1. [X] Project :: MyFirstApp
+               2. [X] Activity Name :: DisplayMessageActivity
+               3. [X] Layout Name :: activity_display_message
+               4. [X] Title :: My Message
+               5. [X] Hierarchial Parent :: com.example.myfirstapp.MainActivity
+               6. [X] Navigation Type :: None
+               7. [X] Finish
+            2. [X] Open [[file:~/workspace/MyFirstApp/src/com/example/myfirstapp/DisplayMessageActivity.java][DisplayMessageActivity.java]]
+            3. [X] Remove onCreateOptionsMenu method per web page instruction
+            4. [X] @SuppressLint("NewApi") in [[file:~/workspace/MyFirstApp/src/com/example/myfirstapp/DisplayMessageActivity.java][DisplayMessageActivity.java]]
+               #+BEGIN_SRC java
+                 public class DisplayMessageActivity extends Activity {
+                 
+                     @SuppressLint("NewApi")
+                     @Override
+                     ...
+               #+END_SRC
+            5. [X] import android.annotation.SuppressLint; or else an error results
+            6. [X] Add the title string to [[file:~/workspace/MyFirstApp/res/values/strings.xml][strings.xml]] if not using Eclipse
                #+BEGIN_SRC xml
                   <string name="title_activity_display_message">My Message</string>
                #+END_SRC
                1. Note: This string was added by Eclipse
-            7. [ ] Add it to the manifest file < [[file:~/workspace/MyFirstApp/AndroidManifest.xml][AndroidManifest.xml]] > if not using Eclipse
+            7. [X] Add it to the manifest file < [[file:~/workspace/MyFirstApp/AndroidManifest.xml][AndroidManifest.xml]] > if not using Eclipse
                1. Note: This is done automatically if Eclipse
-         4. [ ] [[http://developer.android.com/training/basics/firstapp/starting-activity.html#ReceiveIntent][Receive the Intent]]
-            1. [ ] Place following code after "super.onCreate(savedInstanceState);" in onCreate method in [[file:~/workspace/MyFirstApp/src/com/example/myfirstapp/DisplayMessageActivity.java][DisplayMessageActivity.java]]
+         4. [X] [[http://developer.android.com/training/basics/firstapp/starting-activity.html#ReceiveIntent][Receive the Intent]]
+            1. [X] Place following code after "super.onCreate(savedInstanceState);" in onCreate method in [[file:~/workspace/MyFirstApp/src/com/example/myfirstapp/DisplayMessageActivity.java][DisplayMessageActivity.java]]
                #+BEGIN_SRC java
                  // Get the message from the intent
                  Intent intent = getIntent();
                  String message = intent.getStringExtra(MainActivity.EXTRA_MESSAGE);
                #+END_SRC
-            2. [ ] Display the message in [[file:~/workspace/MyFirstApp/src/com/example/myfirstapp/DisplayMessageActivity.java][DisplayMessageActivity.java]]
+            2. [X] add "Import intent" statement
+            3. [X] Display the message in [[file:~/workspace/MyFirstApp/src/com/example/myfirstapp/DisplayMessageActivity.java][DisplayMessageActivity.java]]
                Place after the code from the previous step
                #+BEGIN_SRC java
-               // Create the text view
-               TextView textView = new TextView(this);
-               textView.setTextSize(40);
-               textView.setText(message);
+                 // Create the text view
+                 TextView textView = new TextView(this);
+                 textView.setTextSize(40);
+                 textView.setText(message);
+               #+END_SRC
+            4. [X] Change the argument for setContentView method to "textView"
+               #+BEGIN_SRC java
+                 // Set the text view as the activity layout
+                 setContentView(textView);
                #+END_SRC
          5. [ ] Run the app!
             import android.annotation.TargetApi;
             import android.widget.TextView;
+   2. [ ] Adding the Action Bar
+   3. [ ] Supporting Different Devices
+   4. [ ] Managing the Activity Lifestyle
+   5. [ ] Building a Dynamic UI with Fragments
+   6. [ ] Saving Data
+   7. [ ]
