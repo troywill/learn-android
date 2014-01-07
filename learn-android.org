@@ -1,6 +1,6 @@
 * Getting Started
 1. [-] [[http://developer.android.com/training/index.html][Getting Started]]
-   1. [-] [[http://developer.android.com/training/basics/firstapp/index.html][Building Your First App]]
+   1. [X] [[http://developer.android.com/training/basics/firstapp/index.html][Building Your First App]]
       1. [X] Creating an Android Project with Eclipse
          Use [[http://en.wikipedia.org/wiki/Eclipse_(software)][Eclipse]] and Android Development Tools (ADT)
          1. [X] Start Eclipse
@@ -22,9 +22,9 @@
          | strings.xml         | file:~/workspace/MyFirstApp/res/values/strings.xml                       |
          | MainActivity.java   | [[file:~/workspace/MyFirstApp/src/com/example/myfirstapp/MainActivity.java]] |
          | AndroidManifest.xml | file:~/workspace/MyFirstApp/AndroidManifest.xml                          |
-      3. [ ] Running Your Application
-         1. [ ] [[http://developer.android.com/training/basics/firstapp/running-app.html][Run the app on an emulator]]
-         2. [ ] Install My First App
+      3. [X] Running Your Application
+         1. [X] [[http://developer.android.com/training/basics/firstapp/running-app.html][Run the app on an emulator]]
+         2. [X] Install My First App
             #+BEGIN_SRC sh :tangle tools/install-app-with-adb.sh :shebang #!/bin/bash
               # -d directs command to the only connected USB device
               #           returns an error if more than one USB device is present.
@@ -33,7 +33,7 @@
               adb -d install ~/workspace/MyFirstApp/bin/MyFirstApp.apk
               adb -e install ~/workspace/MyFirstApp/bin/MyFirstApp.apk
             #+END_SRC
-         3. [ ] Uninstall My First App
+         3. [X] Uninstall My First App
             #+BEGIN_SRC sh :tangle tools/uninstall-app-with-adb.sh :shebang #!/bin/bash
               # -d directs command to the only connected USB device
               #           returns an error if more than one USB device is present.
@@ -101,7 +101,7 @@
                   android:layout_width="0dp"
                   ... />
             #+END_SRC
-      5. [-] Starting [[http://developer.android.com/training/basics/firstapp/starting-activity.html][Another Activity]]
+      5. [X] Starting [[http://developer.android.com/training/basics/firstapp/starting-activity.html][Another Activity]]
          1. [X] [[http://developer.android.com/training/basics/firstapp/starting-activity.html#RespondToButton][Respond to the Send Button]]
             1. [X] add the android:onClick attribute to the <Button> element in [[file:~/workspace/MyFirstApp/res/layout/activity_main.xml][activity_main.xml]]
               #+BEGIN_SRC xml
@@ -121,12 +121,12 @@
                Note: Can place directly below ... extends Activity { 
             3. [X] import android.view.View; in [[file:~/workspace/MyFirstApp/src/com/example/myfirstapp/MainActivity.java][MainActivity.java]]
             4. [X] Run on an emulator
-         2. [-] [[http://developer.android.com/training/basics/firstapp/starting-activity.html#BuildIntent][Build An Intent]]
+         2. [X] [[http://developer.android.com/training/basics/firstapp/starting-activity.html#BuildIntent][Build An Intent]]
             1. [X] Create an [[http://developer.android.com/reference/android/content/Intent.html][Intent]] inside the sendMessage() method in [[file:~/workspace/MyFirstApp/src/com/example/myfirstapp/MainActivity.java][MainActivity.java]]
                #+BEGIN_SRC java
                  Intent intent = new Intent(this, DisplayMessageActivity.class);
                #+END_SRC
-            2. [ ] use findViewById() to get the EditText element and add its text value to the intent in [[file:~/workspace/MyFirstApp/src/com/example/myfirstapp/MainActivity.java][MainActivity.java]]
+            2. [X] use findViewById() to get the EditText element and add its text value to the intent in [[file:~/workspace/MyFirstApp/src/com/example/myfirstapp/MainActivity.java][MainActivity.java]]
                #+BEGIN_SRC java
                  /** Called when the user clicks the Send button */
                  public void sendMessage(View view) {
@@ -199,7 +199,7 @@
                  // Set the text view as the activity layout
                  setContentView(textView);
                #+END_SRC
-         5. [ ] Run the app!
+         5. [X] Run the app!
             import android.annotation.TargetApi;
             import android.widget.TextView;
    2. [ ] Adding the Action Bar
@@ -207,4 +207,6 @@
    4. [ ] Managing the Activity Lifestyle
    5. [ ] Building a Dynamic UI with Fragments
    6. [ ] Saving Data
-   7. [ ]
+   7. [ ] Interacting with Other Apps
+
+* GPS example
