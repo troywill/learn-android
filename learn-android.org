@@ -1,212 +1,535 @@
-* Getting Started
-1. [-] [[http://developer.android.com/training/index.html][Getting Started]]
-   1. [X] [[http://developer.android.com/training/basics/firstapp/index.html][Building Your First App]]
-      1. [X] Creating an Android Project with Eclipse
-         Use [[http://en.wikipedia.org/wiki/Eclipse_(software)][Eclipse]] and Android Development Tools (ADT)
-         1. [X] Start Eclipse
-            Error Loading DDMS Preferences
-              Add "android" binary to path
-            #+BEGIN_SRC sh
-              cd ~/Development/adt-bundle-linux-x86-20131030/eclipse
-              ./eclipse &
-            #+END_SRC
-         2. [X] File -> New -> Android Project
-            1. [X] Application = My First App
-            2. [X] Minimum Required SDK, Target SDK, Compile With = API 19: Android 4.4 (KitKat)
-            3. [X] Theme = Holo Light with Dark Action Bar
-            4. [X] Next, Next, Next, Finish
-      2. [X] Inspect files
-         | File                | Path                                                                     |
-         |---------------------+--------------------------------------------------------------------------|
-         | activity_main.xml   | file:~/workspace/MyFirstApp/res/layout/activity_main.xml                 |
-         | strings.xml         | file:~/workspace/MyFirstApp/res/values/strings.xml                       |
-         | MainActivity.java   | [[file:~/workspace/MyFirstApp/src/com/example/myfirstapp/MainActivity.java]] |
-         | AndroidManifest.xml | file:~/workspace/MyFirstApp/AndroidManifest.xml                          |
-      3. [X] Running Your Application
-         1. [X] [[http://developer.android.com/training/basics/firstapp/running-app.html][Run the app on an emulator]]
-         2. [X] Install My First App
-            #+BEGIN_SRC sh :tangle tools/install-app-with-adb.sh :shebang #!/bin/bash
-              # -d directs command to the only connected USB device
-              #           returns an error if more than one USB device is present.
-              # -e directs command to the only running emulator.
-        
-              adb -d install ~/workspace/MyFirstApp/bin/MyFirstApp.apk
-              adb -e install ~/workspace/MyFirstApp/bin/MyFirstApp.apk
-            #+END_SRC
-         3. [X] Uninstall My First App
-            #+BEGIN_SRC sh :tangle tools/uninstall-app-with-adb.sh :shebang #!/bin/bash
-              # -d directs command to the only connected USB device
-              #           returns an error if more than one USB device is present.
-              # -e directs command to the only running emulator.
-        
-              adb -d uninstall com.example.myfirstapp
-              adb -e uninstall com.example.myfirstapp
-            #+END_SRC
-      4. [X] Building a Simple User Interface
-         1. [X] [[http://developer.android.com/training/basics/firstapp/building-ui.html#LinearLayout][Create a Linear Layout]] in [[file:~/workspace/MyFirstApp/res/layout/activity_main.xml][activity_main.xml]]
-            1. [X] Delete the <TextView>
-            2. [X] Change the <RelativeLayout> element to <LinearLayout>
-            3. [X] Add the android:orientation attribute and set it to "horizontal"
-                  #+BEGIN_SRC xml
-                    <!-- 2013-01-06 -->
-                    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                                  xmlns:tools="http://schemas.android.com/tools"
-                                  android:layout_width="match_parent"
-                                  android:layout_height="match_parent"
-                                  android:orientation="horizontal"
-                                  android:paddingBottom="@dimen/activity_vertical_margin"
-                                  android:paddingLeft="@dimen/activity_horizontal_margin"
-                                  android:paddingRight="@dimen/activity_horizontal_margin"
-                                  android:paddingTop="@dimen/activity_vertical_margin"
-                                  tools:context=".MainActivity" >
-                    </LinearLayout>
-                  #+END_SRC
-         2. [X] [[http://developer.android.com/training/basics/firstapp/building-ui.html#TextInput][Add a Text Field]] in [[file:~/workspace/MyFirstApp/res/layout/activity_main.xml][activity_main.xml]]
-               declare it inside the <LinearLayout> element by placing
-               following code just before the </LinearLayout> closing tag:
+* [[http://developer.android.com/training/index.html][Getting Started]]
+1. [-] [[http://developer.android.com/training/basics/firstapp/index.html][Building Your First App]]
+   1. [X] Creating an Android Project with Eclipse
+      Use [[http://en.wikipedia.org/wiki/Eclipse_(software)][Eclipse]] and Android Development Tools (ADT)
+      1. [X] Start Eclipse
+         #+BEGIN_SRC sh
+           cd ~/Development/adt-bundle-linux-x86-20131030/eclipse
+           ./eclipse &
+         #+END_SRC
+         Error Loading DDMS Preferences
+      2. [X] File -> New -> Android Application Project
+         1. [X] Application = My First App
+         2. [X] Minimum Required SDK, Target SDK, Compile With = API 19: Android 4.4 (KitKat)
+         3. [X] Theme = Holo Light with Dark Action Bar
+         4. [X] Next, Next, Next, Finish
+   2. [X] Inspect files
+      | File                | Path                                                                     |
+      |---------------------+--------------------------------------------------------------------------|
+      | activity_main.xml   | file:~/workspace/MyFirstApp/res/layout/activity_main.xml                 |
+      | strings.xml         | file:~/workspace/MyFirstApp/res/values/strings.xml                       |
+      | MainActivity.java   | [[file:~/workspace/MyFirstApp/src/com/example/myfirstapp/MainActivity.java]] |
+      | AndroidManifest.xml | file:~/workspace/MyFirstApp/AndroidManifest.xml                          |
+   3. [ ] Run your ppplication on a physical device
+      1. [ ] [[http://developer.android.com/training/basics/firstapp/running-app.html][Run the app on an emulator]]
+      2. [ ] Install My First App
+         #+BEGIN_SRC sh :tangle tools/install-app-with-adb.sh :shebang #!/bin/bash
+           # -d directs command to the only connected USB device
+           #           returns an error if more than one USB device is present.
+           # -e directs command to the only running emulator.
+     
+           adb -d install ~/workspace/MyFirstApp/bin/MyFirstApp.apk
+           adb -e install ~/workspace/MyFirstApp/bin/MyFirstApp.apk
+         #+END_SRC
+      3. [ ] Uninstall My First App
+         #+BEGIN_SRC sh :tangle tools/uninstall-app-with-adb.sh :shebang #!/bin/bash
+           # -d directs command to the only connected USB device
+           #           returns an error if more than one USB device is present.
+           # -e directs command to the only running emulator.
+     
+           adb -d uninstall com.example.myfirstapp
+           adb -e uninstall com.example.myfirstapp
+         #+END_SRC
+   4. [ ] Building a Simple User Interface
+      1. [ ] [[http://developer.android.com/training/basics/firstapp/building-ui.html#LinearLayout][Create a Linear Layout]] in [[file:~/workspace/MyFirstApp/res/layout/activity_main.xml][activity_main.xml]]
+         1. [ ] Delete the <TextView>
+         2. [ ] Change the <RelativeLayout> element to <LinearLayout>
+         3. [ ] Add the android:orientation attribute and set it to "horizontal"
                #+BEGIN_SRC xml
-                 <!-- 2013-12-31 -->
-                 <!-- http://developer.android.com/training/basics/firstapp/building-ui.html#TextInput -->
-                 
-                 <EditText android:id="@+id/edit_message"
-                           android:layout_width="wrap_content"
-                           android:layout_height="wrap_content"
-                           android:hint="@string/edit_message" />
+                 <!-- 2013-01-06 -->
+                 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                               xmlns:tools="http://schemas.android.com/tools"
+                               android:layout_width="match_parent"
+                               android:layout_height="match_parent"
+                               android:orientation="horizontal"
+                               android:paddingBottom="@dimen/activity_vertical_margin"
+                               android:paddingLeft="@dimen/activity_horizontal_margin"
+                               android:paddingRight="@dimen/activity_horizontal_margin"
+                               android:paddingTop="@dimen/activity_vertical_margin"
+                               tools:context=".MainActivity" >
+                 </LinearLayout>
                #+END_SRC
-         3. [X] [[http://developer.android.com/training/basics/firstapp/building-ui.html#Strings][Add String Resources]] to [[file:~/workspace/MyFirstApp/res/values/strings.xml][strings.xml]]
-               "edit_message" and "button_send"
-               #+BEGIN_SRC xml
-                 <?xml version="1.0" encoding="utf-8"?>
-                 <resources>
-                     <string name="app_name">My First App</string>
-                     <string name="edit_message">Enter a message</string>
-                     <string name="button_send">Send</string>
-                     <string name="action_settings">Settings</string>
-                     <string name="title_activity_main">MainActivity</string>
-                 </resources>
-               #+END_SRC
-         4. [X] [[http://developer.android.com/training/basics/firstapp/building-ui.html#Button][Add a Button]] to [[file:~/workspace/MyFirstApp/res/layout/activity_main.xml][activity_main.xml]] following the
-            <EditText> element
-            Place below the "<EditText ... />" tag
+      2. [ ] [[http://developer.android.com/training/basics/firstapp/building-ui.html#TextInput][Add a Text Field]] in [[file:~/workspace/MyFirstApp/res/layout/activity_main.xml][activity_main.xml]]
+            declare it inside the <LinearLayout> element by placing
+            following code just before the </LinearLayout> closing tag:
             #+BEGIN_SRC xml
-              <Button
-                  android:layout_width="wrap_content"
-                  android:layout_height="wrap_content"
-                  android:text="@string/button_send" />
+              <!-- 2013-12-31 -->
+              <!-- http://developer.android.com/training/basics/firstapp/building-ui.html#TextInput -->
+              
+              <EditText android:id="@+id/edit_message"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/edit_message" />
             #+END_SRC
-         5. [X] Make the [[http://developer.android.com/training/basics/firstapp/building-ui.html#Weight][Input Box Fill in the Screen Width]] in [[file:~/workspace/MyFirstApp/res/layout/activity_main.xml][activity_main.xml]]
+      3. [ ] [[http://developer.android.com/training/basics/firstapp/building-ui.html#Strings][Add String Resources]] to [[file:~/workspace/MyFirstApp/res/values/strings.xml][strings.xml]]
+            "edit_message" and "button_send"
             #+BEGIN_SRC xml
-              <EditText
-                  android:layout_weight="1"
-                  android:layout_width="0dp"
-                  ... />
+              <?xml version="1.0" encoding="utf-8"?>
+              <resources>
+                  <string name="app_name">My First App</string>
+                  <string name="edit_message">Enter a message</string>
+                  <string name="button_send">Send</string>
+                  <string name="action_settings">Settings</string>
+                  <string name="title_activity_main">MainActivity</string>
+              </resources>
             #+END_SRC
-      5. [X] Starting [[http://developer.android.com/training/basics/firstapp/starting-activity.html][Another Activity]]
-         1. [X] [[http://developer.android.com/training/basics/firstapp/starting-activity.html#RespondToButton][Respond to the Send Button]]
-            1. [X] add the android:onClick attribute to the <Button> element in [[file:~/workspace/MyFirstApp/res/layout/activity_main.xml][activity_main.xml]]
-              #+BEGIN_SRC xml
-                <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/button_send"
-                    android:onClick="sendMessage" />
-              #+END_SRC
-            2. [X] Add the corresponding sendMessage method to [[file:~/workspace/MyFirstApp/src/com/example/myfirstapp/MainActivity.java][MainActivity.java]]
-               #+BEGIN_SRC java
-                 /** Called when the user clicks the Send button */
-                 public void sendMessage(View view) {
-                     // Do something in response to button
-                 }
-               #+END_SRC
-               Note: Can place directly below ... extends Activity { 
-            3. [X] import android.view.View; in [[file:~/workspace/MyFirstApp/src/com/example/myfirstapp/MainActivity.java][MainActivity.java]]
-            4. [X] Run on an emulator
-         2. [X] [[http://developer.android.com/training/basics/firstapp/starting-activity.html#BuildIntent][Build An Intent]]
-            1. [X] Create an [[http://developer.android.com/reference/android/content/Intent.html][Intent]] inside the sendMessage() method in [[file:~/workspace/MyFirstApp/src/com/example/myfirstapp/MainActivity.java][MainActivity.java]]
+      4. [ ] [[http://developer.android.com/training/basics/firstapp/building-ui.html#Button][Add a Button]] to [[file:~/workspace/MyFirstApp/res/layout/activity_main.xml][activity_main.xml]] following the
+         <EditText> element
+         Place below the "<EditText ... />" tag
+         #+BEGIN_SRC xml
+           <Button
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:text="@string/button_send" />
+         #+END_SRC
+      5. [ ] Make the [[http://developer.android.com/training/basics/firstapp/building-ui.html#Weight][Input Box Fill in the Screen Width]] in [[file:~/workspace/MyFirstApp/res/layout/activity_main.xml][activity_main.xml]]
+         #+BEGIN_SRC xml
+           <EditText
+               android:layout_weight="1"
+               android:layout_width="0dp"
+               ... />
+         #+END_SRC
+   5. [ ] Starting [[http://developer.android.com/training/basics/firstapp/starting-activity.html][Another Activity]]
+      1. [ ] [[http://developer.android.com/training/basics/firstapp/starting-activity.html#RespondToButton][Respond to the Send Button]]
+         1. [ ] add the android:onClick attribute to the <Button> element in [[file:~/workspace/MyFirstApp/res/layout/activity_main.xml][activity_main.xml]]
+           #+BEGIN_SRC xml
+             <Button
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:text="@string/button_send"
+                 android:onClick="sendMessage" />
+           #+END_SRC
+         2. [ ] Add the corresponding sendMessage method to [[file:~/workspace/MyFirstApp/src/com/example/myfirstapp/MainActivity.java][MainActivity.java]]
+            #+BEGIN_SRC java
+              /** Called when the user clicks the Send button */
+              public void sendMessage(View view) {
+                  // Do something in response to button
+              }
+            #+END_SRC
+            Note: Can place directly below ... extends Activity { 
+         3. [ ] import android.view.View; in [[file:~/workspace/MyFirstApp/src/com/example/myfirstapp/MainActivity.java][MainActivity.java]]
+         4. [ ] Run on an emulator
+      2. [ ] [[http://developer.android.com/training/basics/firstapp/starting-activity.html#BuildIntent][Build An Intent]]
+         1. [ ] Create an [[http://developer.android.com/reference/android/content/Intent.html][Intent]]
+            1. inside the sendMessage() method in [[file:~/workspace/MyFirstApp/src/com/example/myfirstapp/MainActivity.java][MainActivity.java]]
                #+BEGIN_SRC java
                  Intent intent = new Intent(this, DisplayMessageActivity.class);
                #+END_SRC
-            2. [X] use findViewById() to get the EditText element and add its text value to the intent in [[file:~/workspace/MyFirstApp/src/com/example/myfirstapp/MainActivity.java][MainActivity.java]]
-               #+BEGIN_SRC java
-                 /** Called when the user clicks the Send button */
-                 public void sendMessage(View view) {
-                     // Do something in response to button
-                     Intent intent = new Intent(this, DisplayMessageActivity.class);
-                     EditText editText = (EditText) findViewById(R.id.edit_message);
-                     String message = editText.getText().toString();
-                     intent.putExtra(EXTRA_MESSAGE, message);
-                     startActivity(intent);
-                 }
-               #+END_SRC
-            3. [X] Add import statement to [[file:~/workspace/MyFirstApp/src/com/example/myfirstapp/MainActivity.java][MainActivity.java]]
-               #+BEGIN_SRC java
-                 import android.content.Intent;
-                 import android.widget.EditText;
-               #+END_SRC
-            4. [X] Define the key for the intent's extra using a public constant in [[file:~/workspace/MyFirstApp/src/com/example/myfirstapp/MainActivity.java][MainActivity.java]]
-               #+BEGIN_SRC java
-                 public class MainActivity extends Activity {
-                     public final static String EXTRA_MESSAGE = "com.example.myfirstapp.MESSAGE";
-                     ...
-                 }
-               #+END_SRC
-         3. [X] Create [[http://developer.android.com/training/basics/firstapp/starting-activity.html#CreateActivity][the Second Activity]]
-            1. [X] File -> New -> Other -> Android -> Android Activity
-               -> Next -> Android Blank Activity
-               1. [X] Project :: MyFirstApp
-               2. [X] Activity Name :: DisplayMessageActivity
-               3. [X] Layout Name :: activity_display_message
-               4. [X] Title :: My Message
-               5. [X] Hierarchial Parent :: com.example.myfirstapp.MainActivity
-               6. [X] Navigation Type :: None
-               7. [X] Finish
-            2. [X] Open [[file:~/workspace/MyFirstApp/src/com/example/myfirstapp/DisplayMessageActivity.java][DisplayMessageActivity.java]]
-            3. [X] Remove onCreateOptionsMenu method per web page instruction
-            4. [X] @SuppressLint("NewApi") in [[file:~/workspace/MyFirstApp/src/com/example/myfirstapp/DisplayMessageActivity.java][DisplayMessageActivity.java]]
-               #+BEGIN_SRC java
-                 public class DisplayMessageActivity extends Activity {
-                 
-                     @SuppressLint("NewApi")
-                     @Override
-                     ...
-               #+END_SRC
-            5. [X] import android.annotation.SuppressLint; or else an error results
-            6. [X] Add the title string to [[file:~/workspace/MyFirstApp/res/values/strings.xml][strings.xml]] if not using Eclipse
-               #+BEGIN_SRC xml
-                  <string name="title_activity_display_message">My Message</string>
-               #+END_SRC
-               1. Note: This string was added by Eclipse
-            7. [X] Add it to the manifest file < [[file:~/workspace/MyFirstApp/AndroidManifest.xml][AndroidManifest.xml]] > if not using Eclipse
-               1. Note: This is done automatically if Eclipse
-         4. [X] [[http://developer.android.com/training/basics/firstapp/starting-activity.html#ReceiveIntent][Receive the Intent]]
-            1. [X] Place following code after "super.onCreate(savedInstanceState);" in onCreate method in [[file:~/workspace/MyFirstApp/src/com/example/myfirstapp/DisplayMessageActivity.java][DisplayMessageActivity.java]]
-               #+BEGIN_SRC java
-                 // Get the message from the intent
-                 Intent intent = getIntent();
-                 String message = intent.getStringExtra(MainActivity.EXTRA_MESSAGE);
-               #+END_SRC
-            2. [X] add "Import intent" statement
-            3. [X] Display the message in [[file:~/workspace/MyFirstApp/src/com/example/myfirstapp/DisplayMessageActivity.java][DisplayMessageActivity.java]]
-               Place after the code from the previous step
-               #+BEGIN_SRC java
-                 // Create the text view
-                 TextView textView = new TextView(this);
-                 textView.setTextSize(40);
-                 textView.setText(message);
-               #+END_SRC
-            4. [X] Change the argument for setContentView method to "textView"
-               #+BEGIN_SRC java
-                 // Set the text view as the activity layout
-                 setContentView(textView);
-               #+END_SRC
-         5. [X] Run the app!
-            import android.annotation.TargetApi;
-            import android.widget.TextView;
-   2. [ ] Adding the Action Bar
-   3. [ ] Supporting Different Devices
-   4. [ ] Managing the Activity Lifestyle
-   5. [ ] Building a Dynamic UI with Fragments
-   6. [ ] Saving Data
-   7. [ ] Interacting with Other Apps
-
+            2. Note: application is not runnable because
+               DisplayMessageActivity.java doesn't exist
+         2. [ ] use findViewById() to get the EditText element and add
+            its text value to the intent in [[file:~/workspace/MyFirstApp/src/com/example/myfirstapp/MainActivity.java][MainActivity.java]]
+            #+BEGIN_SRC java
+              /** Called when the user clicks the Send button */
+              public void sendMessage(View view) {
+                  // Do something in response to button
+                  Intent intent = new Intent(this, DisplayMessageActivity.class);
+                  EditText editText = (EditText) findViewById(R.id.edit_message);
+                  String message = editText.getText().toString();
+                  intent.putExtra(EXTRA_MESSAGE, message);
+                  startActivity(intent);
+              }
+            #+END_SRC
+         3. [ ] Add import statement to [[file:~/workspace/MyFirstApp/src/com/example/myfirstapp/MainActivity.java][MainActivity.java]]
+            #+BEGIN_SRC java
+              import android.content.Intent;
+              import android.widget.EditText;
+            #+END_SRC
+         4. [ ] Define the key for the intent's extra using a public constant in [[file:~/workspace/MyFirstApp/src/com/example/myfirstapp/MainActivity.java][MainActivity.java]]
+            #+BEGIN_SRC java
+              public class MainActivity extends Activity {
+                  public final static String EXTRA_MESSAGE = "com.example.myfirstapp.MESSAGE";
+                  ...
+              }
+            #+END_SRC
+      3. [ ] Create [[http://developer.android.com/training/basics/firstapp/starting-activity.html#CreateActivity][the Second Activity]]
+         1. [ ] File -> New -> Other -> Android -> Android Activity
+            -> Next -> Blank Activity
+            1. [ ] Project :: MyFirstApp
+            2. [ ] Activity Name :: DisplayMessageActivity
+            3. [ ] Layout Name :: activity_display_message
+            4. [ ] Title :: My Message
+            5. [ ] Hierarchial Parent :: com.example.myfirstapp.MainActivity
+            6. [ ] Navigation Type :: None
+            7. [ ] Finish
+         2. [ ] Open [[file:~/workspace/MyFirstApp/src/com/example/myfirstapp/DisplayMessageActivity.java][DisplayMessageActivity.java]]
+         3. [ ] Remove onCreateOptionsMenu method per web page instruction
+         4. [ ] @SuppressLint("NewApi") in [[file:~/workspace/MyFirstApp/src/com/example/myfirstapp/DisplayMessageActivity.java][DisplayMessageActivity.java]]
+            #+BEGIN_SRC java
+              public class DisplayMessageActivity extends Activity {
+              
+                  @SuppressLint("NewApi")
+                  @Override
+                  ...
+            #+END_SRC
+         5. [ ] import android.annotation.SuppressLint; or else an error results
+         6. [ ] Add the title string to [[file:~/workspace/MyFirstApp/res/values/strings.xml][strings.xml]] if not using Eclipse
+            #+BEGIN_SRC xml
+               <string name="title_activity_display_message">My Message</string>
+            #+END_SRC
+            1. Note: This string was added by Eclipse
+         7. [ ] Add it to the manifest file < [[file:~/workspace/MyFirstApp/AndroidManifest.xml][AndroidManifest.xml]] > if not using Eclipse
+            1. Note: This is done automatically if Eclipse
+      4. [ ] [[http://developer.android.com/training/basics/firstapp/starting-activity.html#ReceiveIntent][Receive the Intent]]
+         1. [ ] Place following code after "super.onCreate(savedInstanceState);" in onCreate method in [[file:~/workspace/MyFirstApp/src/com/example/myfirstapp/DisplayMessageActivity.java][DisplayMessageActivity.java]]
+            #+BEGIN_SRC java
+              // Get the message from the intent
+              Intent intent = getIntent();
+              String message = intent.getStringExtra(MainActivity.EXTRA_MESSAGE);
+            #+END_SRC
+         2. [ ] add "Import intent" statement
+         3. [ ] Display the message in [[file:~/workspace/MyFirstApp/src/com/example/myfirstapp/DisplayMessageActivity.java][DisplayMessageActivity.java]]
+            Place below the "String message = intent.getStringExtra(MainActivity.EXTRA_MESSAGE);"
+            #+BEGIN_SRC java
+              // Create the text view
+              TextView textView = new TextView(this);
+              textView.setTextSize(40);
+              textView.setText(message);
+            #+END_SRC
+         4. [ ] Change the argument for setContentView method to
+            "textView" in [[file:~/workspace/MyFirstApp/src/com/example/myfirstapp/DisplayMessageActivity.java][DisplayMessageActivity.java]]
+            #+BEGIN_SRC java
+              // Set the text view as the activity layout
+              setContentView(textView);
+            #+END_SRC
+      5. [ ] Run the app!
+         import android.annotation.TargetApi;
+         import android.widget.TextView;
+2. [ ] [[http://developer.android.com/training/basics/actionbar/index.html][Adding the Action Bar]]
+   1. [ ] [[http://developer.android.com/training/basics/actionbar/setting-up.html][Setting Up the Action Bar]]
+   2. [ ] [[http://developer.android.com/training/basics/actionbar/adding-buttons.html][Adding Action Buttons]]
+      1. [ ] [[http://developer.android.com/training/basics/actionbar/adding-buttons.html#XML][Specify the Actions in XML]]
+         1. [ ] Create an XML file at
+            res/menu/main_activity_actions.xml
+            #+BEGIN_SRC xml
+              <menu xmlns:android="http://schemas.android.com/apk/res/android" >
+                  <!-- Search, should appear as action button -->
+                  <item android:id="@+id/action_search"
+                        android:icon="@drawable/ic_action_search"
+                        android:title="@string/action_search"
+                        android:showAsAction="ifRoom" />
+                  <!-- Settings, should always be in the overflow -->
+                  <item android:id="@+id/action_settings"
+                        android:title="@string/action_settings"
+                        android:showAsAction="never" />
+              </menu>         
+            #+END_SRC
+         2. [ ] cp to res/drawable/
+            #+BEGIN_SRC sh
+              cp -riv * ~/workspace/MyFirstApp/res/
+            #+END_SRC
+         3. [ ] error: Error: No resource found that matches the given
+            name (at 'title' with value '@string/action_search').
+            file:strings.xml
+            #+BEGIN_SRC sh
+              <string name="action_search">Search</string>
+            #+END_SRC
+      2. [ ] 
+      3. [ ] 
+      4. [ ] 
+3. [ ] [[http://developer.android.com/training/basics/supporting-devices/index.html][Supporting Different Devices]]
+4. [ ] [[http://developer.android.com/training/basics/activity-lifecycle/index.html][Managing the Activity Lifestyle]]
+   1. [ ] 
+5. [ ] [[http://developer.android.com/training/basics/fragments/index.html][Building a Dynamic UI with Fragments]]
+   1. [ ] Import FragmentBasics
+      1. [ ] File->Import->Android->Existing Android Code Into Workspace
+      2. [ ] Copy projects into worspace
+      3. [ ] New Project Name = Fragment Basics
+6. [ ] Saving Data
+7. [ ] Interacting with Other Apps
 * GPS example
+1. [ ] [[http://developer.android.com/training/location/index.html][Making Your App Location-Aware]]
+   1. [ ] [[http://developer.android.com/training/location/retrieve-current.html][Retrieving the Current Location]]
+      1. [ ] [[http://developer.android.com/training/location/retrieve-current.html#AppPermissions][Specify App Permissions]]
+         #+BEGIN_SRC xml
+           <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+         #+END_SRC
+      2. [ ] Check for Google Play services
+         #+BEGIN_SRC java :tangle /tmp/DefineLocationServicesCallback.java :padline no
+           public class MainActivity extends FragmentActivity implements
+                   GooglePlayServicesClient.ConnectionCallbacks,
+                   GooglePlayServicesClient.OnConnectionFailedListener {
+               ...
+               /*
+                ,* Called by Location Services when the request to connect the
+                ,* client finishes successfully. At this point, you can
+                ,* request the current location or start periodic updates
+                ,*/
+               @Override
+               public void onConnected(Bundle dataBundle) {
+                   // Display the connection status
+                   Toast.makeText(this, "Connected", Toast.LENGTH_SHORT).show();
+           
+               }
+               ...
+               /*
+                ,* Called by Location Services if the connection to the
+                ,* location client drops because of an error.
+                ,*/
+               @Override
+               public void onDisconnected() {
+                   // Display the connection status
+                   Toast.makeText(this, "Disconnected. Please re-connect.",
+                           Toast.LENGTH_SHORT).show();
+               }
+               ...
+               /*
+                ,* Called by Location Services if the attempt to
+                ,* Location Services fails.
+                ,*/
+               @Override
+               public void onConnectionFailed(ConnectionResult connectionResult) {
+                   /*
+                    ,* Google Play services can resolve some errors it detects.
+                    ,* If the error has a resolution, try sending an Intent to
+                    ,* start a Google Play services activity that can resolve
+                    ,* error.
+                    ,*/
+                   if (connectionResult.hasResolution()) {
+                       try {
+                           // Start an Activity that tries to resolve the error
+                           connectionResult.startResolutionForResult(
+                                   this,
+                                   CONNECTION_FAILURE_RESOLUTION_REQUEST);
+                           /*
+                            ,* Thrown if Google Play services canceled the original
+                            ,* PendingIntent
+                            ,*/
+                       } catch (IntentSender.SendIntentException e) {
+                           // Log the error
+                           e.printStackTrace();
+                       }
+                   } else {
+                       /*
+                        ,* If no resolution is available, display a dialog to the
+                        ,* user with the error.
+                        ,*/
+                       showErrorDialog(connectionResult.getErrorCode());
+                   }
+               }
+               ...
+           }         
+         #+END_SRC
+      3. [ ] [[http://developer.android.com/training/location/retrieve-current.html#DefineCallbacks][Define Location Services Callbacks]]
+      4. [ ] [[http://developer.android.com/training/location/retrieve-current.html#ConnectClient][Connect the Location Client]]
+         1. [ ] 
+            #+BEGIN_SRC java
+              public class MainActivity extends FragmentActivity implements
+                      GooglePlayServicesClient.ConnectionCallbacks,
+                      GooglePlayServicesClient.OnConnectionFailedListener {
+                  ...
+                  @Override
+                  protected void onCreate(Bundle savedInstanceState) {
+                      ...
+                      /*
+                       ,* Create a new location client, using the enclosing class to
+                       ,* handle callbacks.
+                       ,*/
+                      mLocationClient = new LocationClient(this, this, this);
+                      ...
+                  }
+                  ...
+                  /*
+                   ,* Called when the Activity becomes visible.
+                   ,*/
+                  @Override
+                  protected void onStart() {
+                      super.onStart();
+                      // Connect the client.
+                      mLocationClient.connect();
+                  }
+                  ...
+                  /*
+                   ,* Called when the Activity is no longer visible.
+                   ,*/
+                  @Override
+                  protected void onStop() {
+                      // Disconnecting the client invalidates it.
+                      mLocationClient.disconnect();
+                      super.onStop();
+                  }
+                  ...
+            #+END_SRC
+   2. [ ] [[http://developer.android.com/training/location/receive-location-updates.html][Receiving Location Updates]]
+      1. [ ] 
+      2. [ ] 
+      3. [ ] 
+      4. [ ] 
+      5. [ ] 
+      6. [ ] [[http://developer.android.com/training/location/receive-location-updates.html#StartUpdates][Start Location Updates]]
+         #+BEGIN_SRC java
+           public class MainActivity extends FragmentActivity implements
+                   GooglePlayServicesClient.ConnectionCallbacks,
+                   GooglePlayServicesClient.OnConnectionFailedListener,
+                   LocationListener {
+               ...
+               // Global variables
+               ...
+               LocationClient mLocationClient;
+               boolean mUpdatesRequested;
+               ...
+               @Override
+               protected void onCreate(Bundle savedInstanceState) {
+                   ...
+                   // Open the shared preferences
+                   mPrefs = getSharedPreferences("SharedPreferences",
+                           Context.MODE_PRIVATE);
+                   // Get a SharedPreferences editor
+                   mEditor = mPrefs.edit();
+                   /*
+                    ,* Create a new location client, using the enclosing class to
+                    ,* handle callbacks.
+                    ,*/
+                   mLocationClient = new LocationClient(this, this, this);
+                   // Start with updates turned off
+                   mUpdatesRequested = false;
+                   ...
+               }
+               ...
+               @Override
+               protected void onPause() {
+                   // Save the current setting for updates
+                   mEditor.putBoolean("KEY_UPDATES_ON", mUpdatesRequested);
+                   mEditor.commit();
+                   super.onPause();
+               }
+               ...
+               @Override
+               protected void onStart() {
+                   ...
+                   mLocationClient.connect();
+               }
+               ...
+               @Override
+               protected void onResume() {
+                   /*
+                    ,* Get any previous setting for location updates
+                    ,* Gets "false" if an error occurs
+                    ,*/
+                   if (mPrefs.contains("KEY_UPDATES_ON")) {
+                       mUpdatesRequested =
+                               mPrefs.getBoolean("KEY_UPDATES_ON", false);
+           
+                   // Otherwise, turn off location updates
+                   } else {
+                       mEditor.putBoolean("KEY_UPDATES_ON", false);
+                       mEditor.commit();
+                   }
+               }
+               ...
+               /*
+                ,* Called by Location Services when the request to connect the
+                ,* client finishes successfully. At this point, you can
+                ,* request the current location or start periodic updates
+                ,*/
+               @Override
+               public void onConnected(Bundle dataBundle) {
+                   // Display the connection status
+                   Toast.makeText(this, "Connected", Toast.LENGTH_SHORT).show();
+                   // If already requested, start periodic updates
+                   if (mUpdatesRequested) {
+                       mLocationClient.requestLocationUpdates(mLocationRequest, this);
+                   }
+               }
+               ...
+           }           
+         #+END_SRC
+* Let's Run Google's Location Updates Example
+  1. [X] Download and Import
+     + File is LocationUpdates.zip
+     + Download from http://developer.android.com/training/location/retrieve-current.html
+     + e3c28cbea2dbcc26f4a31489dbb5c187  LocationUpdates.zip
+     + Unzip
+     + Import -> Android -> Existing Android Code Into Workspace
+     + New Project Name -> LocationUpdates
+  2. [X] Fix "The import com.google.android.gms cannot be resolved"
+     Error appears in MainActivity.java
+     1. [X] Import google-play-services_lib into workspace
+	1. [X] download the Google Play services SDK from the SDK Manager
+           + ~/Development/adt-bundle-linux-x86-20131030/sdk/extras/google/google_play_services/libproject
+        2. [X] import the library project into your workspace.
+	   1. [X] Click File > Import, select Android > Existing Android Code into Workspace,
+	      + Select ~/Development/adt-bundle-linux-x86-20131030/sdk/extras/google/google_play_services/libproject/google-play-services_lib
+	3. [X] Right Click -> Properties -> Android -> Library -> Add -> google-play-services_lib
+	   1. Note: "Open Project" on google-play-services_lib
+	   2. Note: I had to restart Eclipse
+  3. [-] Fix "import android.support.v4.app.DialogFragment;"
+     1. [-] Import
+        1. [X] Skim http://developer.android.com/tools/support-library/setup.html
+        2. [X] Skim http://developer.android.com/tools/support-library/setup.html#add-library
+        3. [X] Create a libs/ directory in the root of the application project.
+        4. [-] Copy the JAR file from your Android SDK installation
+           directory
+           1. [X] Copy
+              #+BEGIN_SRC sh
+                mkdir libs
+                cd libs
+                cp ~/Development/adt-bundle-linux-x86-20131030/sdk/extras/android/support/v4/android-support-v4.jar .
+              #+END_SRC
+           2. [X] Right click the JAR file and select Build Path > Add
+              to Build Path.
+              1. Note: Highlight project and F5 to make lib dir show up
+              2. Note: The error messages in Eclipse ought to disappear.
+           3. [-] Fix program crashing
+              1. [X] Skim [[http://developer.android.com/tools/index.html][Developer Tools]]
+              2. [X] Skim [[http://developer.android.com/tools/workflow/index.html][Workflow]]
+              3. [ ] Skim [[http://developer.android.com/google/play-services/index.html][Google Play Services]]
+                 1. [ ] Skim [[http://developer.android.com/google/play-services/setup.html][Set Up Google Play Services SDK]]
+                    1. [ ] Skim [[http://developer.android.com/google/play-services/setup.html#Setup][Set Up a Project that Uses Google Play Services]]
+                       1. [ ] Fix play version
+                          Place just before closing </application> tag
+                          in [[file:AndroidManifest.xml][AndroidManifest.xml]]
+                          #+BEGIN_SRC xml
+                            <meta-data android:name="com.google.android.gms.version"
+                                       android:value="@integer/google_play_services_version" />
+                          #+END_SRC
+              4. [ ] Run From Eclipse: Click Window > Open Perspective
+                 > Other... > DDMS.
+              5. [ ] 
+                 #+BEGIN_SRC xml
+                 
+                 #+END_SRC
+* [[http://developer.android.com/google/play-services/setup.html][Set Up Google Play Services SDK in Eclipse]]
+  1. [ ] download the Google Play services SDK from the SDK Manager
+     1. ~/Development/adt-bundle-linux-x86-20131030/sdk/extras/google/google_play_services/libproject
+  2. Install a compatible version of the Google APIs platform.
+  3. Make a copy of the Google Play services library project.
+     #+BEGIN_SRC sh :tangle /tmp/doit.sh
+       LIBRARY=~/Development/adt-bundle-linux-x86-20131030/sdk/extras/google/google_play_services/libproject/google-play-services_lib/
+       cp -a $LIBRARY ~/workspace
+     #+END_SRC
+     
+  
+* HTTP example
+  1. [ ] wget http://developer.android.com/shareables/training/NetworkUsage.zip
+  2. [ ] unzip
+  3. [ ] chmod 0544 NetworkUsage
+  4. [ ] slurp function from NetworkActivity.java
+     #+BEGIN_SRC java
+       // Given a string representation of a URL, sets up a connection and gets
+       // an input stream.
+       private InputStream downloadUrl(String urlString) throws IOException {
+           URL url = new URL(urlString);
+           HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+           conn.setReadTimeout(10000 /* milliseconds */);
+           conn.setConnectTimeout(15000 /* milliseconds */);
+           conn.setRequestMethod("GET");
+           conn.setDoInput(true);
+           // Starts the query
+           conn.connect();
+           InputStream stream = conn.getInputStream();
+           return stream;
+       }
+     #+END_SRC
+     
+  
