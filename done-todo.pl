@@ -4,7 +4,7 @@ use strict;
 
 chomp(my $file = $ARGV[0]);
 my $backup = $file . 'bak';
-my $regexp = '\* TODO';
+my $regexp = '\* DONE';
 my $replacement = '* TODO';
 open(my $oldorg, "<", $file)      # open for update
     or die "Can't open $file for reading: $!";
