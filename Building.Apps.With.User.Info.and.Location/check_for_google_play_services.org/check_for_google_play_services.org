@@ -1,0 +1,51 @@
+* Introduction
+* TODO Build the inital program
+  1. [X] Create New Project => Check Play
+  2. [X] Delete unnecessary stuff in  file:~/workspace/CheckPlay/src/com/example/checkplay/MainActivity.java
+  3. [X] mv fragment_main.xml activity_main.xml
+  4. [X] Run
+* TODO servicesConnected method
+  5. [1/2] Write initial servicesConnected method file:~/workspace/CheckPlay/src/com/example/checkplay/MainActivity.java
+     1. [X] Add servicesConnected method
+	#+BEGIN_SRC java
+          private int servicesConnected() {
+              // Check that Google Play services is available
+              int resultCode =
+                  GooglePlayServicesUtil.isGooglePlayServicesAvailable(this);
+              return resultCode;
+          }
+        #+END_SRC
+     2. [3/5] Set Up a Project that Uses Google Play Services
+	1. [X] Add xml to file:~/workspace/CheckPlay/AndroidManifest.xml
+           following tag as a child of the <application> element:
+           #+BEGIN_SRC xml
+             <meta-data android:name="com.google.android.gms.version"
+                        android:value="@integer/google_play_services_version" />           
+           #+END_SRC
+	2. [X] Reload project
+	3. [X] Add Google Play Services Library
+               Right click, Properties -> Android -> Library -> Add -> ../google-play-services_lib
+	4. [ ] import com.google.android.gms.common.GooglePlayServicesUtil;
+	5. [ ] Run program
+     3. [ ] Run
+* TODO Add varibles
+  6. [ ] Add variable
+  7. [ ] Do check
+  8. [ ] Add id to TextView
+     #+BEGIN_SRC xml
+       android:id="@+id/label_google_play_available"     
+     #+END_SRC
+  9. [ ] Add TextView variable
+     1. [ ] Add code
+	#+BEGIN_SRC java
+          // Handles to UI widgets
+          private TextView mCheckPlay;
+        #+END_SRC
+     2. [ ] Import statement
+  10. [ ] Add find code
+      1. [ ] Add code
+	 #+BEGIN_SRC java
+           mCheckPlay = (TextView) findViewById(R.id.label_google_play_available);
+	 #+END_SRC
+      2. [ ] Run program
+  11. [ ] Update label

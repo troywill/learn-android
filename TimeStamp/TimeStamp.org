@@ -1,0 +1,251 @@
+#+STARTUP: showall
+* [[http://developer.android.com/reference/android/widget/GridLayout.html][GridLayout]] 
+
+  |       | column 0       | column 1 |
+  |-------+----------------+----------|
+  | row 0 | buttonTimeOut  |          |
+  | row 1 | buttonArrived  |          |
+  | row 2 | buttonDeparted |          |
+  | row 3 | buttonDropOff  |          |
+  | row 4 | buttonTimeIn   |          |
+  | row 5 | buttonClear    |          |
+  
+* User Interface Table [[file:~/workspace/TimeStamp/res/layout/activity_main.xml][activity_main.xml]]  [[file:~/workspace/TimeStamp/res/values/strings.xml][strings.xml]]
+  | Element | Id                   | text / hint              | Value |
+  |---------+----------------------+--------------------------+-------|
+  | Button  | "@id/buttonTimeOut"  | "@string/buttonTimeOut"  |       |
+  | Button  | "@id/buttonArrived"  | "@string/buttonArrived"  |       |
+  | Button  | "@id/buttonDeparted" | "@string/buttonDeparted" |       |
+  | Button  | "@id/buttonDropOff"  | "@string/buttonDropOff"  |       |
+  | Button  | "@id/buttonTimeIn"   | "@string/buttonTimeIn"   |       |
+  | Button  | "@id/buttonClear"    | "@string/buttonClear"    |       |
+
+* [[http://developer.android.com/training/index.html][Getting Started]]
+1. [X] Step by Step
+   1. [X] Create the Android Project with Eclipse
+      Use [[http://en.wikipedia.org/wiki/Eclipse_(software)][Eclipse]] and Android Development Tools (ADT)
+      1. [X] Start Eclipse
+         #+BEGIN_SRC sh
+           eclipse &
+         #+END_SRC
+         Error Loading DDMS Preferences
+      2. [X] File -> New -> Android Application Project
+         1. [X] Application = Time Stamp
+	 2. [X] Project Name = TimeStamp
+	 3. [X] Package Name = com.example.timestamp
+         4. [X] Minimum Required SDK = API 19: Android 4.4 (KitKat) 
+	 5. [X] Target SDK = API 19: Android 4.4 (KitKat) 
+	 6. [X] Compile With = API 19: Android 4.4 (KitKat) 
+         7. [X] Theme = Holo Light with Dark Action Bar
+         8. [X] Click "Next", "Next", "Next", "Finish"
+   2. [X] (Optional) Inspect files
+      | File                | Path                                                                    |
+      |---------------------+-------------------------------------------------------------------------|
+      | AndroidManifest.xml | file:~/workspace/TimeStamp/AndroidManifest.xml                          |
+      | activity_main.xml   | file:~/workspace/TimeStamp/res/layout/activity_main.xml                 |
+      | strings.xml         | file:~/workspace/TimeStamp/res/values/strings.xml                       |
+      | MainActivity.java   | [[file:~/workspace/TimeStamp/src/com/example/timestamp/MainActivity.java]] |
+   3. [X] Run your application on a physical device or emulator
+   4. [X] Move layout
+      1. [X] mv fragment_main.xml (TRANSIENT ISSUE)
+	 #+BEGIN_SRC sh :tangle bin/move_layout.sh :shebang #!/bin/bash
+           set -o errexit
+           set -o nounset
+           
+           mv -i activity_main.xml activity_main.xml.original
+           cp fragment_main.xml activity_main.xml
+           mv -i fragment_main.xml fragment_main.xml.original
+         #+END_SRC
+      2. [X] context
+	 #+BEGIN_SRC xml
+           tools:context="com.example.timestamp.MainActivity" >
+	 #+END_SRC
+   5. [X] Remove extaneous stuff in [[file:~/workspace/TimeStamp/src/com/example/timestamp/MainActivity.java][src/com/example/timestamp/MainActivity.java]]
+   6. [X] Build the user interface
+      1. [X] Create two column GridLayout in [[file:~/workspace/TimeStamp/res/layout/activity_main.xml][res/layout/activity_main.xml]]
+         1. [X] Delete the <TextView> in [[file:~/workspace/TimeStamp/res/layout/activity_main.xml][res/layout/activity_main.xml]]
+	 2. [X] In Eclipse right click the RelativeLayout and change to GridLayout
+	 3. [X] Change Column Count property to 2
+	 4. [X] Set the GridLayout's "Use Default Margins" property to true
+      2. [X] [[http://developer.android.com/training/basics/firstapp/building-ui.html#Strings][Add String Resources]] to [[file:~/workspace/TimeStamp/res/values/strings.xml][strings.xml]]
+            "buttonTimeOut"
+            #+BEGIN_SRC xml
+              <?xml version="1.0" encoding="utf-8"?>
+              <resources>
+                  <string name="app_name">Audrie\'s Driver</string>
+                  <string name="buttonTimeOut">Time Out</string>
+                  <string name="action_settings">Settings</string>
+                  <string name="title_activity_main">MainActivity</string>
+              </resources>
+            #+END_SRC
+      3. [X] [[http://developer.android.com/training/basics/firstapp/building-ui.html#Button][Add a Button]] element in [[file:~/workspace/TimeStamp/res/layout/activity_main.xml][activity_main.xml]] 
+         Place before the closing "</GridLayout>" tag
+         #+BEGIN_SRC xml
+           <GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+               xmlns:tools="http://schemas.android.com/tools"
+               android:id="@+id/GridLayout1"
+               android:layout_width="match_parent"
+               android:layout_height="match_parent"
+               android:columnCount="2"
+               android:paddingBottom="@dimen/activity_vertical_margin"
+               android:paddingLeft="@dimen/activity_horizontal_margin"
+               android:paddingRight="@dimen/activity_horizontal_margin"
+               android:paddingTop="@dimen/activity_vertical_margin"
+               android:useDefaultMargins="true"
+               tools:context="com.example.timestamp.MainActivity" >
+           
+               <LinearLayout
+                   android:layout_column="0"
+                   android:layout_gravity="left|top"
+                   android:layout_row="0"
+                   android:orientation="vertical" >
+                   <Button
+                       android:id="@+id/buttonTimeOut"
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:text="@string/buttonTimeOut" />
+                   <Button
+                       android:id="@+id/buttonArrived"
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:text="@string/buttonArrived" />
+                   <Button
+                       android:id="@+id/buttonDeparted"
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:text="@string/buttonDeparted" />
+                   <Button
+                       android:id="@+id/buttonDropOff"
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:text="@string/buttonDropOff" />
+                   <Button
+                       android:id="@+id/buttonTimeIn"
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:text="@string/buttonTimeIn" />
+                   <Button
+                       android:id="@+id/buttonClear"
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:text="@string/buttonClear" />
+               </LinearLayout>
+               <ListView
+                   android:id="@+id/listView1"
+                   android:layout_width="match_parent"
+                   android:layout_column="1"
+                   android:layout_gravity="left|top"
+                   android:layout_row="0" >
+               </ListView>
+           </GridLayout>
+           
+         #+END_SRC
+      4. [X] Button Strings in [[file:~/workspace/TimeStamp/res/values/strings.xml][strings.xml]]
+	 #+BEGIN_SRC xml
+           <?xml version="1.0" encoding="utf-8"?>
+           <resources>
+               <string name="app_name">Audrie\'s Driver</string>
+               <string name="buttonTimeOut">Time Out</string>
+               <string name="buttonArrived">Arrived</string>
+               <string name="buttonDeparted">Departed</string>
+               <string name="buttonDropOff">Drop Off</string>
+               <string name="buttonTimeIn">Time In</string>
+               <string name="buttonClear">Clear</string>
+               <string name="action_settings">Settings</string>
+               <string name="title_activity_main">MainActivity</string>
+           </resources>
+	 #+END_SRC
+   7. [ ] Connect Buttons to ListView in [[file:~/workspace/TimeStamp/src/com/example/timestamp/MainActivity.java][src/com/example/timestamp/MainActivity.java]]
+      #+BEGIN_SRC java
+        public class MainActivity extends Activity {
+        
+            // name of SharedPreferences XML file that stores the saved searches 
+            // private static final String TIMESTAMPS = "timestamps";
+        
+            // TDW    private ArrayList<String> timestamps = new ArrayList<String>();
+            private ArrayList<String> timestamps;
+        
+            @Override
+            protected void onCreate(Bundle savedInstanceState) {
+                super.onCreate(savedInstanceState);
+                setContentView(R.layout.activity_main);
+        
+        //      timestamps = new ArrayList<String>(savedTimestamps.getAll().keySet());
+                timestamps = new ArrayList<String>();
+                final ListView listview = (ListView) findViewById(R.id.listView1);
+        
+                // Define a new Adapter
+                // First parameter - Context
+                // Second parameter - Layout for the row
+                // Third parameter - ID of the TextView to which the data is written
+                // Forth - the Array of data
+                
+                ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, android.R.id.text1, timestamps);
+        
+                // Assign adapter to ListView
+                listview.setAdapter(adapter);
+        
+            }
+        
+            /** Called when the user clicks the Time Out button */
+            public void timeOut(View view) {
+                timestamp("Time Out");
+            }
+        
+            /** Called when the user clicks the Arrived button */
+            public void arrived(View view) {
+                timestamp("  Arrived");
+            }
+        
+            /** Called when the user clicks the Departed button */
+            public void departed(View view) {
+                timestamp("Departed");
+            }
+        
+            /** Called when the user clicks the Drop Off button */
+            public void dropOff(View view) {
+                timestamp("Drop Off");
+            }
+        
+            /** Called when the user clicks the Time In button */
+            public void timeIn(View view) {
+                timestamp(" Time In");
+            }
+        
+            /** Update the list */
+            public void timestamp(String text) {
+                String timestamp = getTimeStamp(text);
+                timestamps.add(timestamp);
+                final ListView listview = (ListView) findViewById(R.id.listView1);
+                ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, android.R.id.text1, timestamps);
+                listview.setAdapter(adapter);
+            }
+        
+            /** Clear the list */
+            public void clear(View view) {
+                // timestamps.clear();
+                // int index = lastIndexOf(timestamps);
+                int size = timestamps.size();
+        
+                if (timestamps.size() > 0) {
+                    timestamps.remove(timestamps.size() - 1);
+                }
+                
+                final ListView listview = (ListView) findViewById(R.id.listView1);
+                ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, android.R.id.text1, timestamps);
+                listview.setAdapter(adapter);
+            }
+        
+            String getTimeStamp(String event) {
+                Date date = new Date();
+        
+                SimpleDateFormat ft = new SimpleDateFormat ("HH:mm");
+                String str = ft.format(date);
+        
+                String timeStampLog = event + ": " + str;
+                return timeStampLog;
+            }
+        
+        }
+              
+      #+END_SRC

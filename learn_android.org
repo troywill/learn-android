@@ -501,12 +501,15 @@
 * [[http://developer.android.com/google/play-services/setup.html][Set Up Google Play Services SDK in Eclipse]]
   1. [ ] download the Google Play services SDK from the SDK Manager
      1. ~/Development/adt-bundle-linux-x86-20131030/sdk/extras/google/google_play_services/libproject
-  2. Install a compatible version of the Google APIs platform.
-  3. Make a copy of the Google Play services library project.
+  2. [ ] Install a compatible version of the Google APIs platform.
+  3. [ ] Make a copy of the Google Play services library project.
      #+BEGIN_SRC sh :tangle /tmp/doit.sh
        LIBRARY=~/Development/adt-bundle-linux-x86-20131030/sdk/extras/google/google_play_services/libproject/google-play-services_lib/
        cp -a $LIBRARY ~/workspace
      #+END_SRC
+  1. [ ] (If using Eclipse) import the library project into your workspace.
+     Click File > Import, select Android > Existing Android Code into Workspace,
+     and browse to the copy of the library project to import it.
      
   
 * HTTP example

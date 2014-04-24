@@ -1,0 +1,189 @@
+* Introduction
+* COMMENT Step by Step
+  1. [X] Create New Project => Check Play
+  2. [X] Delete unnecessary stuff
+  3. [X] mv fragment_main.xml activity_main.xml
+  4. [X] Run
+  5. [X] Write initial servicesConnected method file:~/workspace/CheckPlay/src/com/example/checkplay/MainActivity.java
+     1. [X] Add method
+	#+BEGIN_SRC java
+          private int servicesConnected() {
+              // Check that Google Play services is available
+              int resultCode =
+                  GooglePlayServicesUtil.isGooglePlayServicesAvailable(this);
+          }
+        #+END_SRC
+     2. [X] Set Up a Project that Uses Google Play Services
+	1. [X] Add xml to file:~/workspace/CheckPlay/AndroidManifest.xml
+           following tag as a child of the <application> element:
+           #+BEGIN_SRC xml
+             <meta-data android:name="com.google.android.gms.version"
+                        android:value="@integer/google_play_services_version" />           
+           #+END_SRC
+	2. [X] Reload project
+	3. [X] Add Google Play Services Library
+	4. [X] import com.google.android.gms.common.GooglePlayServicesUtil;
+	5. [X] Run program
+     3. [X] Run
+  6. [X] Add variable
+  7. [X] Do check
+  8. [X] Add id to TextView
+     #+BEGIN_SRC xml
+       android:id="@+id/label_google_play_available"     
+     #+END_SRC
+  9. [X] Add TextView variable
+     1. [X] Add code
+	#+BEGIN_SRC java
+          // Handles to UI widgets
+          private TextView mCheckPlay;
+        #+END_SRC
+     2. [X] Import statement
+  10. [X] Add find code
+      1. [X] Add code
+	 #+BEGIN_SRC java
+           mCheckPlay = (TextView) findViewById(R.id.label_google_play_available);
+	 #+END_SRC
+      2. [X] Run program
+  11. [X] Update label
+  12. [1/2] Define Location Services Callbacks
+      1. [X] Define onConnected callback file:~/workspace/CheckPlay/src/com/example/checkplay/MainActivity.java
+	 1. [X] 
+            #+BEGIN_SRC java
+              public class MainActivity extends FragmentActivity implements GooglePlayServicesClient.ConnectionCallbacks,GooglePlayServicesClient.OnConnectionFailedListener  {
+                                                                     
+            #+END_SRC
+            #+BEGIN_SRC java
+              /*
+              ,* Called by Location Services when the request to connect the
+              ,* client finishes successfully. At this point, you can
+              ,* request the current location or start periodic updates
+              ,*/
+              @Override
+              public void onConnected(Bundle dataBundle) {
+              // Display the connection status
+              Toast.makeText(this, "Connected", Toast.LENGTH_SHORT).show();
+              }
+	    #+END_SRC
+	 2. [X] Run
+      2. [ ] Define onConnectionFailed Callback
+	 1. [ ] Add function
+            #+BEGIN_SRC java
+              /*
+               ,* Called by Location Services if the attempt to
+               ,* Location Services fails.
+               ,*/
+              
+              public void onConnectionFailed(ConnectionResult connectionResult) {
+                  /*
+                   ,* Google Play services can resolve some errors it detects.
+                   ,* If the error has a resolution, try sending an Intent to
+                   ,* start a Google Play services activity that can resolve
+                   ,* error.
+                   ,*/
+                  if (connectionResult.hasResolution()) {
+                      try {
+                          // Start an Activity that tries to resolve the error
+                          connectionResult.startResolutionForResult(
+                                                                    this,
+                                                                    CONNECTION_FAILURE_RESOLUTION_REQUEST);
+                          /*
+                           ,* Thrown if Google Play services canceled the original
+                           ,* PendingIntent
+                           ,*/
+                      } catch (IntentSender.SendIntentException e) {
+                          // Log the error
+                          e.printStackTrace();
+                      }
+                  } else {
+                      /*
+                       ,* If no resolution is available, display a dialog to the
+                       ,* user with the error.
+                       ,*/
+                      showErrorDialog(connectionResult.getErrorCode());
+                  }
+              }
+	    #+END_SRC
+  13. [X] mLocationClient = new LocationClient(this, this, this);
+      1. [X] declare mLocationClient in file:~/workspace/CheckPlay/src/com/example/checkplay/MainActivity.java
+	 #+BEGIN_SRC java
+           // Stores the current instantiation of the location client in this object
+           private LocationClient mLocationClient;
+	 #+END_SRC
+      2. [X] mLocationClient
+         #+BEGIN_SRC java
+           mLocationClient = new LocationClient(this, this, this);
+         #+END_SRC
+      3. [X] import com.google.android.gms.location.LocationClient;
+      4. [X] mCurrentLocation = mLocationClient.getLastLocation();
+  14. [X] private static final int CONNECTION_FAILURE_RESOLUTION_REQUEST = 9000;
+  15. [X] import android.content.IntentSender;
+  16. [X] comment out showErrorDialog(connectionResult.getErrorCode());
+  17. [X] import android.content.IntentSender;
+  18. [ ] Get the current location in  file:~/workspace/CheckPlay/src/com/example/checkplay/MainActivity.java
+      #+BEGIN_SRC java
+        // Global variable to hold the current location
+        Location mCurrentLocation;
+        
+        mCurrentLocation = mLocationClient.getLastLocation();
+      #+END_SRC
+  19. [X] Child element of  <manifest> element: file:~/workspace/CheckPlay/AndroidManifest.xml
+      #+BEGIN_SRC xml
+        <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+      #+END_SRC
+  20. [-] Find out why program crashes
+      1. [X] Comment out mCurrentLocation = mLocationClient.getLastLocation();
+      2. [X] Try adding connect
+	 #+BEGIN_SRC java
+           /*
+            ,* Called when the Activity becomes visible.
+            ,*/
+           @Override
+           protected void onStart() {
+               super.onStart();
+               // Connect the client.
+               mLocationClient.connect();
+           }         
+	 #+END_SRC
+      3. [-] Try adding button
+	 1. [X] 
+            #+BEGIN_SRC xml
+              <?xml version="1.0" encoding="utf-8"?>
+              <string name="get_location">Get Location</string>
+            #+END_SRC
+	 2. [X] 
+            #+BEGIN_SRC xml
+              <Button android:id="@+id/getLocation"
+                      android:layout_width="fill_parent"
+                      android:layout_height="wrap_content"
+                      android:text="@string/get_location"/>
+            #+END_SRC
+	 3. [X] 
+            #+BEGIN_SRC java
+              private Button getLocationBtn;            
+            #+END_SRC
+	 4. [ ] in onCreate
+            #+BEGIN_SRC java
+              getLocationBtn = (Button) findViewById(R.id.getLocation);
+              
+              getLocationBtn.setOnClickListener(new View.OnClickListener() {
+                      public void onClick(View view) {
+                          displayCurrentLocation();
+                      }
+                  });
+            #+END_SRC
+	 4. [ ] displayCurrentLocation
+            #+BEGIN_SRC java
+              public void displayCurrentLocation() {
+                  // Get the current location's latitude & longitude
+                  Location currentLocation = mLocationClient.getLastLocation();
+                  String msg = "Current Location: " +
+                      Double.toString(currentLocation.getLatitude()) + "," +
+                      Double.toString(currentLocation.getLongitude());
+                  
+                  // Display the current location in the UI
+                  // locationLabel.setText(msg);
+                  
+                  // To display the current address in the UI
+                  // (new GetAddressTask(this)).execute(currentLocation);
+              }
+            #+END_SRC
