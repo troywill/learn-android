@@ -1,2 +1,119 @@
-1. [ ] Skim [[http://developer.android.com/guide/topics/ui/settings.html]]
-2. [ ] 
+* http://developer.android.com/guide/topics/ui/settings.html
+  1. [1/1] Define the preference in an XML file
+     1. [X] file:~/workspace/MyFirstApp/res/xml/preferences.xml 
+	http://developer.android.com/guide/topics/ui/settings.html#Activity
+	#+BEGIN_SRC xml
+          <?xml version="1.0" encoding="utf-8"?>
+          <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
+            
+            <EditTextPreference
+                android:persistent="true"
+                android:defaultValue="+19094479170"
+                android:key="ref_PhoneNumber"
+                android:summary="Enter SMS Phone Number" android:dialogTitle="Enter Phone Number"
+                android:title="Phone Number" />
+          </PreferenceScreen>
+        #+END_SRC
+  2. [X] file:~/workspace/MyFirstApp/src/com/example/myfirstapp/SettingsFragment.java
+     #+BEGIN_SRC java
+       package com.example.myfirstapp;
+          
+       import android.os.Bundle;
+       import android.preference.PreferenceFragment;
+       import android.widget.Toast;
+          
+       public class SettingsFragment extends PreferenceFragment {
+          
+           @Override
+           public void onCreate(Bundle savedInstanceState)
+           {
+               super.onCreate(savedInstanceState);
+               // Toast.makeText(null, "SettingsActivity.java", Toast.LENGTH_LONG).show();
+               addPreferencesFromResource(R.xml.preferences);
+           }
+       }        
+     #+END_SRC
+  3. [ ] file:~/workspace/MyFirstApp/src/com/example/myfirstapp/SettingsActivity.java
+     #+BEGIN_SRC java
+       package com.example.myfirstapp;
+       
+       import android.app.Activity;
+       import android.os.Bundle;
+       import android.widget.Toast;
+       
+       public class SettingsActivity extends Activity {
+       
+           @Override
+           protected void onCreate(Bundle savedInstanceState)
+           {
+               super.onCreate(savedInstanceState);
+               setContentView(R.layout.activity_settings);
+               //      Toast.makeText(getApplicationContext(), "SettingsActivity.java", Toast.LENGTH_LONG).show();
+           }
+       
+       }
+     #+END_SRC
+  4. [ ] file:~/workspace/MyFirstApp/src/com/example/myfirstapp/MainActivity.java
+     #+BEGIN_SRC java
+       public class MainActivity extends Activity {
+       
+           public static final String PHONE = "pref_PhoneNumber";
+       
+               @Override
+               protected void onCreate(Bundle savedInstanceState) {
+                       super.onCreate(savedInstanceState);
+                       setContentView(R.layout.activity_main);
+       
+                       PreferenceManager.setDefaultValues(this,R.xml.preferences,false);
+       
+                       PreferenceManager.getDefaultSharedPreferences(this);
+                       //              registerOnSharedPreferencesChangeListener(preferenceChangeListener);
+       
+                       if (savedInstanceState == null) {
+                               getFragmentManager().beginTransaction()
+                                               .add(R.id.container, new PlaceholderFragment()).commit();
+                       }
+               }
+       
+               @Override
+               public boolean onCreateOptionsMenu(Menu menu) {
+       
+                       // Inflate the menu; this adds items to the action bar if it is present.
+                       getMenuInflater().inflate(R.menu.main, menu);
+                       return true;
+               }
+       
+               @Override
+               public boolean onOptionsItemSelected(MenuItem item) {
+                       // int id = item.getItemId();
+                       // if (id == R.id.action_settings) {
+                       //      return true;
+                       // }
+       
+                   Toast.makeText(getApplicationContext(), "MainActivity.java", Toast.LENGTH_LONG).show();
+       
+                   Intent preferencesIntent = new Intent(this, SettingsActivity.class);
+                   startActivity(preferencesIntent);
+                   return super.onOptionsItemSelected(item);
+               }
+       
+               /**
+                ,* A placeholder fragment containing a simple view.
+                ,*/
+               public static class PlaceholderFragment extends Fragment {
+       
+                       public PlaceholderFragment() {
+                       }
+       
+                       @Override
+                       public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                                       Bundle savedInstanceState) {
+                               View rootView = inflater.inflate(R.layout.fragment_main, container,
+                                               false);
+                               return rootView;
+                       }
+               }
+       
+       }
+     #+END_SRC
+* Skim [[http://developer.android.com/guide/topics/ui/settings.html]]
