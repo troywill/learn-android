@@ -1,11 +1,11 @@
 * Introduction
-* COMMENT Step by Step
-  1. [X] Create New Project => Check Play
-  2. [X] Delete unnecessary stuff
-  3. [X] mv fragment_main.xml activity_main.xml
-  4. [X] Run
-  5. [X] Write initial servicesConnected method file:~/workspace/CheckPlay/src/com/example/checkplay/MainActivity.java
-     1. [X] Add method
+* Step by Step
+  1. [ ] Create New Project => Check Play
+  2. [ ] Delete unnecessary stuff
+  3. [ ] mv fragment_main.xml activity_main.xml
+  4. [ ] Run
+  5. [ ] Write initial servicesConnected method file:~/workspace/CheckPlay/src/com/example/checkplay/MainActivity.java
+     1. [ ] Add method
 	#+BEGIN_SRC java
           private int servicesConnected() {
               // Check that Google Play services is available
@@ -13,41 +13,41 @@
                   GooglePlayServicesUtil.isGooglePlayServicesAvailable(this);
           }
         #+END_SRC
-     2. [X] Set Up a Project that Uses Google Play Services
-	1. [X] Add xml to file:~/workspace/CheckPlay/AndroidManifest.xml
+     2. [ ] Set Up a Project that Uses Google Play Services
+	1. [ ] Add xml to file:~/workspace/CheckPlay/AndroidManifest.xml
            following tag as a child of the <application> element:
            #+BEGIN_SRC xml
              <meta-data android:name="com.google.android.gms.version"
                         android:value="@integer/google_play_services_version" />           
            #+END_SRC
-	2. [X] Reload project
-	3. [X] Add Google Play Services Library
-	4. [X] import com.google.android.gms.common.GooglePlayServicesUtil;
-	5. [X] Run program
-     3. [X] Run
-  6. [X] Add variable
-  7. [X] Do check
-  8. [X] Add id to TextView
+	2. [ ] Reload project
+	3. [ ] Add Google Play Services Library
+	4. [ ] import com.google.android.gms.common.GooglePlayServicesUtil;
+	5. [ ] Run program
+     3. [ ] Run
+  6. [ ] Add variable
+  7. [ ] Do check
+  8. [ ] Add id to TextView 
      #+BEGIN_SRC xml
        android:id="@+id/label_google_play_available"     
      #+END_SRC
-  9. [X] Add TextView variable
-     1. [X] Add code
+  9. [ ] Add TextView variable 
+     1. [ ] Add code 
 	#+BEGIN_SRC java
           // Handles to UI widgets
           private TextView mCheckPlay;
         #+END_SRC
-     2. [X] Import statement
-  10. [X] Add find code
-      1. [X] Add code
+     2. [ ] Import statement
+  10. [ ] Add find code
+      1. [ ] Add code
 	 #+BEGIN_SRC java
            mCheckPlay = (TextView) findViewById(R.id.label_google_play_available);
 	 #+END_SRC
-      2. [X] Run program
-  11. [X] Update label
-  12. [1/2] Define Location Services Callbacks
-      1. [X] Define onConnected callback file:~/workspace/CheckPlay/src/com/example/checkplay/MainActivity.java
-	 1. [X] 
+      2. [ ] Run program
+  11. [ ] Update label
+  12. [0/2] Define Location Services Callbacks
+      1. [ ] Define onConnected callback file:~/workspace/CheckPlay/src/com/example/checkplay/MainActivity.java
+	 1. [ ] 
             #+BEGIN_SRC java
               public class MainActivity extends FragmentActivity implements GooglePlayServicesClient.ConnectionCallbacks,GooglePlayServicesClient.OnConnectionFailedListener  {
                                                                      
@@ -64,7 +64,7 @@
               Toast.makeText(this, "Connected", Toast.LENGTH_SHORT).show();
               }
 	    #+END_SRC
-	 2. [X] Run
+	 2. [ ] Run
       2. [ ] Define onConnectionFailed Callback
 	 1. [ ] Add function
             #+BEGIN_SRC java
@@ -103,22 +103,22 @@
                   }
               }
 	    #+END_SRC
-  13. [X] mLocationClient = new LocationClient(this, this, this);
-      1. [X] declare mLocationClient in file:~/workspace/CheckPlay/src/com/example/checkplay/MainActivity.java
+  13. [ ] mLocationClient = new LocationClient(this, this, this);
+      1. [ ] declare mLocationClient in file:~/workspace/CheckPlay/src/com/example/checkplay/MainActivity.java
 	 #+BEGIN_SRC java
            // Stores the current instantiation of the location client in this object
            private LocationClient mLocationClient;
 	 #+END_SRC
-      2. [X] mLocationClient
+      2. [ ] mLocationClient
          #+BEGIN_SRC java
            mLocationClient = new LocationClient(this, this, this);
          #+END_SRC
-      3. [X] import com.google.android.gms.location.LocationClient;
-      4. [X] mCurrentLocation = mLocationClient.getLastLocation();
-  14. [X] private static final int CONNECTION_FAILURE_RESOLUTION_REQUEST = 9000;
-  15. [X] import android.content.IntentSender;
-  16. [X] comment out showErrorDialog(connectionResult.getErrorCode());
-  17. [X] import android.content.IntentSender;
+      3. [ ] import com.google.android.gms.location.LocationClient;
+      4. [ ] mCurrentLocation = mLocationClient.getLastLocation();
+  14. [ ] private static final int CONNECTION_FAILURE_RESOLUTION_REQUEST = 9000;
+  15. [ ] import android.content.IntentSender;
+  16. [ ] comment out showErrorDialog(connectionResult.getErrorCode());
+  17. [ ] import android.content.IntentSender;
   18. [ ] Get the current location in  file:~/workspace/CheckPlay/src/com/example/checkplay/MainActivity.java
       #+BEGIN_SRC java
         // Global variable to hold the current location
@@ -126,13 +126,13 @@
         
         mCurrentLocation = mLocationClient.getLastLocation();
       #+END_SRC
-  19. [X] Child element of  <manifest> element: file:~/workspace/CheckPlay/AndroidManifest.xml
+  19. [ ] Child element of  <manifest> element: file:~/workspace/CheckPlay/AndroidManifest.xml
       #+BEGIN_SRC xml
         <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
       #+END_SRC
-  20. [-] Find out why program crashes
-      1. [X] Comment out mCurrentLocation = mLocationClient.getLastLocation();
-      2. [X] Try adding connect
+  20. [ ] Find out why program crashes
+      1. [ ] Comment out mCurrentLocation = mLocationClient.getLastLocation();
+      2. [ ] Try adding connect
 	 #+BEGIN_SRC java
            /*
             ,* Called when the Activity becomes visible.
@@ -144,20 +144,20 @@
                mLocationClient.connect();
            }         
 	 #+END_SRC
-      3. [-] Try adding button
-	 1. [X] 
+      3. [ ] Try adding button
+	 1. [ ] 
             #+BEGIN_SRC xml
               <?xml version="1.0" encoding="utf-8"?>
               <string name="get_location">Get Location</string>
             #+END_SRC
-	 2. [X] 
+	 2. [ ] 
             #+BEGIN_SRC xml
               <Button android:id="@+id/getLocation"
                       android:layout_width="fill_parent"
                       android:layout_height="wrap_content"
                       android:text="@string/get_location"/>
             #+END_SRC
-	 3. [X] 
+	 3. [ ] 
             #+BEGIN_SRC java
               private Button getLocationBtn;            
             #+END_SRC
@@ -171,7 +171,7 @@
                       }
                   });
             #+END_SRC
-	 4. [ ] displayCurrentLocation
+	 5. [ ] displayCurrentLocation
             #+BEGIN_SRC java
               public void displayCurrentLocation() {
                   // Get the current location's latitude & longitude

@@ -16,7 +16,7 @@
 	 2. [X] Compile With = API 19: Android 4.4 (KitKat) 
       3. [X] Theme = Holo Light with Dark Action Bar
       4. [X] Click "Next", "Next", "Next", "Finish"
-2. [X] (Optional) Inspect files
+2. [ ] (Optional) Inspect files
    | File                | Path                                                                     |
    |---------------------+--------------------------------------------------------------------------|
    | AndroidManifest.xml | file:~/workspace/MyFirstApp/AndroidManifest.xml                          |
@@ -24,9 +24,9 @@
    | activity_main.xml   | file:~/workspace/MyFirstApp/res/layout/activity_main.xml                 |
    | fragment_main.xml   | file:~/workspace/MyFirstApp/res/layout/fragment_main.xml                 |
    | strings.xml         | file:~/workspace/MyFirstApp/res/values/strings.xml                       |
-3. [X] Run your application on a physical device or emulator
-   1. [X] (optional) [[http://developer.android.com/training/basics/firstapp/running-app.html][Run the app on an emulator]]
-   2. [X] (optional) Install My First App
+3. [ ] Run your application on a physical device or emulator
+   1. [ ] (optional) [[http://developer.android.com/training/basics/firstapp/running-app.html][Run the app on an emulator]]
+   2. [ ] (optional) Install My First App
       #+BEGIN_SRC sh :tangle tools/install-app-with-adb.sh :shebang #!/bin/bash
         # -d directs command to the only connected USB device
         #           returns an error if more than one USB device is present.
@@ -35,7 +35,7 @@
         adb -d install ~/workspace/MyFirstApp/bin/MyFirstApp.apk
         adb -e install ~/workspace/MyFirstApp/bin/MyFirstApp.apk
       #+END_SRC
-   3. [X] (optional) Uninstall My First App
+   3. [ ] (optional) Uninstall My First App
       #+BEGIN_SRC sh :tangle tools/uninstall-app-with-adb.sh :shebang #!/bin/bash
         # -d directs command to the only connected USB device
         #           returns an error if more than one USB device is present.
@@ -44,11 +44,11 @@
         adb -d uninstall com.example.myfirstapp
         adb -e uninstall com.example.myfirstapp
       #+END_SRC
-4. [X] Building a Simple User Interface
-   1. [X] [[http://developer.android.com/training/basics/firstapp/building-ui.html#LinearLayout][Create a Linear Layout]] in [[file:~/workspace/MyFirstApp/res/layout/fragment_main.xml][fragment_main.xml]]
-      1. [X] Delete the <TextView>
-      2. [X] Change the <RelativeLayout> element to <LinearLayout>
-      3. [X] Add the android:orientation attribute and set it to "horizontal"
+4. [ ] Building a Simple User Interface
+   1. [ ] [[http://developer.android.com/training/basics/firstapp/building-ui.html#LinearLayout][Create a Linear Layout]] in [[file:~/workspace/MyFirstApp/res/layout/fragment_main.xml][fragment_main.xml]]
+      1. [ ] Delete the <TextView>
+      2. [ ] Change the <RelativeLayout> element to <LinearLayout>
+      3. [ ] Add the android:orientation attribute and set it to "horizontal"
 	    From http://developer.android.com/training/basics/firstapp/building-ui.html#LinearLayout 2014-03-30
          #+BEGIN_SRC xml
            <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -63,7 +63,7 @@
                          tools:context="com.example.myfirstapp.MainActivity$PlaceholderFragment" >
            </LinearLayout>
          #+END_SRC
-   2. [X] [[http://developer.android.com/training/basics/firstapp/building-ui.html#TextInput][Add a Text Field]] in [[file:~/workspace/MyFirstApp/res/layout/fragment_main.xml][fragment_main.xml]]
+   2. [ ] [[http://developer.android.com/training/basics/firstapp/building-ui.html#TextInput][Add a Text Field]] in [[file:~/workspace/MyFirstApp/res/layout/fragment_main.xml][fragment_main.xml]]
          declare it inside the <LinearLayout> element by placing
          following code just before the </LinearLayout> closing tag:
          #+BEGIN_SRC xml
@@ -75,7 +75,7 @@
                      android:layout_height="wrap_content"
                      android:hint="@string/edit_message" />
          #+END_SRC
-   3. [X] [[http://developer.android.com/training/basics/firstapp/building-ui.html#Strings][Add String Resources]] to [[file:~/workspace/MyFirstApp/res/values/strings.xml][strings.xml]]
+   3. [ ] [[http://developer.android.com/training/basics/firstapp/building-ui.html#Strings][Add String Resources]] to [[file:~/workspace/MyFirstApp/res/values/strings.xml][strings.xml]]
          "edit_message" and "button_send"
          #+BEGIN_SRC xml
            <?xml version="1.0" encoding="utf-8"?>
@@ -87,7 +87,7 @@
                <string name="title_activity_main">MainActivity</string>
            </resources>
          #+END_SRC
-   4. [X] [[http://developer.android.com/training/basics/firstapp/building-ui.html#Button][Add a Button]] to [[file:~/workspace/MyFirstApp/res/layout/fragment_main.xml][fragment_main.xml]] following the <EditText> element
+   4. [ ] [[http://developer.android.com/training/basics/firstapp/building-ui.html#Button][Add a Button]] to [[file:~/workspace/MyFirstApp/res/layout/fragment_main.xml][fragment_main.xml]] following the <EditText> element
       Place below the "<EditText ... />" tag
       #+BEGIN_SRC xml
         <Button
@@ -95,16 +95,16 @@
             android:layout_height="wrap_content"
             android:text="@string/button_send" />
       #+END_SRC
-   5. [X] Make the [[http://developer.android.com/training/basics/firstapp/building-ui.html#Weight][Input Box Fill in the Screen Width]] in [[file:~/workspace/MyFirstApp/res/layout/fragment_main.xml][fragment_main.xml]]
+   5. [ ] Make the [[http://developer.android.com/training/basics/firstapp/building-ui.html#Weight][Input Box Fill in the Screen Width]] in [[file:~/workspace/MyFirstApp/res/layout/fragment_main.xml][fragment_main.xml]]
       #+BEGIN_SRC xml
         <EditText android:id="@+id/edit_message"
             android:layout_weight="1"
             android:layout_width="0dp"
             ... />
       #+END_SRC
-5. [-] Starting [[http://developer.android.com/training/basics/firstapp/starting-activity.html][Another Activity]]
-   1. [X] [[http://developer.android.com/training/basics/firstapp/starting-activity.html#RespondToButton][Respond to the Send Button]]
-      1. [X] add the android:onClick attribute to the <Button> element in [[file:~/workspace/MyFirstApp/res/layout/fragment_main.xml][fragment_main.xml]]
+5. [ ] Starting [[http://developer.android.com/training/basics/firstapp/starting-activity.html][Another Activity]]
+   1. [ ] [[http://developer.android.com/training/basics/firstapp/starting-activity.html#RespondToButton][Respond to the Send Button]]
+      1. [ ] add the android:onClick attribute to the <Button> element in [[file:~/workspace/MyFirstApp/res/layout/fragment_main.xml][fragment_main.xml]]
         #+BEGIN_SRC xml
           <Button
               android:layout_width="wrap_content"
@@ -112,7 +112,7 @@
               android:text="@string/button_send"
               android:onClick="sendMessage" />
        #+END_SRC
-      2. [X] Add the corresponding sendMessage method to [[file:~/workspace/MyFirstApp/src/com/example/myfirstapp/MainActivity.java][MainActivity.java]]
+      2. [ ] Add the corresponding sendMessage method to [[file:~/workspace/MyFirstApp/src/com/example/myfirstapp/MainActivity.java][MainActivity.java]]
          Note: Can place directly below ... public class extends Activity { ... line
          #+BEGIN_SRC java
            /** Called when the user clicks the Send button */
@@ -120,7 +120,7 @@
                // Do something in response to button
            }
          #+END_SRC
-      3. [X] Run on your Android device
+      3. [ ] Run on your Android device
    2. [0/4] [[http://developer.android.com/training/basics/firstapp/starting-activity.html#BuildIntent][Build An Intent]]
       1. [ ] Create an [[http://developer.android.com/reference/android/content/Intent.html][Intent]]
          1. inside the sendMessage() method in [[file:~/workspace/MyFirstApp/src/com/example/myfirstapp/MainActivity.java][MainActivity.java]]

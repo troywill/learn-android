@@ -1,3 +1,4 @@
+* Introduction
 * http://developer.android.com/guide/topics/ui/settings.html
   1. [1/1] Define the preference in an XML file
      1. [X] file:~/workspace/MyFirstApp/res/xml/preferences.xml 
@@ -33,7 +34,7 @@
            }
        }        
      #+END_SRC
-  3. [ ] file:~/workspace/MyFirstApp/src/com/example/myfirstapp/SettingsActivity.java
+  3. [X] file:~/workspace/MyFirstApp/src/com/example/myfirstapp/SettingsActivity.java
      #+BEGIN_SRC java
        package com.example.myfirstapp;
        
@@ -53,6 +54,7 @@
        
        }
      #+END_SRC
+     
   4. [ ] file:~/workspace/MyFirstApp/src/com/example/myfirstapp/MainActivity.java
      #+BEGIN_SRC java
        public class MainActivity extends Activity {

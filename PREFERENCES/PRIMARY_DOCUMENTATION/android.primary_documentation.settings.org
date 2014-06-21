@@ -1,0 +1,129 @@
+* http://developer.android.com/guide/topics/ui/settings.html
+* STEP BY STEP { Friday, June 20, 2014 8:46 AM }
+  1. [X] Create a "Preferences" project in Eclipse
+  2. [2/2] Define a preference in ~/workspace/Preferences/res/xml/preferences.xml 
+     1. [X] Create ~/workspace/Preferences/res/xml directory
+	#+BEGIN_SRC sh
+	  mkdir ~/workspace/Preferences/res/xml
+	#+END_SRC
+     2. [X] Create file:~/workspace/Preferences/res/xml/preferences.xml 
+	#+BEGIN_SRC xml
+          <?xml version="1.0" encoding="utf-8"?>
+          <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+            <CheckBoxPreference
+                android:key="pref_sync"
+                android:title="TITLE EXAMPLE"
+                android:summary="SUMMARY EXAMPLE"
+                android:defaultValue="true" />
+
+	#+END_SRC
+  3. [3/3] Create file:~/workspace/Preferences/src/com/example/preferences/SettingsFragment.java
+     1. [X] Initialize file:~/workspace/Preferences/src/com/example/preferences/MainActivity.java 
+	#+BEGIN_SRC java
+          @Override
+          public void onCreate(Bundle savedInstanceState) {
+              super.onCreate(savedInstanceState);
+
+              // Load the preferences from an XML resource
+              addPreferencesFromResource(R.xml.preferences);
+          }
+        #+END_SRC
+     2. [X] import statements
+     3. [X] package declaration
+  4. [4/4] Create file:~/workspace/Preferences/src/com/example/preferences/SettingsActivity.java 
+     1. [X] Initialize file:~/workspace/Preferences/src/com/example/preferences/SettingsActivity.java 
+	#+BEGIN_SRC java
+          public class SettingsActivity extends Activity {
+              @Override
+              protected void onCreate(Bundle savedInstanceState) {
+                  // super.onCreate(savedInstanceState);
+                  
+                  // Display the fragment as the main content.
+                  // getFragmentManager().beginTransaction()
+                  //     .replace(android.R.id.content, new SettingsFragment())
+                  //     .commit();
+
+                  // FROM DEITEL, need to create res/layout/activity_settings.xml
+                  super.onCreate(savedInstanceState);
+                  setContentView(R.layout.activity_settings);
+              }
+          }
+        #+END_SRC
+     2. [X] import android.app.Activity;
+     3. [X] package com.example.preferences;
+     4. [X] import android.os.Bundle;
+  5. [ ] Create the layout file:~/workspace/Preferences/res/layout/activity_settings.xml
+     #+BEGIN_SRC xml
+       <?xml version="1.0" encoding="utf-8"?>
+       <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+           android:layout_width="match_parent"
+           android:layout_height="match_parent"
+           android:orientation="vertical" >
+
+           <fragment
+               android:id="@+id/fragment1"
+               android:name="com.example.preferences.SettingsFragment"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content" />
+
+       </LinearLayout>
+            
+     #+END_SRC
+* Overview 
+  + Settings use Preference objects
+** Preferences
+* Defining Preferences in XML 
+  + Create res/xml/preferences.xml
+    #+BEGIN_SRC xml
+      <?xml version="1.0" encoding="utf-8"?>
+      <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+        <CheckBoxPreference
+            android:key="pref_sync"
+            android:title="@string/pref_sync"
+            android:summary="@string/pref_sync_summ"
+            android:defaultValue="true" />
+        <ListPreference
+            android:dependency="pref_sync"
+            android:key="pref_syncConnectionType"
+            android:title="@string/pref_syncConnectionType"
+            android:dialogTitle="@string/pref_syncConnectionType"
+            android:entries="@array/pref_syncConnectionTypes_entries"
+            android:entryValues="@array/pref_syncConnectionTypes_values"
+            android:defaultValue="@string/pref_syncConnectionTypes_default" />
+      </PreferenceScreen>
+    #+END_SRC
+* [IGNORE] Creating a Preference Activity [IGNORE, for older Android]
+* Using a Preference Activity
+  + Define the onCreate() method to load a preferences file with addPreferencesFromResource().
+    #+BEGIN_SRC java
+      public static class SettingsFragment extends PreferenceFragment {
+          @Override
+          public void onCreate(Bundle savedInstanceState) {
+              super.onCreate(savedInstanceState);
+
+              // Load the preferences from an XML resource
+              addPreferencesFromResource(R.xml.preferences);
+          }
+          ...
+      }      
+    #+END_SRC
+  + Add fragment to an Activity [CONFUSING]
+    #+BEGIN_SRC java
+      public class SettingsActivity extends Activity {
+          @Override
+          protected void onCreate(Bundle savedInstanceState) {
+              super.onCreate(savedInstanceState);
+              
+              // Display the fragment as the main content.
+              getFragmentManager().beginTransaction()
+                  .replace(android.R.id.content, new SettingsFragment())
+                  .commit();
+          }
+      }
+    #+END_SRC
+* Setting Default Values
+* Using Preference Headers
+* Reading Preferenceshttp://developer.android.com/guide/topics/ui/settings.html
+* Managing Network Usage
+* Building a Custom Preference
+  
