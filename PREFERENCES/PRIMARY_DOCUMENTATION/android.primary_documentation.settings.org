@@ -1,12 +1,12 @@
 * http://developer.android.com/guide/topics/ui/settings.html
-* STEP BY STEP { Friday, June 20, 2014 8:46 AM }
-  1. [X] Create a "Preferences" project in Eclipse
-  2. [2/2] Define a preference in ~/workspace/Preferences/res/xml/preferences.xml 
-     1. [X] Create ~/workspace/Preferences/res/xml directory
+* STEP BY STEP { Friday, June 20, 2014 10:36 PM } 
+  1. [ ] Create a "Preferences" project in Eclipse
+  2. [/] Define a preference in file:~/workspace/Preferences/res/xml/preferences.xml 
+     1. [ ] Create ~/workspace/Preferences/res/xml directory 
 	#+BEGIN_SRC sh
 	  mkdir ~/workspace/Preferences/res/xml
 	#+END_SRC
-     2. [X] Create file:~/workspace/Preferences/res/xml/preferences.xml 
+     2. [ ] Create file:~/workspace/Preferences/res/xml/preferences.xml 
 	#+BEGIN_SRC xml
           <?xml version="1.0" encoding="utf-8"?>
           <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
@@ -15,23 +15,41 @@
                 android:title="TITLE EXAMPLE"
                 android:summary="SUMMARY EXAMPLE"
                 android:defaultValue="true" />
-
+          </PreferenceScreen>
 	#+END_SRC
-  3. [3/3] Create file:~/workspace/Preferences/src/com/example/preferences/SettingsFragment.java
-     1. [X] Initialize file:~/workspace/Preferences/src/com/example/preferences/MainActivity.java 
-	#+BEGIN_SRC java
-          @Override
-          public void onCreate(Bundle savedInstanceState) {
-              super.onCreate(savedInstanceState);
+  3. [ ] Create the layout file:~/workspace/Preferences/res/layout/activity_settings.xml 
+     #+BEGIN_SRC xml
+       <?xml version="1.0" encoding="utf-8"?>
+       <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+           android:layout_width="match_parent"
+           android:layout_height="match_parent"
+           android:orientation="vertical" >
 
-              // Load the preferences from an XML resource
-              addPreferencesFromResource(R.xml.preferences);
+           <fragment
+               android:id="@+id/fragment1"
+               android:name="com.example.preferences.SettingsFragment"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content" />
+
+       </LinearLayout>
+     #+END_SRC
+  4. [/] Create file:~/workspace/Preferences/src/com/example/preferences/SettingsFragment.java 
+     1. [ ] Initialize file:~/workspace/Preferences/src/com/example/preferences/SettingsFragment.java 
+	#+BEGIN_SRC java
+          public class SettingsFragment extends PreferenceFragment {
+              @Override
+              public void onCreate(Bundle savedInstanceState) {
+                  super.onCreate(savedInstanceState);
+
+                  // Load the preferences from an XML resource
+                  addPreferencesFromResource(R.xml.preferences);
+              }
           }
         #+END_SRC
-     2. [X] import statements
-     3. [X] package declaration
-  4. [4/4] Create file:~/workspace/Preferences/src/com/example/preferences/SettingsActivity.java 
-     1. [X] Initialize file:~/workspace/Preferences/src/com/example/preferences/SettingsActivity.java 
+     2. [ ] import statements
+     3. [ ] package declaration
+  5. [/] Create file:~/workspace/Preferences/src/com/example/preferences/SettingsActivity.java 
+     1. [ ] Initialize file:~/workspace/Preferences/src/com/example/preferences/SettingsActivity.java 
 	#+BEGIN_SRC java
           public class SettingsActivity extends Activity {
               @Override
@@ -49,26 +67,27 @@
               }
           }
         #+END_SRC
-     2. [X] import android.app.Activity;
-     3. [X] package com.example.preferences;
-     4. [X] import android.os.Bundle;
-  5. [ ] Create the layout file:~/workspace/Preferences/res/layout/activity_settings.xml
+     2. [ ] import android.app.Activity;
+     3. [ ] package com.example.preferences;
+     4. [ ] import android.os.Bundle;
+  6. [ ] Add XXX to file:~/workspace/Preferences/AndroidManifest.xml 
      #+BEGIN_SRC xml
-       <?xml version="1.0" encoding="utf-8"?>
-       <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-           android:layout_width="match_parent"
-           android:layout_height="match_parent"
-           android:orientation="vertical" >
-
-           <fragment
-               android:id="@+id/fragment1"
-               android:name="com.example.preferences.SettingsFragment"
-               android:layout_width="match_parent"
-               android:layout_height="wrap_content" />
-
-       </LinearLayout>
-            
+       <activity android:name=".SettingsActivity"
+                 android:label="string/settings_activity">
+       </activity>
      #+END_SRC
+  7. [ ] file:~/workspace/Preferences/src/com/example/preferences/MainActivity.java 
+     1. [ ] onOptionsItemSelected method
+	#+BEGIN_SRC java
+          @Override
+          public boolean onOptionsItemSelected(MenuItem item) {
+                      Intent preferencesIntent = new Intent(this, SettingsActivity.class);
+                      startActivity(preferencesIntent); 
+                      // return super.onOptionsItemSelected(item);
+                      return true;
+                  }
+          }
+	#+END_SRC
 * Overview 
   + Settings use Preference objects
 ** Preferences
