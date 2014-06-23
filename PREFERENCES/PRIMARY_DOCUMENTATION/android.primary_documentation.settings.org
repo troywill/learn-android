@@ -1,34 +1,24 @@
 * http://developer.android.com/guide/topics/ui/settings.html
-* STEP BY STEP { Sunday, June 22, 2014 8:26 AM } 
-  1. [X] Create a "Preferences" project in Eclipse
-  2. [2/2] Define a preference in file:~/workspace/Preferences/res/xml/preferences.xml 
-     1. [X] Create ~/workspace/Preferences/res/xml directory 
+**   
+* STEP BY STEP { Monday, June 23, 2014 11:05 AM } 
+  1. [ ] Create a "Preferences" project in Eclipse
+  2. [/] Define a preference in file:~/workspace/Preferences/res/xml/preferences.xml 
+     1. [ ] Create ~/workspace/Preferences/res/xml directory 
 	#+BEGIN_SRC sh
 	  mkdir ~/workspace/Preferences/res/xml
 	#+END_SRC
-     2. [X] Create file:~/workspace/Preferences/res/xml/preferences.xml 
-	#+BEGIN_SRC xml
-          <?xml version="1.0" encoding="utf-8"?>
-          <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
-            <CheckBoxPreference
-                android:key="pref_sync"
-                android:title="TITLE EXAMPLE"
-                android:summary="SUMMARY EXAMPLE"
-                android:defaultValue="true" />
-          </PreferenceScreen>
-	#+END_SRC
+     2. [ ] Create file:~/workspace/Preferences/res/xml/preferences.xml 
 	#+BEGIN_SRC xml :tangle ~/workspace/Preferences/res/xml/preferences.xml :padline no
           <?xml version="1.0" encoding="utf-8"?>
-          <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
-            <EditTextPreference
-                android:key="pref_sync"
-                android:title="TITLE EXAMPLE"
-                android:summary="SUMMARY EXAMPLE"
-                android:defaultValue="true" />
+          <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
+              <EditTextPreference
+                  android:key="pref_hostname"
+                  android:title="OpenGTS Host"
+                  android:summary="OpenGTS server, e.g. 192.168.1.1" />
           </PreferenceScreen>
 	#+END_SRC
-  3. [X] onOptionsItemSelected method file:~/workspace/Preferences/src/com/example/preferences/MainActivity.java 
-     1. [X] new Intent
+  3. [ ] onOptionsItemSelected method file:~/workspace/Preferences/src/com/example/preferences/MainActivity.java 
+     1. [ ] new Intent
 	#+BEGIN_SRC java
           @Override
           public boolean onOptionsItemSelected(MenuItem item) {
@@ -37,9 +27,9 @@
                       return super.onOptionsItemSelected(item);
                   }
 	#+END_SRC
-     2. [X] import android.content.Intent;
-  4. [4/4] Create file:~/workspace/Preferences/src/com/example/preferences/SettingsActivity.java 
-     1. [X] Initialize file:~/workspace/Preferences/src/com/example/preferences/SettingsActivity.java 
+     2. [ ] import android.content.Intent;
+  4. [/] Create file:~/workspace/Preferences/src/com/example/preferences/SettingsActivity.java 
+     1. [ ] Initialize file:~/workspace/Preferences/src/com/example/preferences/SettingsActivity.java 
 	#+BEGIN_SRC java :tangle ~/workspace/Preferences/src/com/example/preferences/SettingsActivity.java :padline no
           public class SettingsActivity extends Activity {
               @Override
@@ -57,10 +47,10 @@
               }
           }
         #+END_SRC
-     2. [X] import android.app.Activity;
-     3. [X] package com.example.preferences;
-     4. [X] import android.os.Bundle;
-  5. [X] Create the layout file:~/workspace/Preferences/res/layout/activity_settings.xml 
+     2. [ ] import android.app.Activity;
+     3. [ ] package com.example.preferences;
+     4. [ ] import android.os.Bundle;
+  5. [ ] Create the layout file:~/workspace/Preferences/res/layout/activity_settings.xml 
      #+BEGIN_SRC xml :tangle ~/workspace/Preferences/res/layout/activity_settings.xml :padline no
        <?xml version="1.0" encoding="utf-8"?>
        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -76,8 +66,8 @@
 
        </LinearLayout>
      #+END_SRC
-  6. [4/4] Create file:~/workspace/Preferences/src/com/example/preferences/SettingsFragment.java 
-     1. [X] Initialize file:~/workspace/Preferences/src/com/example/preferences/SettingsFragment.java 
+  6. [/] Create file:~/workspace/Preferences/src/com/example/preferences/SettingsFragment.java 
+     1. [ ] Initialize file:~/workspace/Preferences/src/com/example/preferences/SettingsFragment.java 
 	#+BEGIN_SRC java :tangle ~/workspace/Preferences/src/com/example/preferences/SettingsFragment.java :padline no
           public class SettingsFragment extends PreferenceFragment {
               @Override
@@ -89,9 +79,9 @@
               }
           }
         #+END_SRC
-     2. [X] import android.preference.PreferenceFragment;
-     3. [X] package com.example.preferences;
-     4. [X] import android.os.Bundle;
+     2. [ ] import android.preference.PreferenceFragment;
+     3. [ ] package com.example.preferences;
+     4. [ ] import android.os.Bundle;
   7. [ ] Add SettingsActivity.java to file:~/workspace/Preferences/AndroidManifest.xml 
      #+BEGIN_SRC xml
        <activity android:name=".SettingsActivity"
