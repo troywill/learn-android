@@ -1,6 +1,6 @@
 * http://developer.android.com/guide/topics/ui/settings.html
 **   
-* STEP BY STEP { Monday, June 23, 2014 11:05 AM } 
+* STEP BY STEP (Monday, June 23, 2014 5:51 PM) 
   1. [ ] Create a "Preferences" project in Eclipse
   2. [/] Define a preference in file:~/workspace/Preferences/res/xml/preferences.xml 
      1. [ ] Create ~/workspace/Preferences/res/xml directory 
