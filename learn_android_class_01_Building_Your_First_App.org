@@ -1,21 +1,21 @@
 * [[http://developer.android.com/training/index.html][Getting Started]]
-1. [X] [[http://developer.android.com/training/basics/firstapp/creating-project.html][Create an Android Project]] with Eclipse
+1. [ ] [[http://developer.android.com/training/basics/firstapp/creating-project.html][Create an Android Project]] with Eclipse
    Use [[http://en.wikipedia.org/wiki/Eclipse_(software)][Eclipse]] and Android Development Tools (ADT)
-   1. [X] Start Eclipse
+   1. [ ] Start Eclipse
       #+BEGIN_SRC sh
         cd ~/Development/adt-bundle-linux-x86-20131030/eclipse
         ./eclipse &
       #+END_SRC
       Error Loading DDMS Preferences
-   2. [X] File -> New -> Android Application Project
-      1. [X] Application = My First App
-	 1. [X] Project Name = MyFirstApp
-	 2. [X] Package Name = com.example.myfirstapp
-      2. [X] Minimum Required SDK = API 8: Android 2.2 (Froyo)
-	 1. [X] Target SDK = API 19: Android 4.4 (KitKat) 
-	 2. [X] Compile With = API 19: Android 4.4 (KitKat) 
-      3. [X] Theme = Holo Light with Dark Action Bar
-      4. [X] Click "Next", "Next", "Next", "Finish"
+   2. [ ] File -> New -> Android Application Project
+      1. [ ] Application = My First App
+	 1. [ ] Project Name = MyFirstApp
+	 2. [ ] Package Name = com.example.myfirstapp
+      2. [ ] Minimum Required SDK = API 8: Android 2.2 (Froyo)
+	 1. [ ] Target SDK = API 19: Android 4.4 (KitKat) 
+	 2. [ ] Compile With = API 19: Android 4.4 (KitKat) 
+      3. [ ] Theme = Holo Light with Dark Action Bar
+      4. [ ] Click "Next", "Next", "Next", "Finish"
 2. [ ] (Optional) Inspect files
    | File                | Path                                                                     |
    |---------------------+--------------------------------------------------------------------------|
@@ -67,7 +67,7 @@
          declare it inside the <LinearLayout> element by placing
          following code just before the </LinearLayout> closing tag:
          #+BEGIN_SRC xml
-           <!-- 2013-04-18 -->
+           <!-- 2013-07-09 -->
            <!-- http://developer.android.com/training/basics/firstapp/building-ui.html#TextInput -->
            
            <EditText android:id="@+id/edit_message"
@@ -102,7 +102,7 @@
             android:layout_width="0dp"
             ... />
       #+END_SRC
-5. [ ] Starting [[http://developer.android.com/training/basics/firstapp/starting-activity.html][Another Activity]]
+5. [-] Starting [[http://developer.android.com/training/basics/firstapp/starting-activity.html][Another Activity]]
    1. [ ] [[http://developer.android.com/training/basics/firstapp/starting-activity.html#RespondToButton][Respond to the Send Button]]
       1. [ ] add the android:onClick attribute to the <Button> element in [[file:~/workspace/MyFirstApp/res/layout/fragment_main.xml][fragment_main.xml]]
         #+BEGIN_SRC xml
@@ -121,7 +121,7 @@
            }
          #+END_SRC
       3. [ ] Run on your Android device
-   2. [0/4] [[http://developer.android.com/training/basics/firstapp/starting-activity.html#BuildIntent][Build An Intent]]
+   2. [/] [[http://developer.android.com/training/basics/firstapp/starting-activity.html#BuildIntent][Build An Intent]]
       1. [ ] Create an [[http://developer.android.com/reference/android/content/Intent.html][Intent]]
          1. inside the sendMessage() method in [[file:~/workspace/MyFirstApp/src/com/example/myfirstapp/MainActivity.java][MainActivity.java]]
             #+BEGIN_SRC java
@@ -153,8 +153,8 @@
                ...
            }
          #+END_SRC
-   3. [ ] Create [[http://developer.android.com/training/basics/firstapp/starting-activity.html#CreateActivity][the Second Activity]] with Eclipse (DisplayMessageActivity.java)
-      1. [0/7] File -> New -> Other -> Android -> Android Activity
+   3. [-] Create [[http://developer.android.com/training/basics/firstapp/starting-activity.html#CreateActivity][the Second Activity]] with Eclipse (DisplayMessageActivity.java)
+      1. [/] File -> New -> Other -> Android -> Android Activity
          -> Next -> Blank Activity
          1. [ ] Project :: MyFirstApp
          2. [ ] Activity Name :: DisplayMessageActivity
@@ -173,7 +173,7 @@
          1. Note: This string was added by Eclipse
       5. [ ] (optional) Add it to the manifest file < [[file:~/workspace/MyFirstApp/AndroidManifest.xml][AndroidManifest.xml]] > if not using Eclipse
          1. Note: This is done automatically if Eclipse
-   4. [ ] [[http://developer.android.com/training/basics/firstapp/starting-activity.html#ReceiveIntent][Receive the Intent]]
+   4. [-] [[http://developer.android.com/training/basics/firstapp/starting-activity.html#ReceiveIntent][Receive the Intent]]
       1. [ ] Place following code after
 	    super.onCreate(savedInstanceState); line in
 	    onCreate method in [[file:~/workspace/MyFirstApp/src/com/example/myfirstapp/DisplayMessageActivity.java][DisplayMessageActivity.java]]
@@ -206,6 +206,3 @@
     Toast.makeText(getApplicationContext(), toast_msg, "Hello, world!").show();
       
   #+END_SRC
-  
-* ATTIC
-1. [-] [[http://developer.android.com/training/basics/firstapp/index.html][Building Your First App]]

@@ -1,10 +1,10 @@
 * [[http://developer.android.com/training/index.html][Getting Started]] 
 1. [-] [[http://developer.android.com/training/basics/firstapp/index.html][Building Your First App]]
-   1. [ ] Creating an Android Project with Eclipse
+   1. [-] Creating an Android Project with Eclipse
       Use [[http://en.wikipedia.org/wiki/Eclipse_(software)][Eclipse]] and Android Development Tools (ADT)
-      1. [ ] Start Eclipse
+      1. [X] Start Eclipse
          #+BEGIN_SRC sh
-           cd ~/Development/adt-bundle-linux-x86-20131030/eclipse
+           cd ~/Development/adt-bundle-linux-x86-20140702/eclipse
            ./eclipse &
          #+END_SRC
          Error Loading DDMS Preferences
