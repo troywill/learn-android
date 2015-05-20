@@ -1,18 +1,26 @@
 * [[http://developer.android.com/training/index.html][Getting Started]] 
 1. [-] [[http://developer.android.com/training/basics/firstapp/index.html][Building Your First App]]
-   1. [-] Creating an Android Project with Eclipse
-      Use [[http://en.wikipedia.org/wiki/Eclipse_(software)][Eclipse]] and Android Development Tools (ADT)
-      1. [X] Start Eclipse
+   1. [-] Creating an Android Project with Android Studio
+      1. [X] Start Android Studio
          #+BEGIN_SRC sh
-           cd ~/Development/adt-bundle-linux-x86-20140702/eclipse
-           ./eclipse &
+           cd ~/Development/android-studio/bin
+           ./studio.sh &
          #+END_SRC
-         Error Loading DDMS Preferences
-      2. [ ] File -> New -> Android Application Project
-         1. [ ] Application = My First App
-         2. [ ] Minimum Required SDK, Target SDK, Compile With = API 19: Android 4.4 (KitKat)
-         3. [ ] Theme = Holo Light with Dark Action Bar
-         4. [ ] Next, Next, Next, Finish
+      2. [-] "Start a new Android Studio project"
+         1. [X] Application name :: "My First App"
+	 2. [ ] Company Domain :: mycompany.com
+         3. [ ] Minimum Required SDK, Target SDK, Compile With = API 19: Android 4.4 (KitKat)
+         4. [ ] Theme = Holo Light with Dark Action Bar
+         5. [ ] Next, Next, Next, Finish
+      3. [ ] Fix Rendering Problems
+	 1. Problem Description:
+            + "The following classes could not be instantiated:
+	      
+	      android.support.v7.internal.widget.ActionBarOverlayLayout
+	      
+	      Exception Details
+	      java.lang.ClassNotFoundException: android.support.v7.appcompat.R$attr
+	      
    2. [ ] Inspect files
       | File                | Path                                                                     |
       |---------------------+--------------------------------------------------------------------------|
